@@ -1,0 +1,5 @@
+tile.heal_block.name=Heal Block
+tile.level_block.name=Level Block
+tile.trap_block.name=Trap Block
+
+itemGroup.modnamex=modnamex
