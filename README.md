@@ -19,3 +19,6 @@
 <h3>To Run</h3>:
 - Linux/MacOSX - "./gradlew runClient" 
 - Windows - "gradlew.bat runClient"
+
+<h3>To Test</h3>:
+- Level Block under the Creative Tab "EssencePVP" has the skill GUI
