@@ -1,4 +1,4 @@
-package com.example.examplemod;
+package com.EssencePVP;
 
 import java.io.File;
 
@@ -13,19 +13,22 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-import com.example.examplemod.blocks.*;
-import com.example.examplemod.gui.ClientProxy;
-import com.example.examplemod.gui.CreativeTabsEMod;
+import com.EssencePVP.blocks.HealBlock;
+import com.EssencePVP.blocks.LevelBlock;
+import com.EssencePVP.blocks.TrapBlock;
+import com.EssencePVP.gui.ClientProxy;
+import com.EssencePVP.gui.CreativeTabsEMod;
+
 
 import net.minecraft.client.audio.*;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.config.Configuration;
 
-@Mod(modid = modnamex.MODID, version = modnamex.VERSION)
-public class modnamex
+@Mod(modid = EssencePVP.MODID, version = EssencePVP.VERSION)
+public class EssencePVP
 {
-    public static final String MODID = "modnamex";
+    public static final String MODID = "essencepvp";
     public static final String VERSION = "0.1";
     
     public static Block lblk;
@@ -34,15 +37,15 @@ public class modnamex
     
     public static int healblockid=0, trapblockid=0, levelblockid=0;
     
-    public static CreativeTabs creativeTab = new CreativeTabsEMod("modnamex");
+    public static CreativeTabs creativeTab = new CreativeTabsEMod("EssencePVP");
     
     // handles GUI synchronization
-    @SidedProxy(clientSide = "com.example.examplemod.gui.ClientProxy", serverSide = "com.example.examplemod.gui.CommonProxy")
+    @SidedProxy(clientSide = "com.EssencePVP.gui.ClientProxy", serverSide = "com.EssencePVP.gui.CommonProxy")
     public static ClientProxy proxy;
 
     // allows for methods to access this mod's raw members
-    @Instance("modnamex")
-    public static modnamex instance;
+    @Instance("EssencePVP")
+    public static EssencePVP instance;
     
     
     public boolean useDBServer;
@@ -61,7 +64,8 @@ public class modnamex
     	// handles gui
     	NetworkRegistry.INSTANCE.registerGuiHandler(this, this.proxy);
     	
-    	Configuration config = new Configuration(new File("config/modnamex.cfg"),"0.1");
+    	// Generate new Configuration
+    	Configuration config = new Configuration(new File("config/EssencePVP.cfg"),"0.1");
     	config.load();
     	
     	// changes to config (auto-adds to config)
@@ -79,9 +83,9 @@ public class modnamex
     	config.save();
     	
     	// Blocks
-    	lblk = (new LevelBlock(levelblockid, 1)).setHardness(1.5F).setResistance(5F).setStepSound(Block.soundTypeStone).setBlockTextureName(modnamex.MODID + ":" + "textures/blocks/level_block");
-    	tblk = (new TrapBlock(trapblockid, 1)).setHardness(1.5F).setResistance(25F).setStepSound(Block.soundTypeMetal).setBlockTextureName("modnamex:trap_block");
-    	hblk = (new HealBlock(healblockid, 1)).setHardness(1.0F).setResistance(2F).setStepSound(Block.soundTypeWood).setBlockTextureName(modnamex.MODID + ":" + "textures/blocks/heal_block");
+    	lblk = (new LevelBlock(levelblockid, 1)).setHardness(1.5F).setResistance(5F).setStepSound(Block.soundTypeStone).setBlockTextureName(EssencePVP.MODID + ":" + "level_block");
+    	tblk = (new TrapBlock(trapblockid, 1)).setHardness(1.5F).setResistance(25F).setStepSound(Block.soundTypeMetal).setBlockTextureName(EssencePVP.MODID + ":" + "trap_block");
+    	hblk = (new HealBlock(healblockid, 1)).setHardness(1.0F).setResistance(2F).setStepSound(Block.soundTypeWood).setBlockTextureName(EssencePVP.MODID + ":" + "heal_block");
     	
     	
     	GameRegistry.registerBlock(hblk, "heal_block");

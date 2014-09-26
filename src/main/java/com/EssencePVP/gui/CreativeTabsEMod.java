@@ -1,4 +1,4 @@
-package com.example.examplemod.gui;
+package com.EssencePVP.gui;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

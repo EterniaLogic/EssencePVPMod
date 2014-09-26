@@ -1,14 +1,14 @@
 [
 {
-  "modid": "modnamex",
-  "name": "Name of Our Mod, because we obviously have no clue",
+  "modid": "EssencePVP",
+  "name": "Essence PVP",
   "description": "Adds RPG elements to minecraft",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
   "authorList": ["EterniaLogic","Evilmaniac",""],
-  "credits": "",
+  "credits": "FML Team",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

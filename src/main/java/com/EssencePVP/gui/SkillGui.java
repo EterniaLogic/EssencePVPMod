@@ -1,4 +1,4 @@
-package com.example.examplemod.gui;
+package com.EssencePVP.gui;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -14,6 +14,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
+
+import com.EssencePVP.EssencePVP;
 
 //public class SkillGui extends GuiScreen
 public class SkillGui extends GuiScreen
@@ -54,7 +56,7 @@ public class SkillGui extends GuiScreen
 	public void drawScreen(int mouseX, int mouseY, float f)
 	{
 		drawDefaultBackground();
-		ResourceLocation imgloc = new ResourceLocation("modnamex:textures/skillgui.png");
+		ResourceLocation imgloc = new ResourceLocation(EssencePVP.MODID+":textures/skillgui.png");
 		//ITextureObject var4 = this.mc.renderEngine.getTexture(imgloc);
 		//GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		this.mc.renderEngine.bindTexture(imgloc);
@@ -126,11 +128,11 @@ public class SkillGui extends GuiScreen
 		  
 		  // detect mouse over
 		  if(mouseAboveId == i){
-		    drawLoc("modnamex:textures/"+treeAddr[state]+iText[0]+".png",posX+xSizeOfTexture/2+xList[i]+5, posY+yList[i]+5, 15, 15);
+		    drawLoc(EssencePVP.MODID+":textures/"+treeAddr[state]+iText[0]+".png",posX+xSizeOfTexture/2+xList[i]+5, posY+yList[i]+5, 15, 15);
 		    //GL11.glColor4f(1.0f,1.0f,1.0f,0.1f);
-		    drawLoc("modnamex:textures/shadedskill.png",posX+xSizeOfTexture/2+xList[i], posY+yList[i], 20, 20);
+		    drawLoc(EssencePVP.MODID+":textures/shadedskill.png",posX+xSizeOfTexture/2+xList[i], posY+yList[i], 20, 20);
 		  }else{
-		    drawLoc("modnamex:textures/"+treeAddr[state]+iText[0]+".png",posX+xSizeOfTexture/2+xList[i], posY+yList[i], 20, 20);
+		    drawLoc(EssencePVP.MODID+":textures/"+treeAddr[state]+iText[0]+".png",posX+xSizeOfTexture/2+xList[i], posY+yList[i], 20, 20);
 		  }
 		}
 	}

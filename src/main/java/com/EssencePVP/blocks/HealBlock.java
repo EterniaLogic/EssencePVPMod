@@ -1,8 +1,8 @@
-package com.example.examplemod.blocks;
+package com.EssencePVP.blocks;
 
 import java.util.Random;
 
-import com.example.examplemod.modnamex;
+import com.EssencePVP.EssencePVP;
 
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
@@ -13,8 +13,8 @@ public class HealBlock extends Block
         {
                 super(Material.rock);
                 this.setBlockName("heal_block");
-                this.setCreativeTab(modnamex.creativeTab);
-                setBlockTextureName(modnamex.MODID + ":" + "heal_block");
+                this.setCreativeTab(EssencePVP.creativeTab);
+                setBlockTextureName(EssencePVP.MODID + ":" + "heal_block");
         }
 
         public int idDropped(int i, Random random)

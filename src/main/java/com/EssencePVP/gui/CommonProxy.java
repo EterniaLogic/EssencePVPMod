@@ -1,4 +1,4 @@
-package com.example.examplemod.gui;
+package com.EssencePVP.gui;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;

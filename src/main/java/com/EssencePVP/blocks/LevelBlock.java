@@ -1,9 +1,8 @@
-package com.example.examplemod.blocks;
+package com.EssencePVP.blocks;
 
 import java.util.Random;
 
-import com.example.examplemod.modnamex;
-import com.example.examplemod.gui.SkillGui;
+import com.EssencePVP.EssencePVP;
 
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
@@ -19,7 +18,7 @@ public class LevelBlock extends Block
         {
                 super(Material.rock);
                 this.setBlockName("level_block");
-                this.setCreativeTab(modnamex.creativeTab);
+                this.setCreativeTab(EssencePVP.creativeTab);
         }
 
         public int idDropped(int i, Random random)
@@ -30,7 +29,7 @@ public class LevelBlock extends Block
         @Override
         public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float a, float b, float c)
         {
-        player.openGui(modnamex.instance, 0, world, x, y, z);
+        player.openGui(EssencePVP.instance, 0, world, x, y, z);
         //player.open
         //new SkillGui(player);
         //return true;
