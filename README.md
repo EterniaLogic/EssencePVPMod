@@ -1,23 +1,21 @@
-EssencePVP Mod 
-- 
+<h1>EssencePVP Mod</h1>
 
-Description:
   The EssencePVP Mod enables multiple classes of skills  that players can choose from. These classes allow for players to get around the vanilla PVP mechanics and enhance their experience within the game. Settings such a exp rate, economy, ect. are applicable within the configuration.
 
-Authors:
+<h3>Authors</h3>:
 - EterniaLogic (MC: DreadEnd)
 - Evilmaniac (MC: Local_Read)
 - James Little (MC: james1377little)
 
-System Requirements:
+<h3>System Requirements</h3>:
 - Linux/MacOSX/Windows (XP/Vista/7/8)
 - OpenJDK 7 or Java 7
 
 
-To Build:
+<h3>To Build</h3>:
 - Linux/MacOSX - "./gradlew setupDecompWorkspace"
 - Windows - "gradlew.bat setupDecompWorkspace"
 
-To Run:
+<h3>To Run</h3>:
 - Linux/MacOSX - "./gradlew runClient" 
 - Windows - "gradlew.bat runClient"
