@@ -19,7 +19,7 @@ Note: Recompile with -Xlint:unchecked for details.
 
 :sourceMainScala UP-TO-DATE
 :compileScala UP-TO-DATE
-:processResources UP-TO-DATE
+:processResources
 :classes
 :jar
 :getVersionJson
@@ -29,59 +29,59 @@ Note: Recompile with -Xlint:unchecked for details.
 :getAssets
 :makeStart SKIPPED
 :runClient
-[00:11:46] [main/INFO] [GradleStart]: No arguments specified, assuming client.
-[00:11:46] [main/INFO] [GradleStart]: Extra: []
-[00:11:46] [main/INFO] [GradleStart]: Running with arguments: [--userProperties, {}, --tweakClass, cpw.mods.fml.common.launcher.FMLTweaker, --accessToken, {REDACTED}, --assetIndex, 1.7.10, --assetsDir, /home/eternialogic/.gradle/caches/minecraft/assets, --version, 1.7.10]
-[00:11:46] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLTweaker
-[00:11:46] [main/INFO] [LaunchWrapper]: Using primary tweak class name cpw.mods.fml.common.launcher.FMLTweaker
-[00:11:46] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLTweaker
-[00:11:46] [main/INFO] [FML]: Forge Mod Loader version 7.10.18.1180 for Minecraft 1.7.10 loading
-[00:11:46] [main/INFO] [FML]: Java is OpenJDK 64-Bit Server VM, version 1.7.0_65, running on Linux:amd64:3.13.0-35-generic, installed at /usr/lib/jvm/java-7-openjdk-amd64/jre
-[00:11:46] [main/INFO] [FML]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
-[00:11:46] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
-[00:11:46] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLDeobfTweaker
-[00:11:46] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
-[00:11:46] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
-[00:11:46] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.relauncher.CoreModManager$FMLPluginWrapper
-[00:11:46] [main/ERROR] [FML]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
-[00:11:47] [main/ERROR] [FML]: The minecraft jar file:/home/eternialogic/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.0.1180/forgeSrc-1.7.10-10.13.0.1180.jar!/net/minecraft/client/ClientBrandRetriever.class appears to be corrupt! There has been CRITICAL TAMPERING WITH MINECRAFT, it is highly unlikely minecraft will work! STOP NOW, get a clean copy and try again!
-[00:11:47] [main/ERROR] [FML]: FML has been ordered to ignore the invalid or missing minecraft certificate. This is very likely to cause a problem!
-[00:11:47] [main/ERROR] [FML]: Technical information: ClientBrandRetriever was at jar:file:/home/eternialogic/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.0.1180/forgeSrc-1.7.10-10.13.0.1180.jar!/net/minecraft/client/ClientBrandRetriever.class, there were 0 certificates for it
-[00:11:47] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
-[00:11:47] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.relauncher.CoreModManager$FMLPluginWrapper
-[00:11:47] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLDeobfTweaker
-[00:11:48] [main/INFO] [LaunchWrapper]: Launching wrapped minecraft {net.minecraft.client.main.Main}
-[00:11:49] [main/INFO]: Setting user: Player571
-[00:11:52] [Client thread/INFO]: LWJGL Version: 2.9.1
+[22:38:08] [main/INFO] [GradleStart]: No arguments specified, assuming client.
+[22:38:08] [main/INFO] [GradleStart]: Extra: []
+[22:38:08] [main/INFO] [GradleStart]: Running with arguments: [--userProperties, {}, --tweakClass, cpw.mods.fml.common.launcher.FMLTweaker, --accessToken, {REDACTED}, --assetIndex, 1.7.10, --assetsDir, /home/eternialogic/.gradle/caches/minecraft/assets, --version, 1.7.10]
+[22:38:08] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLTweaker
+[22:38:08] [main/INFO] [LaunchWrapper]: Using primary tweak class name cpw.mods.fml.common.launcher.FMLTweaker
+[22:38:08] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLTweaker
+[22:38:08] [main/INFO] [FML]: Forge Mod Loader version 7.10.18.1180 for Minecraft 1.7.10 loading
+[22:38:08] [main/INFO] [FML]: Java is OpenJDK 64-Bit Server VM, version 1.7.0_65, running on Linux:amd64:3.13.0-35-generic, installed at /usr/lib/jvm/java-7-openjdk-amd64/jre
+[22:38:08] [main/INFO] [FML]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
+[22:38:08] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[22:38:08] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLDeobfTweaker
+[22:38:08] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[22:38:08] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[22:38:08] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.relauncher.CoreModManager$FMLPluginWrapper
+[22:38:08] [main/ERROR] [FML]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
+[22:38:09] [main/ERROR] [FML]: The minecraft jar file:/home/eternialogic/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.0.1180/forgeSrc-1.7.10-10.13.0.1180.jar!/net/minecraft/client/ClientBrandRetriever.class appears to be corrupt! There has been CRITICAL TAMPERING WITH MINECRAFT, it is highly unlikely minecraft will work! STOP NOW, get a clean copy and try again!
+[22:38:09] [main/ERROR] [FML]: FML has been ordered to ignore the invalid or missing minecraft certificate. This is very likely to cause a problem!
+[22:38:09] [main/ERROR] [FML]: Technical information: ClientBrandRetriever was at jar:file:/home/eternialogic/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.0.1180/forgeSrc-1.7.10-10.13.0.1180.jar!/net/minecraft/client/ClientBrandRetriever.class, there were 0 certificates for it
+[22:38:09] [main/ERROR] [FML]: FML appears to be missing any signature data. This is not a good thing
+[22:38:09] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.relauncher.CoreModManager$FMLPluginWrapper
+[22:38:09] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLDeobfTweaker
+[22:38:09] [main/INFO] [LaunchWrapper]: Launching wrapped minecraft {net.minecraft.client.main.Main}
+[22:38:10] [main/INFO]: Setting user: Player388
+[22:38:11] [Client thread/INFO]: LWJGL Version: 2.9.1
 If on Windows, make sure to provide all of the necessary dll's as specified in the twitchsdk README. Also, make sure to set the PATH environment variable to point to the directory containing the dll's.
-[00:11:54] [Client thread/ERROR]: Couldn't initialize twitch stream
-[00:11:55] [Client thread/INFO] [MinecraftForge]: Attempting early MinecraftForge initialization
-[00:11:55] [Client thread/INFO] [FML]: MinecraftForge v10.13.0.1180 Initialized
-[00:11:55] [Client thread/INFO] [FML]: Replaced 182 ore recipies
-[00:11:55] [Client thread/INFO] [MinecraftForge]: Completed early MinecraftForge initialization
-[00:11:55] [Client thread/INFO] [FML]: Searching /media/ExtraDrive/MCP/forge-1.7.10-10.13.0.1180-src/eclipse/mods for mods
-[00:11:55] [Client thread/ERROR] [FML]: FML has detected a mod that is using a package name based on 'net.minecraft.src' : net.minecraft.src.FMLRenderAccessLibrary. This is generally a severe programming error.  There should be no mod code in the minecraft namespace. MOVE YOUR MOD! If you're in eclipse, select your source code and 'refactor' it into a new package. Go on. DO IT NOW!
-[00:12:00] [Client thread/INFO] [essencepvp]: Mod essencepvp is missing the required element 'name'. Substituting essencepvp
-[00:12:00] [Client thread/INFO] [FML]: Forge Mod Loader has identified 4 mods to load
-[00:12:00] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:essencepvp
-[00:12:01] [Client thread/INFO] [FML]: Processing ObjectHolder annotations
-[00:12:01] [Client thread/INFO] [FML]: Found 341 ObjectHolder annotations
-[00:12:01] [Client thread/INFO] [FML]: Configured a dormant chunk cache size of 0
-[00:12:01] [Client thread/INFO] [FML]: Applying holder lookups
-[00:12:01] [Client thread/INFO] [FML]: Holder lookups applied
+[22:38:12] [Client thread/ERROR]: Couldn't initialize twitch stream
+[22:38:12] [Client thread/INFO] [MinecraftForge]: Attempting early MinecraftForge initialization
+[22:38:12] [Client thread/INFO] [FML]: MinecraftForge v10.13.0.1180 Initialized
+[22:38:12] [Client thread/INFO] [FML]: Replaced 182 ore recipies
+[22:38:12] [Client thread/INFO] [MinecraftForge]: Completed early MinecraftForge initialization
+[22:38:12] [Client thread/INFO] [FML]: Searching /media/ExtraDrive/MCP/forge-1.7.10-10.13.0.1180-src/eclipse/mods for mods
+[22:38:12] [Client thread/ERROR] [FML]: FML has detected a mod that is using a package name based on 'net.minecraft.src' : net.minecraft.src.FMLRenderAccessLibrary. This is generally a severe programming error.  There should be no mod code in the minecraft namespace. MOVE YOUR MOD! If you're in eclipse, select your source code and 'refactor' it into a new package. Go on. DO IT NOW!
+[22:38:15] [Client thread/INFO] [essencepvp]: Mod essencepvp is missing the required element 'name'. Substituting essencepvp
+[22:38:15] [Client thread/INFO] [FML]: Forge Mod Loader has identified 4 mods to load
+[22:38:15] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:essencepvp
+[22:38:15] [Client thread/INFO] [FML]: Processing ObjectHolder annotations
+[22:38:15] [Client thread/INFO] [FML]: Found 341 ObjectHolder annotations
+[22:38:15] [Client thread/INFO] [FML]: Configured a dormant chunk cache size of 0
+[22:38:15] [Client thread/INFO] [FML]: Applying holder lookups
+[22:38:15] [Client thread/INFO] [FML]: Holder lookups applied
 
 Starting up SoundSystem...
 Initializing LWJGL OpenAL
     (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
 OpenAL initialized.
 
-[00:12:07] [Sound Library Loader/INFO]: Sound engine started
-[00:12:08] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
-[00:12:08] [Client thread/INFO]: Created: 256x256 textures/items-atlas
-[00:12:10] [Client thread/INFO] [FML]: Forge Mod Loader has successfully loaded 4 mods
-[00:12:10] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:essencepvp
-[00:12:10] [Client thread/INFO]: Created: 256x256 textures/items-atlas
-[00:12:10] [Client thread/ERROR]: Using missing texture, unable to load essencepvp:textures/blocks/level_block.png
+[22:38:16] [Sound Library Loader/INFO]: Sound engine started
+[22:38:16] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[22:38:17] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[22:38:17] [Client thread/INFO] [FML]: Forge Mod Loader has successfully loaded 4 mods
+[22:38:17] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:essencepvp
+[22:38:17] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[22:38:17] [Client thread/ERROR]: Using missing texture, unable to load essencepvp:textures/blocks/level_block.png
 java.io.FileNotFoundException: essencepvp:textures/blocks/level_block.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -109,7 +109,7 @@ java.io.FileNotFoundException: essencepvp:textures/blocks/level_block.png
 	at GradleStart.bounce(GradleStart.java:107) [start/:?]
 	at GradleStart.startClient(GradleStart.java:100) [start/:?]
 	at GradleStart.main(GradleStart.java:55) [start/:?]
-[00:12:10] [Client thread/ERROR]: Using missing texture, unable to load essencepvp:textures/blocks/heal_block.png
+[22:38:17] [Client thread/ERROR]: Using missing texture, unable to load essencepvp:textures/blocks/heal_block.png
 java.io.FileNotFoundException: essencepvp:textures/blocks/heal_block.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -137,7 +137,7 @@ java.io.FileNotFoundException: essencepvp:textures/blocks/heal_block.png
 	at GradleStart.bounce(GradleStart.java:107) [start/:?]
 	at GradleStart.startClient(GradleStart.java:100) [start/:?]
 	at GradleStart.main(GradleStart.java:55) [start/:?]
-[00:12:11] [Client thread/INFO]: Created: 512x512 textures/blocks-atlas
+[22:38:17] [Client thread/INFO]: Created: 512x512 textures/blocks-atlas
 
 SoundSystem shutting down...
     Author: Paul Lamb, www.paulscode.com
@@ -148,29 +148,32 @@ Initializing LWJGL OpenAL
     (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
 OpenAL initialized.
 
-[00:12:12] [Sound Library Loader/INFO]: Sound engine started
-[00:12:54] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
-[00:12:54] [Server thread/INFO]: Generating keypair
-[00:12:55] [Server thread/INFO] [FML]: Injecting existing block and item data into this server instance
-[00:12:55] [Server thread/INFO] [FML]: Applying holder lookups
-[00:12:55] [Server thread/INFO] [FML]: Holder lookups applied
-[00:12:55] [Server thread/INFO] [FML]: Loading dimension 0 (TestWorld) (net.minecraft.server.integrated.IntegratedServer@427829d8)
-[00:12:55] [Server thread/INFO] [FML]: Loading dimension 1 (TestWorld) (net.minecraft.server.integrated.IntegratedServer@427829d8)
-[00:12:55] [Server thread/INFO] [FML]: Loading dimension -1 (TestWorld) (net.minecraft.server.integrated.IntegratedServer@427829d8)
-[00:12:55] [Server thread/INFO]: Preparing start region for level 0
-[00:12:56] [Server thread/INFO]: Preparing spawn area: 46%
-[00:12:58] [Server thread/INFO]: Changing view distance to 12, from 10
-[00:12:58] [Netty Client IO #0/INFO] [FML]: Server protocol version 1
-[00:12:58] [Netty IO #1/INFO] [FML]: Client protocol version 1
-[00:12:58] [Netty IO #1/INFO] [FML]: Client attempting to join with 4 mods : mcp@9.05,FML@7.10.18.1180,Forge@10.13.0.1180,essencepvp@0.1
-[00:12:58] [Netty IO #1/INFO] [FML]: Attempting connection with missing mods [] at CLIENT
-[00:12:58] [Netty Client IO #0/INFO] [FML]: Attempting connection with missing mods [] at SERVER
-[00:12:58] [Server thread/INFO] [FML]: [Server thread] Server side modded connection established
-[00:12:58] [Client thread/INFO] [FML]: [Client thread] Client side modded connection established
-[00:12:59] [Server thread/INFO]: Player571[local:E:9610282d] logged in with entity id 406 at (246.8165244793745, 78.79508460738445, 249.562574728019)
-[00:12:59] [Server thread/INFO]: Player571 joined the game
-[00:13:01] [Server thread/WARN]: Can't keep up! Did the system time change, or is the server overloaded? Running 2394ms behind, skipping 47 tick(s)
-[00:13:04] [Client thread/WARN]: Failed to load texture: essencepvp:textures/meleeB.png
+[22:38:18] [Sound Library Loader/INFO]: Sound engine started
+[22:40:05] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[22:40:05] [Server thread/INFO]: Generating keypair
+[22:40:06] [Server thread/INFO] [FML]: Injecting existing block and item data into this server instance
+[22:40:06] [Server thread/INFO] [FML]: Applying holder lookups
+[22:40:06] [Server thread/INFO] [FML]: Holder lookups applied
+[22:40:06] [Server thread/INFO] [FML]: Loading dimension 0 (TestWorld) (net.minecraft.server.integrated.IntegratedServer@7bd0fef8)
+[22:40:06] [Server thread/INFO] [FML]: Loading dimension 1 (TestWorld) (net.minecraft.server.integrated.IntegratedServer@7bd0fef8)
+[22:40:06] [Server thread/INFO] [FML]: Loading dimension -1 (TestWorld) (net.minecraft.server.integrated.IntegratedServer@7bd0fef8)
+[22:40:06] [Server thread/INFO]: Preparing start region for level 0
+[22:40:07] [Server thread/INFO]: Preparing spawn area: 79%
+[22:40:07] [Server thread/INFO]: Changing view distance to 12, from 10
+[22:40:07] [Netty Client IO #0/INFO] [FML]: Server protocol version 1
+[22:40:07] [Netty IO #1/INFO] [FML]: Client protocol version 1
+[22:40:07] [Netty IO #1/INFO] [FML]: Client attempting to join with 4 mods : mcp@9.05,FML@7.10.18.1180,Forge@10.13.0.1180,essencepvp@0.1
+[22:40:07] [Netty IO #1/INFO] [FML]: Attempting connection with missing mods [] at CLIENT
+[22:40:07] [Netty Client IO #0/INFO] [FML]: Attempting connection with missing mods [] at SERVER
+[22:40:08] [Client thread/INFO] [FML]: [Client thread] Client side modded connection established
+[22:40:08] [Server thread/INFO] [FML]: [Server thread] Server side modded connection established
+[22:40:08] [Server thread/INFO]: Player388[local:E:42db95b5] logged in with entity id 405 at (246.8165244793745, 78.79508460738445, 249.562574728019)
+[22:40:08] [Server thread/INFO]: Player388 joined the game
+[22:40:08] [Server thread/INFO]: Saving and pausing game...
+[22:40:08] [Server thread/INFO]: Saving chunks for level 'TestWorld'/Overworld
+[22:40:08] [Server thread/INFO]: Saving chunks for level 'TestWorld'/Nether
+[22:40:08] [Server thread/INFO]: Saving chunks for level 'TestWorld'/The End
+[22:40:16] [Client thread/WARN]: Failed to load texture: essencepvp:textures/meleeB.png
 java.io.FileNotFoundException: essencepvp:textures/meleeB.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -197,7 +200,7 @@ java.io.FileNotFoundException: essencepvp:textures/meleeB.png
 	at GradleStart.bounce(GradleStart.java:107) [start/:?]
 	at GradleStart.startClient(GradleStart.java:100) [start/:?]
 	at GradleStart.main(GradleStart.java:55) [start/:?]
-[00:13:04] [Client thread/WARN]: Failed to load texture: essencepvp:textures/meleeC.png
+[22:40:16] [Client thread/WARN]: Failed to load texture: essencepvp:textures/meleeC.png
 java.io.FileNotFoundException: essencepvp:textures/meleeC.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -224,7 +227,7 @@ java.io.FileNotFoundException: essencepvp:textures/meleeC.png
 	at GradleStart.bounce(GradleStart.java:107) [start/:?]
 	at GradleStart.startClient(GradleStart.java:100) [start/:?]
 	at GradleStart.main(GradleStart.java:55) [start/:?]
-[00:13:04] [Client thread/WARN]: Failed to load texture: essencepvp:textures/meleeD.png
+[22:40:16] [Client thread/WARN]: Failed to load texture: essencepvp:textures/meleeD.png
 java.io.FileNotFoundException: essencepvp:textures/meleeD.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -251,7 +254,7 @@ java.io.FileNotFoundException: essencepvp:textures/meleeD.png
 	at GradleStart.bounce(GradleStart.java:107) [start/:?]
 	at GradleStart.startClient(GradleStart.java:100) [start/:?]
 	at GradleStart.main(GradleStart.java:55) [start/:?]
-[00:13:04] [Client thread/WARN]: Failed to load texture: essencepvp:textures/meleeE.png
+[22:40:16] [Client thread/WARN]: Failed to load texture: essencepvp:textures/meleeE.png
 java.io.FileNotFoundException: essencepvp:textures/meleeE.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -278,7 +281,7 @@ java.io.FileNotFoundException: essencepvp:textures/meleeE.png
 	at GradleStart.bounce(GradleStart.java:107) [start/:?]
 	at GradleStart.startClient(GradleStart.java:100) [start/:?]
 	at GradleStart.main(GradleStart.java:55) [start/:?]
-[00:13:04] [Client thread/WARN]: Failed to load texture: essencepvp:textures/meleeF.png
+[22:40:16] [Client thread/WARN]: Failed to load texture: essencepvp:textures/meleeF.png
 java.io.FileNotFoundException: essencepvp:textures/meleeF.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -305,7 +308,7 @@ java.io.FileNotFoundException: essencepvp:textures/meleeF.png
 	at GradleStart.bounce(GradleStart.java:107) [start/:?]
 	at GradleStart.startClient(GradleStart.java:100) [start/:?]
 	at GradleStart.main(GradleStart.java:55) [start/:?]
-[00:13:04] [Client thread/WARN]: Failed to load texture: essencepvp:textures/meleeG.png
+[22:40:16] [Client thread/WARN]: Failed to load texture: essencepvp:textures/meleeG.png
 java.io.FileNotFoundException: essencepvp:textures/meleeG.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -332,254 +335,11 @@ java.io.FileNotFoundException: essencepvp:textures/meleeG.png
 	at GradleStart.bounce(GradleStart.java:107) [start/:?]
 	at GradleStart.startClient(GradleStart.java:100) [start/:?]
 	at GradleStart.main(GradleStart.java:55) [start/:?]
-[00:13:04] [Server thread/INFO]: Saving and pausing game...
-[00:13:04] [Server thread/INFO]: Saving chunks for level 'TestWorld'/Overworld
-[00:13:04] [Server thread/INFO]: Saving chunks for level 'TestWorld'/Nether
-[00:13:04] [Server thread/INFO]: Saving chunks for level 'TestWorld'/The End
-[00:13:21] [Client thread/WARN]: Failed to load texture: essencepvp:textures/magicC.png
-java.io.FileNotFoundException: essencepvp:textures/magicC.png
-	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
-	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
-	at net.minecraft.client.renderer.texture.SimpleTexture.loadTexture(SimpleTexture.java:35) ~[SimpleTexture.class:?]
-	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
-	at net.minecraft.client.renderer.texture.TextureManager.bindTexture(TextureManager.java:45) [TextureManager.class:?]
-	at com.EssencePVP.gui.SkillGui.drawLoc(SkillGui.java:173) [SkillGui.class:?]
-	at com.EssencePVP.gui.SkillGui.drawContent(SkillGui.java:135) [SkillGui.class:?]
-	at com.EssencePVP.gui.SkillGui.drawScreen(SkillGui.java:68) [SkillGui.class:?]
-	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1145) [EntityRenderer.class:?]
-	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1066) [Minecraft.class:?]
-	at net.minecraft.client.Minecraft.run(Minecraft.java:961) [Minecraft.class:?]
-	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
-	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
-	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
-	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
-	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
-	at GradleStart.bounce(GradleStart.java:107) [start/:?]
-	at GradleStart.startClient(GradleStart.java:100) [start/:?]
-	at GradleStart.main(GradleStart.java:55) [start/:?]
-[00:13:21] [Client thread/WARN]: Failed to load texture: essencepvp:textures/magicG.png
-java.io.FileNotFoundException: essencepvp:textures/magicG.png
-	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
-	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
-	at net.minecraft.client.renderer.texture.SimpleTexture.loadTexture(SimpleTexture.java:35) ~[SimpleTexture.class:?]
-	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
-	at net.minecraft.client.renderer.texture.TextureManager.bindTexture(TextureManager.java:45) [TextureManager.class:?]
-	at com.EssencePVP.gui.SkillGui.drawLoc(SkillGui.java:173) [SkillGui.class:?]
-	at com.EssencePVP.gui.SkillGui.drawContent(SkillGui.java:135) [SkillGui.class:?]
-	at com.EssencePVP.gui.SkillGui.drawScreen(SkillGui.java:68) [SkillGui.class:?]
-	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1145) [EntityRenderer.class:?]
-	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1066) [Minecraft.class:?]
-	at net.minecraft.client.Minecraft.run(Minecraft.java:961) [Minecraft.class:?]
-	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
-	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
-	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
-	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
-	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
-	at GradleStart.bounce(GradleStart.java:107) [start/:?]
-	at GradleStart.startClient(GradleStart.java:100) [start/:?]
-	at GradleStart.main(GradleStart.java:55) [start/:?]
-[00:14:07] [Client thread/WARN]: Failed to load texture: essencepvp:textures/technicalA.png
-java.io.FileNotFoundException: essencepvp:textures/technicalA.png
-	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
-	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
-	at net.minecraft.client.renderer.texture.SimpleTexture.loadTexture(SimpleTexture.java:35) ~[SimpleTexture.class:?]
-	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
-	at net.minecraft.client.renderer.texture.TextureManager.bindTexture(TextureManager.java:45) [TextureManager.class:?]
-	at com.EssencePVP.gui.SkillGui.drawLoc(SkillGui.java:173) [SkillGui.class:?]
-	at com.EssencePVP.gui.SkillGui.drawContent(SkillGui.java:135) [SkillGui.class:?]
-	at com.EssencePVP.gui.SkillGui.drawScreen(SkillGui.java:68) [SkillGui.class:?]
-	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1145) [EntityRenderer.class:?]
-	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1066) [Minecraft.class:?]
-	at net.minecraft.client.Minecraft.run(Minecraft.java:961) [Minecraft.class:?]
-	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
-	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
-	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
-	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
-	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
-	at GradleStart.bounce(GradleStart.java:107) [start/:?]
-	at GradleStart.startClient(GradleStart.java:100) [start/:?]
-	at GradleStart.main(GradleStart.java:55) [start/:?]
-[00:14:07] [Client thread/WARN]: Failed to load texture: essencepvp:textures/technicalB.png
-java.io.FileNotFoundException: essencepvp:textures/technicalB.png
-	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
-	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
-	at net.minecraft.client.renderer.texture.SimpleTexture.loadTexture(SimpleTexture.java:35) ~[SimpleTexture.class:?]
-	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
-	at net.minecraft.client.renderer.texture.TextureManager.bindTexture(TextureManager.java:45) [TextureManager.class:?]
-	at com.EssencePVP.gui.SkillGui.drawLoc(SkillGui.java:173) [SkillGui.class:?]
-	at com.EssencePVP.gui.SkillGui.drawContent(SkillGui.java:135) [SkillGui.class:?]
-	at com.EssencePVP.gui.SkillGui.drawScreen(SkillGui.java:68) [SkillGui.class:?]
-	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1145) [EntityRenderer.class:?]
-	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1066) [Minecraft.class:?]
-	at net.minecraft.client.Minecraft.run(Minecraft.java:961) [Minecraft.class:?]
-	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
-	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
-	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
-	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
-	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
-	at GradleStart.bounce(GradleStart.java:107) [start/:?]
-	at GradleStart.startClient(GradleStart.java:100) [start/:?]
-	at GradleStart.main(GradleStart.java:55) [start/:?]
-[00:14:07] [Client thread/WARN]: Failed to load texture: essencepvp:textures/technicalC.png
-java.io.FileNotFoundException: essencepvp:textures/technicalC.png
-	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
-	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
-	at net.minecraft.client.renderer.texture.SimpleTexture.loadTexture(SimpleTexture.java:35) ~[SimpleTexture.class:?]
-	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
-	at net.minecraft.client.renderer.texture.TextureManager.bindTexture(TextureManager.java:45) [TextureManager.class:?]
-	at com.EssencePVP.gui.SkillGui.drawLoc(SkillGui.java:173) [SkillGui.class:?]
-	at com.EssencePVP.gui.SkillGui.drawContent(SkillGui.java:135) [SkillGui.class:?]
-	at com.EssencePVP.gui.SkillGui.drawScreen(SkillGui.java:68) [SkillGui.class:?]
-	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1145) [EntityRenderer.class:?]
-	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1066) [Minecraft.class:?]
-	at net.minecraft.client.Minecraft.run(Minecraft.java:961) [Minecraft.class:?]
-	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
-	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
-	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
-	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
-	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
-	at GradleStart.bounce(GradleStart.java:107) [start/:?]
-	at GradleStart.startClient(GradleStart.java:100) [start/:?]
-	at GradleStart.main(GradleStart.java:55) [start/:?]
-[00:14:07] [Client thread/WARN]: Failed to load texture: essencepvp:textures/technicalD.png
-java.io.FileNotFoundException: essencepvp:textures/technicalD.png
-	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
-	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
-	at net.minecraft.client.renderer.texture.SimpleTexture.loadTexture(SimpleTexture.java:35) ~[SimpleTexture.class:?]
-	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
-	at net.minecraft.client.renderer.texture.TextureManager.bindTexture(TextureManager.java:45) [TextureManager.class:?]
-	at com.EssencePVP.gui.SkillGui.drawLoc(SkillGui.java:173) [SkillGui.class:?]
-	at com.EssencePVP.gui.SkillGui.drawContent(SkillGui.java:135) [SkillGui.class:?]
-	at com.EssencePVP.gui.SkillGui.drawScreen(SkillGui.java:68) [SkillGui.class:?]
-	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1145) [EntityRenderer.class:?]
-	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1066) [Minecraft.class:?]
-	at net.minecraft.client.Minecraft.run(Minecraft.java:961) [Minecraft.class:?]
-	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
-	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
-	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
-	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
-	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
-	at GradleStart.bounce(GradleStart.java:107) [start/:?]
-	at GradleStart.startClient(GradleStart.java:100) [start/:?]
-	at GradleStart.main(GradleStart.java:55) [start/:?]
-[00:14:07] [Client thread/WARN]: Failed to load texture: essencepvp:textures/technicalE.png
-java.io.FileNotFoundException: essencepvp:textures/technicalE.png
-	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
-	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
-	at net.minecraft.client.renderer.texture.SimpleTexture.loadTexture(SimpleTexture.java:35) ~[SimpleTexture.class:?]
-	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
-	at net.minecraft.client.renderer.texture.TextureManager.bindTexture(TextureManager.java:45) [TextureManager.class:?]
-	at com.EssencePVP.gui.SkillGui.drawLoc(SkillGui.java:173) [SkillGui.class:?]
-	at com.EssencePVP.gui.SkillGui.drawContent(SkillGui.java:135) [SkillGui.class:?]
-	at com.EssencePVP.gui.SkillGui.drawScreen(SkillGui.java:68) [SkillGui.class:?]
-	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1145) [EntityRenderer.class:?]
-	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1066) [Minecraft.class:?]
-	at net.minecraft.client.Minecraft.run(Minecraft.java:961) [Minecraft.class:?]
-	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
-	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
-	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
-	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
-	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
-	at GradleStart.bounce(GradleStart.java:107) [start/:?]
-	at GradleStart.startClient(GradleStart.java:100) [start/:?]
-	at GradleStart.main(GradleStart.java:55) [start/:?]
-[00:14:07] [Client thread/WARN]: Failed to load texture: essencepvp:textures/technicalF.png
-java.io.FileNotFoundException: essencepvp:textures/technicalF.png
-	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
-	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
-	at net.minecraft.client.renderer.texture.SimpleTexture.loadTexture(SimpleTexture.java:35) ~[SimpleTexture.class:?]
-	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
-	at net.minecraft.client.renderer.texture.TextureManager.bindTexture(TextureManager.java:45) [TextureManager.class:?]
-	at com.EssencePVP.gui.SkillGui.drawLoc(SkillGui.java:173) [SkillGui.class:?]
-	at com.EssencePVP.gui.SkillGui.drawContent(SkillGui.java:135) [SkillGui.class:?]
-	at com.EssencePVP.gui.SkillGui.drawScreen(SkillGui.java:68) [SkillGui.class:?]
-	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1145) [EntityRenderer.class:?]
-	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1066) [Minecraft.class:?]
-	at net.minecraft.client.Minecraft.run(Minecraft.java:961) [Minecraft.class:?]
-	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
-	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
-	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
-	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
-	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
-	at GradleStart.bounce(GradleStart.java:107) [start/:?]
-	at GradleStart.startClient(GradleStart.java:100) [start/:?]
-	at GradleStart.main(GradleStart.java:55) [start/:?]
-[00:14:07] [Client thread/WARN]: Failed to load texture: essencepvp:textures/technicalG.png
-java.io.FileNotFoundException: essencepvp:textures/technicalG.png
-	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
-	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
-	at net.minecraft.client.renderer.texture.SimpleTexture.loadTexture(SimpleTexture.java:35) ~[SimpleTexture.class:?]
-	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
-	at net.minecraft.client.renderer.texture.TextureManager.bindTexture(TextureManager.java:45) [TextureManager.class:?]
-	at com.EssencePVP.gui.SkillGui.drawLoc(SkillGui.java:173) [SkillGui.class:?]
-	at com.EssencePVP.gui.SkillGui.drawContent(SkillGui.java:135) [SkillGui.class:?]
-	at com.EssencePVP.gui.SkillGui.drawScreen(SkillGui.java:68) [SkillGui.class:?]
-	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1145) [EntityRenderer.class:?]
-	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1066) [Minecraft.class:?]
-	at net.minecraft.client.Minecraft.run(Minecraft.java:961) [Minecraft.class:?]
-	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
-	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
-	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
-	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
-	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
-	at GradleStart.bounce(GradleStart.java:107) [start/:?]
-	at GradleStart.startClient(GradleStart.java:100) [start/:?]
-	at GradleStart.main(GradleStart.java:55) [start/:?]
-[00:14:18] [Client thread/WARN]: Failed to load texture: essencepvp:textures/rangedC.png
+[22:40:16] [Server thread/INFO]: Saving and pausing game...
+[22:40:16] [Server thread/INFO]: Saving chunks for level 'TestWorld'/Overworld
+[22:40:16] [Server thread/INFO]: Saving chunks for level 'TestWorld'/Nether
+[22:40:16] [Server thread/INFO]: Saving chunks for level 'TestWorld'/The End
+[22:40:21] [Client thread/WARN]: Failed to load texture: essencepvp:textures/rangedC.png
 java.io.FileNotFoundException: essencepvp:textures/rangedC.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -606,7 +366,7 @@ java.io.FileNotFoundException: essencepvp:textures/rangedC.png
 	at GradleStart.bounce(GradleStart.java:107) [start/:?]
 	at GradleStart.startClient(GradleStart.java:100) [start/:?]
 	at GradleStart.main(GradleStart.java:55) [start/:?]
-[00:14:18] [Client thread/WARN]: Failed to load texture: essencepvp:textures/rangedD.png
+[22:40:21] [Client thread/WARN]: Failed to load texture: essencepvp:textures/rangedD.png
 java.io.FileNotFoundException: essencepvp:textures/rangedD.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -633,7 +393,7 @@ java.io.FileNotFoundException: essencepvp:textures/rangedD.png
 	at GradleStart.bounce(GradleStart.java:107) [start/:?]
 	at GradleStart.startClient(GradleStart.java:100) [start/:?]
 	at GradleStart.main(GradleStart.java:55) [start/:?]
-[00:14:18] [Client thread/WARN]: Failed to load texture: essencepvp:textures/rangedE.png
+[22:40:21] [Client thread/WARN]: Failed to load texture: essencepvp:textures/rangedE.png
 java.io.FileNotFoundException: essencepvp:textures/rangedE.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -660,7 +420,7 @@ java.io.FileNotFoundException: essencepvp:textures/rangedE.png
 	at GradleStart.bounce(GradleStart.java:107) [start/:?]
 	at GradleStart.startClient(GradleStart.java:100) [start/:?]
 	at GradleStart.main(GradleStart.java:55) [start/:?]
-[00:14:18] [Client thread/WARN]: Failed to load texture: essencepvp:textures/rangedF.png
+[22:40:21] [Client thread/WARN]: Failed to load texture: essencepvp:textures/rangedF.png
 java.io.FileNotFoundException: essencepvp:textures/rangedF.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -687,7 +447,7 @@ java.io.FileNotFoundException: essencepvp:textures/rangedF.png
 	at GradleStart.bounce(GradleStart.java:107) [start/:?]
 	at GradleStart.startClient(GradleStart.java:100) [start/:?]
 	at GradleStart.main(GradleStart.java:55) [start/:?]
-[00:14:18] [Client thread/WARN]: Failed to load texture: essencepvp:textures/rangedG.png
+[22:40:21] [Client thread/WARN]: Failed to load texture: essencepvp:textures/rangedG.png
 java.io.FileNotFoundException: essencepvp:textures/rangedG.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -714,34 +474,186 @@ java.io.FileNotFoundException: essencepvp:textures/rangedG.png
 	at GradleStart.bounce(GradleStart.java:107) [start/:?]
 	at GradleStart.startClient(GradleStart.java:100) [start/:?]
 	at GradleStart.main(GradleStart.java:55) [start/:?]
-[00:14:37] [Client thread/INFO]: Stopping!
+[22:40:22] [Client thread/WARN]: Failed to load texture: essencepvp:textures/magicC.png
+java.io.FileNotFoundException: essencepvp:textures/magicC.png
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.texture.SimpleTexture.loadTexture(SimpleTexture.java:35) ~[SimpleTexture.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.bindTexture(TextureManager.java:45) [TextureManager.class:?]
+	at com.EssencePVP.gui.SkillGui.drawLoc(SkillGui.java:173) [SkillGui.class:?]
+	at com.EssencePVP.gui.SkillGui.drawContent(SkillGui.java:135) [SkillGui.class:?]
+	at com.EssencePVP.gui.SkillGui.drawScreen(SkillGui.java:68) [SkillGui.class:?]
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1145) [EntityRenderer.class:?]
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1066) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:961) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
+	at GradleStart.bounce(GradleStart.java:107) [start/:?]
+	at GradleStart.startClient(GradleStart.java:100) [start/:?]
+	at GradleStart.main(GradleStart.java:55) [start/:?]
+[22:40:22] [Client thread/WARN]: Failed to load texture: essencepvp:textures/magicG.png
+java.io.FileNotFoundException: essencepvp:textures/magicG.png
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.texture.SimpleTexture.loadTexture(SimpleTexture.java:35) ~[SimpleTexture.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.bindTexture(TextureManager.java:45) [TextureManager.class:?]
+	at com.EssencePVP.gui.SkillGui.drawLoc(SkillGui.java:173) [SkillGui.class:?]
+	at com.EssencePVP.gui.SkillGui.drawContent(SkillGui.java:135) [SkillGui.class:?]
+	at com.EssencePVP.gui.SkillGui.drawScreen(SkillGui.java:68) [SkillGui.class:?]
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1145) [EntityRenderer.class:?]
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1066) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:961) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
+	at GradleStart.bounce(GradleStart.java:107) [start/:?]
+	at GradleStart.startClient(GradleStart.java:100) [start/:?]
+	at GradleStart.main(GradleStart.java:55) [start/:?]
+[22:40:23] [Client thread/WARN]: Failed to load texture: essencepvp:textures/technicalD.png
+java.io.FileNotFoundException: essencepvp:textures/technicalD.png
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.texture.SimpleTexture.loadTexture(SimpleTexture.java:35) ~[SimpleTexture.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.bindTexture(TextureManager.java:45) [TextureManager.class:?]
+	at com.EssencePVP.gui.SkillGui.drawLoc(SkillGui.java:173) [SkillGui.class:?]
+	at com.EssencePVP.gui.SkillGui.drawContent(SkillGui.java:135) [SkillGui.class:?]
+	at com.EssencePVP.gui.SkillGui.drawScreen(SkillGui.java:68) [SkillGui.class:?]
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1145) [EntityRenderer.class:?]
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1066) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:961) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
+	at GradleStart.bounce(GradleStart.java:107) [start/:?]
+	at GradleStart.startClient(GradleStart.java:100) [start/:?]
+	at GradleStart.main(GradleStart.java:55) [start/:?]
+[22:40:23] [Client thread/WARN]: Failed to load texture: essencepvp:textures/technicalE.png
+java.io.FileNotFoundException: essencepvp:textures/technicalE.png
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.texture.SimpleTexture.loadTexture(SimpleTexture.java:35) ~[SimpleTexture.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.bindTexture(TextureManager.java:45) [TextureManager.class:?]
+	at com.EssencePVP.gui.SkillGui.drawLoc(SkillGui.java:173) [SkillGui.class:?]
+	at com.EssencePVP.gui.SkillGui.drawContent(SkillGui.java:135) [SkillGui.class:?]
+	at com.EssencePVP.gui.SkillGui.drawScreen(SkillGui.java:68) [SkillGui.class:?]
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1145) [EntityRenderer.class:?]
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1066) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:961) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
+	at GradleStart.bounce(GradleStart.java:107) [start/:?]
+	at GradleStart.startClient(GradleStart.java:100) [start/:?]
+	at GradleStart.main(GradleStart.java:55) [start/:?]
+[22:40:23] [Client thread/WARN]: Failed to load texture: essencepvp:textures/technicalF.png
+java.io.FileNotFoundException: essencepvp:textures/technicalF.png
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.texture.SimpleTexture.loadTexture(SimpleTexture.java:35) ~[SimpleTexture.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.bindTexture(TextureManager.java:45) [TextureManager.class:?]
+	at com.EssencePVP.gui.SkillGui.drawLoc(SkillGui.java:173) [SkillGui.class:?]
+	at com.EssencePVP.gui.SkillGui.drawContent(SkillGui.java:135) [SkillGui.class:?]
+	at com.EssencePVP.gui.SkillGui.drawScreen(SkillGui.java:68) [SkillGui.class:?]
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1145) [EntityRenderer.class:?]
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1066) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:961) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
+	at GradleStart.bounce(GradleStart.java:107) [start/:?]
+	at GradleStart.startClient(GradleStart.java:100) [start/:?]
+	at GradleStart.main(GradleStart.java:55) [start/:?]
+[22:40:23] [Client thread/WARN]: Failed to load texture: essencepvp:textures/technicalG.png
+java.io.FileNotFoundException: essencepvp:textures/technicalG.png
+	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
+	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
+	at net.minecraft.client.renderer.texture.SimpleTexture.loadTexture(SimpleTexture.java:35) ~[SimpleTexture.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.loadTexture(TextureManager.java:89) [TextureManager.class:?]
+	at net.minecraft.client.renderer.texture.TextureManager.bindTexture(TextureManager.java:45) [TextureManager.class:?]
+	at com.EssencePVP.gui.SkillGui.drawLoc(SkillGui.java:173) [SkillGui.class:?]
+	at com.EssencePVP.gui.SkillGui.drawContent(SkillGui.java:135) [SkillGui.class:?]
+	at com.EssencePVP.gui.SkillGui.drawScreen(SkillGui.java:68) [SkillGui.class:?]
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1145) [EntityRenderer.class:?]
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1066) [Minecraft.class:?]
+	at net.minecraft.client.Minecraft.run(Minecraft.java:961) [Minecraft.class:?]
+	at net.minecraft.client.main.Main.main(Main.java:164) [Main.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:134) [launchwrapper-1.9.jar:?]
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28) [launchwrapper-1.9.jar:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.7.0_65]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57) ~[?:1.7.0_65]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_65]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_65]
+	at GradleStart.bounce(GradleStart.java:107) [start/:?]
+	at GradleStart.startClient(GradleStart.java:100) [start/:?]
+	at GradleStart.main(GradleStart.java:55) [start/:?]
+[22:41:02] [Client thread/INFO]: [CHAT] Saved screenshot as 2014-09-29_22.41.01.png
+[22:41:38] [Client thread/INFO]: Stopping!
+[22:41:38] [Server thread/INFO]: Stopping server
 
 SoundSystem shutting down...
-[00:14:37] [Server thread/INFO]: Stopping server
-[00:14:37] [Server thread/INFO]: Saving players
-[00:14:38] [Server thread/INFO]: Saving worlds
-[00:14:38] [Server thread/INFO]: Saving chunks for level 'TestWorld'/Overworld
-[00:14:38] [Server thread/INFO]: Saving chunks for level 'TestWorld'/Nether
-[00:14:38] [Server thread/INFO]: Saving chunks for level 'TestWorld'/The End
+[22:41:38] [Server thread/INFO]: Saving players
+[22:41:38] [Server thread/INFO]: Saving worlds
+[22:41:38] [Server thread/INFO]: Saving chunks for level 'TestWorld'/Overworld
+[22:41:38] [Server thread/INFO]: Saving chunks for level 'TestWorld'/Nether
+[22:41:38] [Server thread/INFO]: Saving chunks for level 'TestWorld'/The End
+[22:41:39] [Server thread/INFO] [FML]: Unloading dimension 0
+[22:41:39] [Server thread/INFO] [FML]: Unloading dimension -1
+[22:41:39] [Server thread/INFO] [FML]: Unloading dimension 1
+[22:41:39] [Server thread/INFO] [FML]: Applying holder lookups
+[22:41:39] [Server thread/INFO] [FML]: Holder lookups applied
     Author: Paul Lamb, www.paulscode.com
 
-[00:14:40] [Client Shutdown Thread/INFO]: Stopping server
-[00:14:40] [Client Shutdown Thread/INFO]: Saving players
-[00:14:40] [Client Shutdown Thread/INFO]: Saving worlds
-[00:14:40] [Client Shutdown Thread/INFO]: Saving chunks for level 'TestWorld'/Overworld
-Exception in thread "Client Shutdown Thread" java.lang.NullPointerException
-	at net.minecraftforge.common.ForgeChunkManager.saveWorld(ForgeChunkManager.java:836)
-	at net.minecraftforge.common.ForgeInternalHandler.onDimensionSave(ForgeInternalHandler.java:70)
-	at cpw.mods.fml.common.eventhandler.ASMEventHandler_2_ForgeInternalHandler_onDimensionSave_Save.invoke(.dynamic)
-	at cpw.mods.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:51)
-	at cpw.mods.fml.common.eventhandler.EventBus.post(EventBus.java:122)
-	at net.minecraft.world.WorldServer.saveAllChunks(WorldServer.java:877)
-	at net.minecraft.server.MinecraftServer.saveAllWorlds(MinecraftServer.java:380)
-	at net.minecraft.server.MinecraftServer.stopServer(MinecraftServer.java:415)
-	at net.minecraft.server.integrated.IntegratedServer.stopServer(IntegratedServer.java:266)
-	at net.minecraft.client.Minecraft.stopIntegratedServer(Minecraft.java:2803)
-	at net.minecraft.client.main.Main$3.run(Main.java:154)
 
 BUILD SUCCESSFUL
 
-Total time: 3 mins 23.916 secs
+Total time: 3 mins 54.09 secs

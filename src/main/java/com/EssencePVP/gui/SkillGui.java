@@ -35,17 +35,17 @@ public class SkillGui extends GuiScreen
 	private int[] xList = {-10,-30,10,-30,-60,10,40}; // Raw X offsets for images
 	private int[] yList = {40, 77, 77, 115, 115, 115, 115}; // raw Y offsets for images
 	// names of the skills (hardcoded), can be changed later on
-	private String[] meleeNames = {"RockFist","Sword Slice","Death Spin","","","",""};
+	private String[] meleeNames = {"RockFist","Sword Slice","Death Spin","Rigid Cleave","Backslash","Insta-Counter",""};
 	private String[] rangeNames = {"Accuracy","Burst Shot","","","","",""};
 	private String[] magicNames = {"Life Ball","Poison","Wind","Fireball","Wave","Lightning Shock",""};
-	private String[] techyNames = {"","","","","","","Nano Robots"};
-	private String[] passvNames = {"Dig","Mine","Health","Damage","Quickness","Protection","Flight"};
+	private String[] techyNames = {"Power Station","Mini Turret","Trap Mine","Mega Turret","","Void Trap","Nano Robots"};
+	private String[] passvNames = {"Dig","Mine","Health","Sharpness","Quickness","Protection","Flight"};
 	
 	private String[] meleeDesc = {"Make punching more hard","Heavy sword strike that enemies cant fear","Attacks all enemies around with little interest","","","",""};
 	private String[] rangeDesc = {"Aim-helping?","Multi-shot attack that might slam your friends","","","","",""};
 	private String[] magicDesc = {"Because having two cubes isnt enough","So you had a bad burrito...","Wind","More fire. Can has?","Wave","",""};
 	private String[] techyDesc = {"","","","","","","Nano Robots"};
-	private String[] passvDesc = {"The ground needs you","You couldn't get enough of the ground","Health","Needs more STEROIDS!","NOT ENOUGH CAFFEINE!","Because creepers hate you","Land is overrated"};
+	private String[] passvDesc = {"The ground needs you","You couldn't get enough of the ground","Health","Your mind is not sharp enough. But your muscles are.","NOT ENOUGH CAFFEINE!","Because creepers hate you","Land is overrated"};
 	
 	private String[] treeName = {"Melee","Ranged","Magic","Technical","Passive"};
 	private String[] treeAddr = {"melee","ranged","magic","technical","passive"};
