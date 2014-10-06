@@ -1,0 +1,119 @@
+#!/usr/bin/perl -w
+
+# SQL Initialize
+# Written by Ahmed K.
+
+use strict;
+
+use Cwd;
+use DBI; # libdbi-perl && libdbd-mysql-perl
+use File::Path;
+
+my %hDatabase = (
+	'essencePvP' => {
+				'username' => 'db1_user',
+				'password' => 'db1_pass',
+				'host'	   => 'localhost',
+				'port'	   => '3306'
+       	                }
+);
+
+my %hTables = (
+	'Profession'		=> { # Contains all profession descriptions and names
+					'ID'		=> { 'type' => 'int' },
+					'Name'		=> { 'type' => 'varchar(250)' },
+					'Description'	=> { 'type' => 'varchar(250)' }
+				   },
+	'Ability'		=> { # Contains all abilitiy descriptions and names
+					'ID'		=> { 'type' => 'int' },
+					'Name'		=> { 'type' => 'varchar(250)' },
+					'Description'	=> { 'type' => 'varchar(250)' },
+					'Property'	=> { 'type' => 'int' }
+				   },
+	'Ability_Property'	=> { # Contains data about all abilities
+					'ID'		=> { 'type' => 'int' },
+					'Name'		=> { 'type' => 'varchar(250)' },
+					'Description'	=> { 'type' => 'varchar(250)' },
+					'Type'		=> { 'type' => 'int' },
+					'Value'		=> { 'type' => 'int' }
+				   },
+	'Profession_Ability'	=> { # Relational table linking Profession and Ability tables
+					'ID'		=> { 'type' => 'int' },
+					'ClassID'	=> { 'type' => 'int' },
+					'AbilityID'	=> { 'type' => 'int' },
+					'Modifier'	=> { 'type' => 'int' },
+					'TreePosition'	=> { 'type' => 'int' }
+				   },
+	'Characters'		=> {
+					'ID'		=> { 'type' => 'int' },
+					'PlayerName'	=> { 'type' => 'varchar(250)' },
+					'PlayerUID'	=> { 'type' => 'varchar(250)' },
+					'ClassAbilities'=> { 'type' => 'int' },
+					'FactionID'	=> { 'type' => 'int' }
+				   },
+	'Factions'		=> {
+					'ID'		=> { 'type' => 'int' },
+					'Leader'	=> { 'type' => 'varchar(250)' },
+					'Grade'		=> { 'type' => 'int' },
+					'RegionsID'	=> { 'type' => 'int' },
+				   },
+);
+
+sub Main(){
+	my $hDatabase = &connectToDatabase('essencePvP');
+	&parseConfig($hDatabase);
+}
+&Main();
+
+#####################
+##      mySQL      ##
+#####################
+
+sub connectToDatabase(){
+	if(@_ == 1){
+		my $sDatabase = $_[0];
+		my $sUsername = $hDatabase{$sDatabase}{'username'};
+		my $sPassword = $hDatabase{$sDatabase}{'password'};
+		my $sHostname = $hDatabase{$sDatabase}{'host'};
+		my $sPort     = $hDatabase{$sDatabase}{'port'};
+
+		my $sConnection = "DBI:mysql:database=$sDatabase;host=$sHostname;port=$sPort";
+		my $hDatabase = DBI->connect($sConnection, $sUsername, $sPassword);
+
+		return $hDatabase;
+	} else { return 0; }
+}
+
+sub exeSQLQuery(){
+	if(@_ == 2){
+		my ($hDatabase, $sQuery) = @_;
+		my $hQuery = $hDatabase->prepare($sQuery);
+		$hQuery->execute();
+
+		return 1;
+	} else { return 0; }
+}
+
+#####################
+##      Parsing    ##
+#####################
+
+sub generateTableQueries(){
+	if(@_ == 1){
+		my $hDatabase = $_[0];
+
+		foreach my $sTable (keys %hTables){
+			my $sQuery = 'CREATE TABLE (';
+			my $bFirst = 1;
+			foreach my $sField (keys %{$hTables{$sTable}}){
+				unless($bFirst){ $sQuery = $sQuery.','; }
+				my $sType = $hTables{$sTable}{$sField}{'type'};
+
+				$sQuery = $sQuery.$sField.' '.$sType;
+				$bFirst = 0;
+			}
+			$sQuery = $sQuery.');';
+			&exeSQLQuery($hDatabase, $sQuery);
+		}
+	} else { return 0; }
+}

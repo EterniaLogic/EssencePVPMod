@@ -1,0 +1,2 @@
+Segmented functions and completed first version
+
