@@ -30,10 +30,10 @@ public class EssencePVP
     public static final String MODID = "essencepvp";
     public static final String VERSION = "0.1";
     
-    public static Block lblk;
-    public static Block tblk;
-    public static Block hblk;
-    
+    public static Block lblk; // hLevelBlock
+    public static Block tblk; // hTrapBlock
+    public static Block hblk; // hHealBlock
+
     public static int healblockid=0, trapblockid=0, levelblockid=0;
     
     public static CreativeTabs creativeTab = new CreativeTabsEMod("EssencePVP");
