@@ -48,15 +48,15 @@ public class EssencePVP
     
     public Configuration config;
     
-    public boolean useDBServer;
-    public String mysqlServer;
-    public int mysqlPort;
-    public String mysqlUser;
-    public String mysqlPassword;
-	public double expRate;
-	public float monRate;
-	public float scoRate;
-	public boolean accumExp;
+    public boolean useDBServer; // bUseMySQL
+    public String mysqlServer; // bMySQLHostname
+    public int mysqlPort; // iMySQLPort
+    public String mysqlUser; // sMySQLUsername
+    public String mysqlPassword; // sMySQLPassword
+	public double expRate; // dExperienceRate
+	public float monRate; // fFundsGainRate
+	public float scoRate; // fScoreGainRate
+	public boolean accumExp; // bGainExp
     
     
     @EventHandler
