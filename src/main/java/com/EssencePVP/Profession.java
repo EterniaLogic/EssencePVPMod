@@ -17,7 +17,7 @@
 
 package com.EssencePVP;
 
-private class Profession{
+public class Profession{
 	private int iProfessionId;
 	private String sProfessionName;
 	private String sProfesionDescription;
@@ -48,6 +48,7 @@ private class Profession{
 
 	public boolean setNext(Profession _pNext){
 		this.pNext = _pNext;
+		return true;
 	}
 
 	// Automatically generates a iProfessionId prior to adding a new node. Will not work if this is not the tail

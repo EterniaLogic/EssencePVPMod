@@ -42,7 +42,7 @@ public class Professions{
 		}
 		iNumProfessions++;
 	}
-
+/*
 	public boolean delProfession(String _sProfessionName){
 		// Find the ID of the Profession which has this ProfessionName
 		// Then call the delProfession(int)
@@ -55,7 +55,7 @@ public class Professions{
 	private Profession delProfession(int _iProfessionId, Profession _pProfession){
 		// Recursive deletion
 	}
-
+*/
 	public int getProfessionCount(){
 		return(this.iNumProfessions);
 	}
