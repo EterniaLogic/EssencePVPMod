@@ -50,7 +50,7 @@ public class Professions{
 		}
 		if(pTemporary.getProfessionId() == _iProfessionId){
 			// <---
-			reutrn true;
+			return true;
 		} else { return false; }
 	}
 
