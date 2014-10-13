@@ -17,7 +17,7 @@
 
 package com.EssencePVP;
 
-public class Profession{
+private class Profession{
 	private int iProfessionId;
 	private String sProfessionName;
 	private String sProfesionDescription;
