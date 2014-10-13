@@ -17,7 +17,7 @@
 
 package com.EssencePVP;
 
-private class Professions{
+public class Professions{
 	private int iNumProfessions; // This number must be equal to the sProffesionId value of the tail node
 	private Profession pHead;
 
@@ -43,25 +43,26 @@ private class Professions{
 		iNumProfessions++;
 	}
 
-	// Needs re-write. Possibly should be made recursive
-	public boolean delProfession(int _iProfessionId){
-		Profession pTemporary = pHead;
-		// Replace pHead with the next item on the list
-		// if pHead.pNext == null then it will automatically
-		// adapt
-		if(pTemporary.getProfessionId() == _iProfessionId){
-			pHead = pTemporary.getNext();
-			iNumProfessions--;
-			return true;
-		}
-		else{
-			while(!(pTemporary.pNext().getProfessionId() == _iProfessionId)){
+	public boolean delProfession(String _sProfessionName){
+		// Find the ID of the Profession which has this ProfessionName
+		// Then call the delProfession(int)
+	}
 
-			}
-		}
+	public boolean delProfession(int _iProfessionId){
+		delProfession(_iProfessionId, this.pHead);
+	}
+
+	private Profession delProfession(int _iProfessionId, Profession _pProfession){
+		// Recursive deletion
 	}
 
 	public int getProfessionCount(){
 		return(this.iNumProfessions);
+	}
+
+	public boolean isProfessionsEmpty(){
+		if(getProfessionCount() > 0)
+			return false;
+		else return true;
 	}
 }

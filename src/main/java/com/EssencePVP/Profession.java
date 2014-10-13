@@ -46,6 +46,10 @@ private class Profession{
 		this.sProfesionDescription = _sProfessionDescription;
 	}
 
+	public boolean setNext(Profession _pNext){
+		this.pNext = _pNext;
+	}
+
 	// Automatically generates a iProfessionId prior to adding a new node. Will not work if this is not the tail
 	public boolean addNext(String _sProfessionName, String _sProfessionDescription){
 		if(this.isTail()){
