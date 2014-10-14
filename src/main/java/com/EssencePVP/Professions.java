@@ -39,18 +39,33 @@ public class Professions{
 		}
 	}
 
+	// This should be used as little as possible. It will call a recursive function to locate the correct
+	// Profession object; identify its ID and pass it to the appropriate delProfession function to actually
+	// delete it. It is best to already know a Profession's ID. This can be improved by creating a function
+	// which has the object in question passed to it and then performing the delete - AK
 	public void delProfession(String _sProfessionName){
 		delProfession(_sProfessionName, this.pHead);
 	}
 
 	public void delProfession(String _sProfessionName, Profession _pProfession){
-		
+		if(_pProfession == null)
+			return;
+		else if(_pProfession.getProfessionName().equals(_sProfessionName)){
+			delProfession(_pProfession.getProfessionId());
+			return;
+		}
+		else{
+			delProfession(_sProfessionName, _pProfession.getNext());
+		}
 	}
 
 	public void delProfession(int _iProfessionId){
 		delProfession(_iProfessionId, this.pHead);
 	}
 
+	// Recursively traverse through the list and locate the node that must be deleted. Once the node is located
+	// the parent node will link to whatever that node is linking to. I am assuming that JAVA's garbage collection
+	// will delete the node that is no longer refrenced as I have not found any form of an equivelant to C's delete()
 	private void delProfession(int _iProfessionId, Profession _pProfession){ // Untested
 		if(_pProfession == null)
 			return;
