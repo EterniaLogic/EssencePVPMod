@@ -58,12 +58,14 @@ public class Professions{
 		else{
 			if(_pProfession == this.pHead){
 				this.pHead = this.pHead.getNext();
+				this.iNumProfessions--;
 				return;
 			}
 			else{
 				if(_pProfession.getNext() != null){
 					if(_pProfession.getNext().getProfessionId() == _iProfessionId){
 						_pProfession.setNext(_pProfession.getNext().getNext());
+						this.iNumProfessions--;
 					}
 				}
 				else delProfession(_iProfessionId, _pProfession.getNext());

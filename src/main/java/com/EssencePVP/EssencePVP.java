@@ -45,9 +45,9 @@ public class EssencePVP
     public static final String MODID = "essencepvp";
     public static final String VERSION = "0.1";
     
-    public static Block lblk; // hLevelBlock
-    public static Block tblk; // hTrapBlock
-    public static Block hblk; // hHealBlock
+    public static Block hLevelBlock;
+    public static Block hTrapBlock;
+    public static Block hHealBlock;
 
     public static int healblockid=0, trapblockid=0, levelblockid=0;
     
@@ -62,16 +62,18 @@ public class EssencePVP
     public static EssencePVP instance;
     
     public Configuration config;
-    
-    public boolean useDBServer; // bUseMySQL
-    public String mysqlServer; // bMySQLHostname
-    public int mysqlPort; // iMySQLPort
-    public String mysqlUser; // sMySQLUsername
-    public String mysqlPassword; // sMySQLPassword
-	public double expRate; // dExperienceRate
-	public float monRate; // fFundsGainRate
-	public float scoRate; // fScoreGainRate
-	public boolean accumExp; // bGainExp
+ 
+    // mySQL   
+    public boolean bUseMySQL;
+    public String bMySQLHostname;
+    public int iMySQLPort;
+    public String sMySQLUsername;
+    public String sMySQLPassword;
+
+	public double dExperienceRate;
+	public float fFundsGainRate;
+	public float fScoreGainRate;
+	public boolean bGainExp;
     
     
     @EventHandler
@@ -88,13 +90,13 @@ public class EssencePVP
     	generateLoadConfig();
     	
     	// Load Blocks
-    	lblk = (new LevelBlock(levelblockid, 1)).setHardness(1.5F).setResistance(5F).setStepSound(Block.soundTypeStone).setBlockTextureName(EssencePVP.MODID + ":" + "level_block");
-    	tblk = (new TrapBlock(trapblockid, 1)).setHardness(1.5F).setResistance(25F).setStepSound(Block.soundTypeMetal).setBlockTextureName(EssencePVP.MODID + ":" + "trap_block");
-    	hblk = (new HealBlock(healblockid, 1)).setHardness(1.0F).setResistance(2F).setStepSound(Block.soundTypeWood).setBlockTextureName(EssencePVP.MODID + ":" + "heal_block");
+    	hLevelBlock = (new LevelBlock(levelblockid, 1)).setHardness(1.5F).setResistance(5F).setStepSound(Block.soundTypeStone).setBlockTextureName(EssencePVP.MODID + ":" + "level_block");
+    	hTrapBlock = (new TrapBlock(trapblockid, 1)).setHardness(1.5F).setResistance(25F).setStepSound(Block.soundTypeMetal).setBlockTextureName(EssencePVP.MODID + ":" + "trap_block");
+    	hHealBlock = (new HealBlock(healblockid, 1)).setHardness(1.0F).setResistance(2F).setStepSound(Block.soundTypeWood).setBlockTextureName(EssencePVP.MODID + ":" + "heal_block");
     	
-    	GameRegistry.registerBlock(hblk, "heal_block");
-    	GameRegistry.registerBlock(tblk, "trap_block");
-    	GameRegistry.registerBlock(lblk, "level_block");
+    	GameRegistry.registerBlock(hHealBlock, "heal_block");
+    	GameRegistry.registerBlock(hTrapBlock, "trap_block");
+    	GameRegistry.registerBlock(hLevelBlock, "level_block");
     	
     	// Items
     
@@ -102,6 +104,12 @@ public class EssencePVP
     	// Scala manages scripting for the mod
     	
     	// Java manages mod items, blocks, animations and performance
+
+        // Test
+        // Professions pTest = new Professions();
+        // pTest.addProfession("This is a test", "This is a test 2");
+        // pTest.delProfession(1);
+        // System.out.println(">>>>>>>>>>>>>>>"+pTest.getProfessionCount());
     }
     
     public void generateLoadConfig(){
@@ -109,17 +117,17 @@ public class EssencePVP
     	config.load();
 
     	// Mod configurations
-    	expRate = config.getFloat("ExpRate","GameCFG",1.0f,0.1f,10000.0f,"Set the exp rate for the skill tree");
-    	monRate = config.getFloat("MoneyRate","GameCFG",1.0f,0.1f,10000.0f,"Sets the speed in which players get money from pvp");
-    	scoRate = config.getFloat("ScoreRate","GameCFG",1.0f,0.1f,10000.0f,"Sets the speed in which players get score from pvp");
-    	accumExp= config.getBoolean("AccumulateExp","ServerCFG",true,"Will players gain exp from hitting other players? If not, they get exp from killing others");
+    	dExperienceRate = config.getFloat("dExperienceRate","GameCFG",1.0f,0.1f,10000.0f,"Set the exp rate for the skill tree");
+    	fFundsGainRate = config.getFloat("MoneyRate","GameCFG",1.0f,0.1f,10000.0f,"Sets the speed in which players get money from pvp");
+    	fScoreGainRate = config.getFloat("ScoreRate","GameCFG",1.0f,0.1f,10000.0f,"Sets the speed in which players get score from pvp");
+    	bGainExp= config.getBoolean("AccumulateExp","ServerCFG",true,"Will players gain exp from hitting other players? If not, they get exp from killing others");
     	
     	// Mysql Server stuffs
-    	useDBServer=config.getBoolean("UseDatabaseServer","ServerCFG",false,"Do you want to use a database server? If not, SQLite will be used.");
-    	mysqlServer=config.getString("MysqlServer","ServerCFG","","Mysql Server location");
-    	mysqlPort=config.getInt("MysqlPort","ServerCFG",3306,1,65535,"Mysql Port");
-    	mysqlUser=config.getString("MysqlUser","ServerCFG","user","Mysql Username");
-    	mysqlPassword=config.getString("MysqlPW","ServerCFG","pass","Mysql Password");
+    	bUseMySQL=config.getBoolean("UseDatabaseServer","ServerCFG",false,"Do you want to use a database server? If not, SQLite will be used.");
+    	bMySQLHostname=config.getString("bMySQLHostname","ServerCFG","","Mysql Server location");
+    	iMySQLPort=config.getInt("iMySQLPort","ServerCFG",3306,1,65535,"Mysql Port");
+    	sMySQLUsername=config.getString("sMySQLUsername","ServerCFG","user","Mysql Username");
+    	sMySQLPassword=config.getString("MysqlPW","ServerCFG","pass","Mysql Password");
     	
     	// Block configurations
     	healblockid = config.getInt("healblockid", "BlockIDs", 3380, 512, 40000, "Heal Block ID");
