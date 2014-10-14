@@ -1,3 +1,4 @@
+ 
 // EssencePvP is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
@@ -29,7 +30,7 @@
 package com.EssencePVP;
 
 // Processes backend information
-class PrimaryThread extends Thread {
+class SkillThread extends Thread {
 	//private List<Player> isFlying = Collections.synchronizedList(new ArrayList<Player>());
 	//private ConcurrentHashMap<Player, Integer> playerTimes = new ConcurrentHashMap<Player, Integer>();
 	
@@ -40,10 +41,10 @@ class PrimaryThread extends Thread {
 		load();
 		while (true){
 			try {
-				Thread.sleep(1000); // every second
+				Thread.sleep(50); // 20Hz
 			} catch (InterruptedException e) {break;}
 			
-			// process background information and scheduling
+			// Process Skills and projectiles
 		}
 	}
 	private void load(){ reload(); }
