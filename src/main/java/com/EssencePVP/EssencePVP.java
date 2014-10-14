@@ -16,6 +16,7 @@
 package com.EssencePVP;
 
 import java.io.File;
+//import java.lang.System;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -102,6 +103,12 @@ public class EssencePVP
     	// Scala manages scripting for the mod
     	
     	// Java manages mod items, blocks, animations and performance
+
+        // Test
+        // Professions pTest = new Professions();
+        // pTest.addProfession("This is a test", "This is a test 2");
+        // pTest.delProfession(1);
+        // System.out.println(">>>>>>>>>>>>>>>"+pTest.getProfessionCount());
     }
     
     public void generateLoadConfig(){
