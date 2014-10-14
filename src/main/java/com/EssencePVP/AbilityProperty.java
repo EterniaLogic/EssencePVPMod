@@ -72,4 +72,10 @@ public class AbilityProperty{
 		return(this.pNext);
 	}
 
+	public boolean isTail(){
+		if(this.pNext == null)
+			return true;
+		else return false;
+	}
+
 }

@@ -24,9 +24,9 @@ public class Profession{
 	private Profession pNext;
 	// private ProfessionAbility pProfessionAbility;
 
-	// public Profession(){
-	// 	this(-1,null,null); // call other constructor
-	// }
+	public Profession(){
+		this(-1,null,null); // call other constructor
+	}
 
 	public Profession(int _iProfessionId, String _sProfessionName, String _sProfessionDescription){
 		setProfessionId(_iProfessionId);
@@ -78,8 +78,8 @@ public class Profession{
 	}
 
 	public boolean isTail(){
-		if(pNext == null){
+		if(this.pNext == null)
 			return true;
-		} else return false;
+		else return false;
 	}
 }
