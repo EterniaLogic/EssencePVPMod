@@ -26,32 +26,50 @@ public class Professions{
 		pHead = null;
 	}
 
+	// This will continously add items to the head in order to perform this task in O(1) time as opposed
+	// to adding elements to the tail which would take O(n) time. At this time I do not believe that the
+	// order to which items are added is relevant
+	// - AK
 	public void addProfession(String _sProfessionName, String _sProfessionDescription){
-		if(iNumProfessions == 0){ // if the linked list is empty
-			if(pHead == null)
-				pHead = new Profession(1, _sProfessionName, _sProfessionDescription);
-		} else{
+		if(iNumProfessions == 0){
+			pHead = new Profession(++iNumProfessions, _sProfessionName, _sProfessionDescription);
+		} else {
 			Profession pTemporary = pHead;
-			while(!pHead.isTail()){
-				pTemporary = pTemporary.getNext();
-			}
-			if(pTemporary.isTail()){
-				pTemporary.addNext(_sProfessionName, _sProfessionDescription);
-			}
-
+			pHead = new Profession(++iNumProfessions, _sProfessionName, _sProfessionDescription);
+			pHead.setNext(pTemporary);
 		}
-		iNumProfessions++;
+		return;
 	}
-/*
-	public boolean delProfession(String _sProfessionName){
-		// Find the ID of the Profession which has this ProfessionName
-		// Then call the delProfession(int)
+
+	// This should be used as little as possible. It will call a recursive function to locate the correct
+	// Profession object; identify its ID and pass it to the appropriate delProfession function to actually
+	// delete it. It is best to already know a Profession's ID. This can be improved by creating a function
+	// which has the object in question passed to it and then performing the delete
+	// - AK
+	public void delProfession(String _sProfessionName){
+		delProfession(_sProfessionName, this.pHead);
 	}
-*/
+
+	public void delProfession(String _sProfessionName, Profession _pProfession){
+		if(_pProfession == null)
+			return;
+		else if(_pProfession.getProfessionName().equals(_sProfessionName)){
+			delProfession(_pProfession.getProfessionId());
+			return;
+		}
+		else{
+			delProfession(_sProfessionName, _pProfession.getNext());
+		}
+	}
+
 	public void delProfession(int _iProfessionId){
 		delProfession(_iProfessionId, this.pHead);
 	}
 
+	// Recursively traverse through the list and locate the node that must be deleted. Once the node is located
+	// the parent node will link to whatever that node is linking to. I am assuming that JAVA's garbage collection
+	// will delete the node that is no longer refrenced as I have not found any form of an equivelant to C's delete()
+	// - AK
 	private void delProfession(int _iProfessionId, Profession _pProfession){ // Untested
 		if(_pProfession == null)
 			return;

@@ -107,7 +107,8 @@ public class EssencePVP
 
         // Test
         // Professions pTest = new Professions();
-        // pTest.addProfession("This is a test", "This is a test 2");
+        // pTest.addProfession("Healer", "This is a healer class test");
+        // pTest.addProfession("Guardian", "This is a tank class test");
         // pTest.delProfession(1);
         // System.out.println(">>>>>>>>>>>>>>>"+pTest.getProfessionCount());
     }

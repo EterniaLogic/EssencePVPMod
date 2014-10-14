@@ -22,18 +22,29 @@ public class Ability{
 	private String sAbilityName;
 	private String sAbilityDescription;
 	private AbilityProperty pProperties;
+	private int iProperties;
 
 	public Ability(){
 		this(-1,null,null);
 	}
 
 	public Ability(int _iAbilityId, String _iAbilityName, String _iAbilityDescription){
+		iProperties = 0;
 		setAbilityId(_iAbilityId);
 		setAbilityName(_iAbilityName);
 		setAbilityDescription(_iAbilityDescription);
 	}
 
-	// addAbilityProperty
+	public void addAbilityProperty(String _sPropertyName, String _sPropertyType, float _fPropertyValue){
+		if(iProperties == 0){
+			pProperties = new AbilityProperty(++iProperties, _sPropertyName, _sPropertyType, _fPropertyValue);
+		} else {
+			AbilityProperty pTemporary = pProperties;
+			pProperties = new AbilityProperty(++iProperties, _sPropertyName, _sPropertyType, _fPropertyValue);
+			pProperties.setNext(pTemporary);
+		}
+		return;
+	}
 	// delAbilityProperty
 
 	public void setAbilityId(int _iAbilityId){
