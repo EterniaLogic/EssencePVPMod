@@ -2,3 +2,5 @@ eclipse
 build
 bin
 .gradle
+add
+.gradle/2.0/taskArtifacts

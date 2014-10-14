@@ -324,4 +324,8 @@ Note: Recompile with -Xlint:unchecked for details.
 
 BUILD SUCCESSFUL
 
+<<<<<<< HEAD
 Total time: 7 mins 39.07 secs
+=======
+Total time: 1 mins 30.687 secs
+>>>>>>> 1024075499d198c54fb51a8f05a5a6929bc04cb7
