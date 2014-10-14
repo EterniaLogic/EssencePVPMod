@@ -28,7 +28,8 @@ public class Professions{
 
 	// This will continously add items to the head in order to perform this task in O(1) time as opposed
 	// to adding elements to the tail which would take O(n) time. At this time I do not believe that the
-	// order to which items are added is relevant - AK
+	// order to which items are added is relevant
+	// - AK
 	public void addProfession(String _sProfessionName, String _sProfessionDescription){
 		if(iNumProfessions == 0){
 			pHead = new Profession(++iNumProfessions, _sProfessionName, _sProfessionDescription);
@@ -42,7 +43,8 @@ public class Professions{
 	// This should be used as little as possible. It will call a recursive function to locate the correct
 	// Profession object; identify its ID and pass it to the appropriate delProfession function to actually
 	// delete it. It is best to already know a Profession's ID. This can be improved by creating a function
-	// which has the object in question passed to it and then performing the delete - AK
+	// which has the object in question passed to it and then performing the delete
+	// - AK
 	public void delProfession(String _sProfessionName){
 		delProfession(_sProfessionName, this.pHead);
 	}
@@ -66,6 +68,7 @@ public class Professions{
 	// Recursively traverse through the list and locate the node that must be deleted. Once the node is located
 	// the parent node will link to whatever that node is linking to. I am assuming that JAVA's garbage collection
 	// will delete the node that is no longer refrenced as I have not found any form of an equivelant to C's delete()
+	// - AK
 	private void delProfession(int _iProfessionId, Profession _pProfession){ // Untested
 		if(_pProfession == null)
 			return;
