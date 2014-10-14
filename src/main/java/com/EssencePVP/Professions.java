@@ -92,6 +92,34 @@ public class Professions{
 			return;
 	}
 
+	// delProfession should utilize these functions to search for nodes as opposed to having its own
+	// search algorithim
+	public Profession getProfession(int _iProfessionId){
+		return(getProfession(_iProfessionId, pHead));
+	}
+
+	public Profession getProfession(int _iProfessionId, Profession _pProfession){
+		if(_pProfession == null)
+			return null;
+		else if(_pProfession.getProfessionId() == _iProfessionId)
+			return(_pProfession);
+		else
+			return(getProfession(_iProfessionId, _pProfession.getNext()));
+	}
+
+	public Profession getProfession(String _sProfessionName){
+		return(getProfession(_sProfessionName, pHead));
+	}
+
+	public Profession getProfession(String _sProfessionName, Profession _pProfession){
+		if(_pProfession == null)
+			return null;
+		else if(_pProfession.getProfessionName().equals(_sProfessionName))
+			return(_pProfession);
+		else
+	 		return(getProfession(_sProfessionName, _pProfession));
+	}
+
 	public int getProfessionCount(){
 		return(this.iNumProfessions);
 	}
