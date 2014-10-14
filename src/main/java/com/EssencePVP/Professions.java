@@ -47,20 +47,30 @@ public class Professions{
 		// Find the ID of the Profession which has this ProfessionName
 		// Then call the delProfession(int)
 	}
-
-	public boolean delProfession(int _iProfessionId){
+*/
+	public void delProfession(int _iProfessionId){
 		delProfession(_iProfessionId, this.pHead);
 	}
-*/
-	// private Profession delProfession(int _iProfessionId, Profession _pProfession){
-	// 	if(_pProfession == null)
-	// 		return null;
-	// 	else 
-	// 		if(_pProfession.getProfessionId() == _iProfessionId)
-	// 			return _pProfession.getNext();
-	// 	else
-	// 		delProfession(_iProfessionId, _pProfession);
-	// }
+
+	private void delProfession(int _iProfessionId, Profession _pProfession){ // Untested
+		if(_pProfession == null)
+			return;
+		else{
+			if(_pProfession == this.pHead){
+				this.pHead = this.pHead.getNext();
+				return;
+			}
+			else{
+				if(_pProfession.getNext() != null){
+					if(_pProfession.getNext().getProfessionId() == _iProfessionId){
+						_pProfession.setNext(_pProfession.getNext().getNext());
+					}
+				}
+				else delProfession(_iProfessionId, _pProfession.getNext());
+			}
+		}
+			return;
+	}
 
 	public int getProfessionCount(){
 		return(this.iNumProfessions);
