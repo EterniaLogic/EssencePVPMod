@@ -26,28 +26,27 @@ public class Professions{
 		pHead = null;
 	}
 
+	// This will continously add items to the head in order to perform this task in O(1) time as opposed
+	// to adding elements to the tail which would take O(n) time. At this time I do not believe that the
+	// order to which items are added is relevant - AK
 	public void addProfession(String _sProfessionName, String _sProfessionDescription){
-		if(iNumProfessions == 0){ // if the linked list is empty
-			if(pHead == null)
-				pHead = new Profession(1, _sProfessionName, _sProfessionDescription);
-		} else{
+		if(iNumProfessions == 0){
+			pHead = new Profession(++iNumProfessions, _sProfessionName, _sProfessionDescription);
+		} else {
 			Profession pTemporary = pHead;
-			while(!pHead.isTail()){
-				pTemporary = pTemporary.getNext();
-			}
-			if(pTemporary.isTail()){
-				pTemporary.addNext(_sProfessionName, _sProfessionDescription);
-			}
-
+			Profession pHead = new Profession(++iNumProfessions, _sProfessionName, _sProfessionDescription);
+			pHead.setNext(pTemporary);
 		}
-		iNumProfessions++;
 	}
-/*
-	public boolean delProfession(String _sProfessionName){
-		// Find the ID of the Profession which has this ProfessionName
-		// Then call the delProfession(int)
+
+	public void delProfession(String _sProfessionName){
+		delProfession(_sProfessionName, this.pHead);
 	}
-*/
+
+	public void delProfession(String _sProfessionName, Profession _pProfession){
+		
+	}
+
 	public void delProfession(int _iProfessionId){
 		delProfession(_iProfessionId, this.pHead);
 	}
