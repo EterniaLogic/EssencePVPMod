@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with EssencePvP.  If not, see <http://www.gnu.org/licenses/>.
 
-package com.EssencePVP;
+package com.EssencePVP.Player;
 
 // Uses event listener
 
