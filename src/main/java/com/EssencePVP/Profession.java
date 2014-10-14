@@ -32,6 +32,7 @@ public class Profession{
 		setProfessionId(_iProfessionId);
 		setProfessionName(_sProfessionName);
 		setProfessionDescription(_sProfessionDescription);
+		setNext(null);
 	}
 
 	public void setProfessionId(int _iProfessionId){

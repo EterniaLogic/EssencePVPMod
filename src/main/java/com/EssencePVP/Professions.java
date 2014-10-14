@@ -51,11 +51,17 @@ public class Professions{
 	public boolean delProfession(int _iProfessionId){
 		delProfession(_iProfessionId, this.pHead);
 	}
-
-	private Profession delProfession(int _iProfessionId, Profession _pProfession){
-		// Recursive deletion
-	}
 */
+	// private Profession delProfession(int _iProfessionId, Profession _pProfession){
+	// 	if(_pProfession == null)
+	// 		return null;
+	// 	else 
+	// 		if(_pProfession.getProfessionId() == _iProfessionId)
+	// 			return _pProfession.getNext();
+	// 	else
+	// 		delProfession(_iProfessionId, _pProfession);
+	// }
+
 	public int getProfessionCount(){
 		return(this.iNumProfessions);
 	}
