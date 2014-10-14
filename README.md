@@ -4,7 +4,7 @@
 
 <h3>Authors</h3>:
 - EterniaLogic (MC: DreadEnd)
-- SauronKitty (MC: Local_Read)
+- SauronKitty (MC: Local_Red)
 - James Little (MC: james1377little)
 
 <h3>System Requirements</h3>:
