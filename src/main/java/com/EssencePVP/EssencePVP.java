@@ -16,7 +16,6 @@
 package com.EssencePVP;
 
 import java.io.File;
-//import java.lang.System;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
