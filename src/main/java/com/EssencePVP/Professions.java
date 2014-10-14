@@ -35,9 +35,10 @@ public class Professions{
 			pHead = new Profession(++iNumProfessions, _sProfessionName, _sProfessionDescription);
 		} else {
 			Profession pTemporary = pHead;
-			Profession pHead = new Profession(++iNumProfessions, _sProfessionName, _sProfessionDescription);
+			pHead = new Profession(++iNumProfessions, _sProfessionName, _sProfessionDescription);
 			pHead.setNext(pTemporary);
 		}
+		return;
 	}
 
 	// This should be used as little as possible. It will call a recursive function to locate the correct
