@@ -22,3 +22,8 @@
 
 <h3>To Test</h3>:
 - Level Block under the Creative Tab "EssencePVP" has the skill GUI
+
+<h3>Licensing</h3>:
+- Metrics - ((C) Tyler Blair)
+- Minecraft Forge
+- Minecraft - Mojang
