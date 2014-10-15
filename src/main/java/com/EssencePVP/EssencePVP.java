@@ -17,6 +17,7 @@ package com.EssencePVP;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Set;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -77,6 +78,14 @@ public class EssencePVP
 	public float fScoreGainRate;
 	public boolean bGainExp;
     public Metricz metrics=null;
+	private float meleeAttackF;
+	private float rangeAttackF;
+	private float rangeAttackS;
+	private float techyAttackF;
+	private float techyAttackS;
+	private float magicAttackF;
+	private float magicAttackS;
+	private float passvFactor;
     
     @EventHandler
     public void init(FMLInitializationEvent event)
@@ -90,9 +99,7 @@ public class EssencePVP
 	    	if(Minecraft.getMinecraft().getIntegratedServer().isServerRunning()){
 	    		try {
 					metrics = new Metricz("EssencePVP",VERSION);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-				}
+				} catch (IOException e) {}
 	    	}
     	}
     	
@@ -145,6 +152,24 @@ public class EssencePVP
     	trapblockid = config.getInt("trapblockid", "BlockIDs", 3381, 512, 40000, "Trap Block ID");
     	levelblockid= config.getInt("levelblockid","BlockIDs", 3382, 512, 40000, "Level Block ID");
     	
+    	// Balance configurations
+    	meleeAttackF=config.getFloat("MeleeAttackDamage","Balance",1.0f,0.00001f,65535.0f,"Multiple of melee attack damage");
+    	meleeAttackF=config.getFloat("MeleeAttackSpeed","Balance",1.0f,0.00001f,65535.0f,"Multiple of melee attack speed");
+    	rangeAttackF=config.getFloat("RangeAttackDamage","Balance",1.0f,0.00001f,65535.0f,"Multiple of ranged attack damage");
+    	rangeAttackS=config.getFloat("RangeAttackSpeed","Balance",1.0f,0.00001f,65535.0f,"Multiple of ranged attack speed");
+    	magicAttackF=config.getFloat("MagicAttackDamage","Balance",1.0f,0.00001f,65535.0f,"Multiple of magical attack damage");
+    	magicAttackS=config.getFloat("MagicAttackSpeed","Balance",1.0f,0.00001f,65535.0f,"Multiple of magical attack speed");
+    	techyAttackF=config.getFloat("TechnicalAttackDamage","Balance",1.0f,0.00001f,65535.0f,"Multiple of technical attack damage");
+    	techyAttackS=config.getFloat("TechnicalAttackSpeed","Balance",1.0f,0.00001f,65535.0f,"Multiple of technical attack speed");
+    	passvFactor =config.getFloat("PassiveFactor","Balance",1.0f,0.00001f,65535.0f,"How effective are passive skills?");
+    	
+    	// load in ability categories if they exist. Else, make it.
+    	if(!config.getCategory("Abilities").isEmpty()){
+    		Set s = config.getCategory("Abilities").getChildren();
+    	}else{
+    		//TODO: Generate ability categories
+    	}
+    	
     	config.save(); // changes to config (auto-adds to config)
     }
 }
@@ -154,24 +179,20 @@ class Metricz extends Metrics{
 
 	public Metricz(String pluginName, String pluginVersion) throws IOException {
 		super(pluginName, pluginVersion);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public String getFullServerVersion() {
-		// TODO Auto-generated method stub
 		return "";
 	}
 
 	@Override
 	public int getPlayersOnline() {
-		// TODO Auto-generated method stub
 		return Minecraft.getMinecraft().getIntegratedServer().getCurrentPlayerCount();
 	}
 
 	@Override
 	public File getConfigFile() {
-		// TODO Auto-generated method stub
 		return new File("metrics.cfg");
 	}	
 }

@@ -18,5 +18,10 @@ package com.EssencePVP.Player;
 
 public class Player
 {
-
-};
+	Experience exp = new Experience(); // Experience manager
+	
+	Player(String name){
+		// load player based on name
+		// TODO:  Load player from Mysql or SQLite
+	}
+}

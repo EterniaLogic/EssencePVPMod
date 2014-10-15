@@ -16,6 +16,8 @@ public class HealBlock extends Block
                 this.setCreativeTab(EssencePVP.creativeTab);
                 setBlockTextureName(EssencePVP.MODID + ":" + "heal_block");
         }
+        
+        // TODO: Heal a player within a distance
 
         public int idDropped(int i, Random random)
         {

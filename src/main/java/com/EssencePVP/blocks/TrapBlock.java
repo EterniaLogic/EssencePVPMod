@@ -16,6 +16,8 @@ public class TrapBlock extends Block
                 this.setCreativeTab(EssencePVP.creativeTab);
                 //setBlockTextureName(modnamex.MODID + ":" + "textures/blocks/trap_block.jpg");
         }
+        
+        //TODO: make this block damage players based on GUI
 
         public int idDropped(int i, Random random)
         {
