@@ -25,7 +25,7 @@ class PrimaryThread extends Thread {
 		load();
 		while (true){
 			try {
-				Thread.sleep(1000 * 60);
+				Thread.sleep(1000); // 1 Second
 			} catch (InterruptedException e) {break;}
 			
 			// process background information
