@@ -36,9 +36,9 @@ public class Ability{
 	}
 
 	public void addAbilityProperty(String _sPropertyName, String _sPropertyType, float _fPropertyValue){
-		if(iProperties == 0){
+		if(iProperties == 0)
 			pProperties = new AbilityProperty(++iProperties, _sPropertyName, _sPropertyType, _fPropertyValue);
-		} else {
+		else {
 			AbilityProperty pTemporary = pProperties;
 			pProperties = new AbilityProperty(++iProperties, _sPropertyName, _sPropertyType, _fPropertyValue);
 			pProperties.setNext(pTemporary);
@@ -63,7 +63,7 @@ public class Ability{
 			return(getAbilityProperty(_iPropertyId, _pProperty.getNext()));
 	}
 
-	public AbilityProperty getAbilityProperty(String _sPropertyName, AbilityProperty _pProperty){
+	private AbilityProperty getAbilityProperty(String _sPropertyName, AbilityProperty _pProperty){
 		if(_pProperty == null)
 			return null;
 		else if(_pProperty.getPropertyName().equals(_sPropertyName))
