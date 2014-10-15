@@ -16,6 +16,7 @@
 package com.EssencePVP;
 
 import java.io.File;
+import java.io.IOException;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -34,6 +35,7 @@ import com.EssencePVP.blocks.TrapBlock;
 import com.EssencePVP.gui.ClientProxy;
 import com.EssencePVP.gui.CreativeTabsEMod;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.*;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -74,7 +76,7 @@ public class EssencePVP
 	public float fFundsGainRate;
 	public float fScoreGainRate;
 	public boolean bGainExp;
-    
+    public Metricz metrics=null;
     
     @EventHandler
     public void init(FMLInitializationEvent event)
@@ -84,7 +86,15 @@ public class EssencePVP
     	
     	// handles gui
     	NetworkRegistry.INSTANCE.registerGuiHandler(this, this.proxy);
-    	
+    	if(Minecraft.getMinecraft().getIntegratedServer() != null){
+	    	if(Minecraft.getMinecraft().getIntegratedServer().isServerRunning()){
+	    		try {
+					metrics = new Metricz("EssencePVP",VERSION);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+				}
+	    	}
+    	}
     	
     	// Generate or load the config
     	generateLoadConfig();
@@ -137,4 +147,31 @@ public class EssencePVP
     	
     	config.save(); // changes to config (auto-adds to config)
     }
+}
+
+
+class Metricz extends Metrics{
+
+	public Metricz(String pluginName, String pluginVersion) throws IOException {
+		super(pluginName, pluginVersion);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String getFullServerVersion() {
+		// TODO Auto-generated method stub
+		return "";
+	}
+
+	@Override
+	public int getPlayersOnline() {
+		// TODO Auto-generated method stub
+		return Minecraft.getMinecraft().getIntegratedServer().getCurrentPlayerCount();
+	}
+
+	@Override
+	public File getConfigFile() {
+		// TODO Auto-generated method stub
+		return new File("metrics.cfg");
+	}	
 }
