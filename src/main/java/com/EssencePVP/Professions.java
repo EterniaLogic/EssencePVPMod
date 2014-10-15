@@ -29,6 +29,7 @@ public class Professions{
 	// This will continously add items to the head in order to perform this task in O(1) time as opposed
 	// to adding elements to the tail which would take O(n) time. At this time I do not believe that the
 	// order to which items are added is relevant
+	// Special note should be made: The head will always have the largest iProfessionId value
 	// - AK
 	public void addProfession(String _sProfessionName, String _sProfessionDescription){
 		if(iNumProfessions == 0){
@@ -47,19 +48,7 @@ public class Professions{
 	// which has the object in question passed to it and then performing the delete
 	// - AK
 	public void delProfession(String _sProfessionName){
-		delProfession(_sProfessionName, this.pHead);
-	}
-
-	public void delProfession(String _sProfessionName, Profession _pProfession){
-		if(_pProfession == null)
-			return;
-		else if(_pProfession.getProfessionName().equals(_sProfessionName)){
-			delProfession(_pProfession.getProfessionId());
-			return;
-		}
-		else{
-			delProfession(_sProfessionName, _pProfession.getNext());
-		}
+		delProfession(getProfession(_sProfessionName).getProfessionId());
 	}
 
 	public void delProfession(int _iProfessionId){
@@ -70,7 +59,7 @@ public class Professions{
 	// the parent node will link to whatever that node is linking to. I am assuming that JAVA's garbage collection
 	// will delete the node that is no longer refrenced as I have not found any form of an equivelant to C's delete()
 	// - AK
-	private void delProfession(int _iProfessionId, Profession _pProfession){ // Untested
+	private void delProfession(int _iProfessionId, Profession _pProfession){
 		if(_pProfession == null)
 			return;
 		else{
@@ -90,6 +79,34 @@ public class Professions{
 			}
 		}
 			return;
+	}
+
+	// delProfession should utilize these functions to search for nodes as opposed to having its own
+	// search algorithim
+	public Profession getProfession(int _iProfessionId){
+		return(getProfession(_iProfessionId, pHead));
+	}
+
+	public Profession getProfession(String _sProfessionName){
+		return(getProfession(_sProfessionName, pHead));
+	}
+
+	private Profession getProfession(int _iProfessionId, Profession _pProfession){
+		if(_pProfession == null)
+			return null;
+		else if(_pProfession.getProfessionId() == _iProfessionId)
+			return(_pProfession);
+		else
+			return(getProfession(_iProfessionId, _pProfession.getNext()));
+	}
+
+	private Profession getProfession(String _sProfessionName, Profession _pProfession){
+		if(_pProfession == null)
+			return null;
+		else if(_pProfession.getProfessionName().equals(_sProfessionName))
+			return(_pProfession);
+		else
+	 		return(getProfession(_sProfessionName, _pProfession));
 	}
 
 	public int getProfessionCount(){

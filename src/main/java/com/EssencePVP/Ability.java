@@ -46,6 +46,7 @@ public class Ability{
 		return;
 	}
 	// delAbilityProperty
+	// getAbilityProperty()
 
 	public void setAbilityId(int _iAbilityId){
 		iAbilityId = _iAbilityId;

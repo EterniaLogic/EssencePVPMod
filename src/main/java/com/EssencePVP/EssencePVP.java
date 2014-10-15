@@ -119,8 +119,8 @@ public class EssencePVP
         // Professions pTest = new Professions();
         // pTest.addProfession("Healer", "This is a healer class test");
         // pTest.addProfession("Guardian", "This is a tank class test");
-        // pTest.delProfession(1);
-        // System.out.println(">>>>>>>>>>>>>>>"+pTest.getProfessionCount());
+        // //Profession pProfTest = pTest.getProfession(1);
+        // System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>"+pTest.getProfession("Guardian").getProfessionId());
     }
     
     public void generateLoadConfig(){
