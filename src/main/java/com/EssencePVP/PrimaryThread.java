@@ -13,7 +13,7 @@
 
 package com.EssencePVP;
 
-// Processes backend information
+
 class PrimaryThread extends Thread {
 	//private List<Player> isFlying = Collections.synchronizedList(new ArrayList<Player>());
 	//private ConcurrentHashMap<Player, Integer> playerTimes = new ConcurrentHashMap<Player, Integer>();

@@ -17,6 +17,8 @@ import org.lwjgl.opengl.GL11;
 
 import com.EssencePVP.EssencePVP;
 
+//TODO: make class skills configurable
+
 //public class SkillGui extends GuiScreen
 public class SkillGui extends GuiScreen
 {

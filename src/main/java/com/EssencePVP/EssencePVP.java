@@ -90,9 +90,7 @@ public class EssencePVP
 	    	if(Minecraft.getMinecraft().getIntegratedServer().isServerRunning()){
 	    		try {
 					metrics = new Metricz("EssencePVP",VERSION);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-				}
+				} catch (IOException e) {}
 	    	}
     	}
     	
@@ -154,24 +152,20 @@ class Metricz extends Metrics{
 
 	public Metricz(String pluginName, String pluginVersion) throws IOException {
 		super(pluginName, pluginVersion);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public String getFullServerVersion() {
-		// TODO Auto-generated method stub
 		return "";
 	}
 
 	@Override
 	public int getPlayersOnline() {
-		// TODO Auto-generated method stub
 		return Minecraft.getMinecraft().getIntegratedServer().getCurrentPlayerCount();
 	}
 
 	@Override
 	public File getConfigFile() {
-		// TODO Auto-generated method stub
 		return new File("metrics.cfg");
 	}	
 }

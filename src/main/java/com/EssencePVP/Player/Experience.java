@@ -23,11 +23,12 @@ public class Experience
   
   // Player kills another
   public void expKill(){
-  
+	  // TODO: Set EXP gain from kill
+	  // IDEA: If a player kills a player of higher level, they get more.
   }
   
   // Player dies
   public void expDeath(){
-  
+	// TODO: Death makes player lose exp
   }
 };

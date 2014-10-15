@@ -23,5 +23,5 @@ import net.minecraftforge.event.entity.EntityEvent;
 public class PlayerListener
 {
   //@ForgeSubscribe
-  
+  //TODO: Set event listeners
 }
