@@ -87,7 +87,11 @@ public class Professions{
 		return(getProfession(_iProfessionId, pHead));
 	}
 
-	public Profession getProfession(int _iProfessionId, Profession _pProfession){
+	public Profession getProfession(String _sProfessionName){
+		return(getProfession(_sProfessionName, pHead));
+	}
+
+	private Profession getProfession(int _iProfessionId, Profession _pProfession){
 		if(_pProfession == null)
 			return null;
 		else if(_pProfession.getProfessionId() == _iProfessionId)
@@ -96,11 +100,7 @@ public class Professions{
 			return(getProfession(_iProfessionId, _pProfession.getNext()));
 	}
 
-	public Profession getProfession(String _sProfessionName){
-		return(getProfession(_sProfessionName, pHead));
-	}
-
-	public Profession getProfession(String _sProfessionName, Profession _pProfession){
+	private Profession getProfession(String _sProfessionName, Profession _pProfession){
 		if(_pProfession == null)
 			return null;
 		else if(_pProfession.getProfessionName().equals(_sProfessionName))
