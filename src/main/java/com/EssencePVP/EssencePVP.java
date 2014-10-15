@@ -36,6 +36,8 @@ import com.EssencePVP.blocks.TrapBlock;
 import com.EssencePVP.gui.ClientProxy;
 import com.EssencePVP.gui.CreativeTabsEMod;
 
+import com.EssencePVP.Professions.*;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.*;
 import net.minecraft.creativetab.CreativeTabs;
