@@ -45,8 +45,34 @@ public class Ability{
 		}
 		return;
 	}
+
+	public AbilityProperty getAbilityProperty(int _iPropertyId){
+		return(getAbilityProperty(_iPropertyId, pProperties));
+	}
+
+	public AbilityProperty getAbilityProperty(String _sPropertyName){
+		return(getAbilityProperty(_sPropertyName, pProperties));
+	}
+
+	private AbilityProperty getAbilityProperty(int _iPropertyId, AbilityProperty _pProperty){
+		if(_pProperty == null)
+			return null;
+		else if(_pProperty.getPropertyId() == _iPropertyId)
+			return(_pProperty);
+		else
+			return(getAbilityProperty(_iPropertyId, _pProperty.getNext()));
+	}
+
+	public AbilityProperty getAbilityProperty(String _sPropertyName, AbilityProperty _pProperty){
+		if(_pProperty == null)
+			return null;
+		else if(_pProperty.getPropertyName().equals(_sPropertyName))
+			return(_pProperty);
+		else
+			return(getAbilityProperty(_sPropertyName, _pProperty.getNext()));
+	}
+
 	// delAbilityProperty
-	// getAbilityProperty()
 
 	public void setAbilityId(int _iAbilityId){
 		iAbilityId = _iAbilityId;
