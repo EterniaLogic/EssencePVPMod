@@ -21,11 +21,10 @@ public class Profession{
 	private int iProfessionId;
 	private String sProfessionName;
 	private String sProfesionDescription;
-	private Abilities pAbilities;
 	private Profession pNext;
 	// possibly replace this by simply using 'Abilities' list
 	// and avoid having an entire relational class
-	// private ProfessionAbility pProfessionAbility;
+	private ProfessionAbility pProfessionAbility;
 
 	public Profession(){
 		this(-1,null,null); // call other constructor
@@ -35,7 +34,6 @@ public class Profession{
 		setProfessionId(_iProfessionId);
 		setProfessionName(_sProfessionName);
 		setProfessionDescription(_sProfessionDescription);
-		pAbilities = new Abilities();
 		setNext(null);
 	}
 
