@@ -1,8 +1,10 @@
 .gradle/2.0/taskArtifacts/cache.properties.lock
 .gradle/2.0/taskArtifacts/cache.properties
 .gradle/2.0/taskArtifacts/*.bin
-eclipse
 build
 bin
 .gradle
 add
+*.log
+.eclipse
+.settings

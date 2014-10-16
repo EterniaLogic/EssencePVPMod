@@ -1,0 +1,8 @@
+package com.EssencePVP.Particle;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.IProjectile;
+
+public class EntityMagicBall  extends Entity implements IProjectile {
+
+}

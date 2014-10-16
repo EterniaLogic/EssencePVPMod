@@ -1,0 +1,14 @@
+package com.EssencePVP.Particle;
+
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.IProjectile;
+import net.minecraft.world.World;
+
+public class EntityMagicBall extends Entity implements IProjectile {
+
+	public EntityMagicBall(World p_i1582_1_) {
+		super(p_i1582_1_);
+		// TODO Auto-generated constructor stub
+	}
+
+}
