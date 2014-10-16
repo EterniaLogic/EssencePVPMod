@@ -22,8 +22,8 @@ public class Professions{
 	private Profession pHead;
 
 	public Professions(){
-		iNumProfessions = 0;
-		pHead = null;
+		this.iNumProfessions = 0;
+		this.pHead = null;
 	}
 
 	// This will continously add items to the head in order to perform this task in O(1) time as opposed
@@ -32,9 +32,9 @@ public class Professions{
 	// Special note should be made: The head will always have the largest iProfessionId value
 	// - AK
 	public void addProfession(String _sProfessionName, String _sProfessionDescription){
-		if(iNumProfessions == 0){
+		if(iNumProfessions == 0)
 			pHead = new Profession(++iNumProfessions, _sProfessionName, _sProfessionDescription);
-		} else {
+		else{
 			Profession pTemporary = pHead;
 			pHead = new Profession(++iNumProfessions, _sProfessionName, _sProfessionDescription);
 			pHead.setNext(pTemporary);
