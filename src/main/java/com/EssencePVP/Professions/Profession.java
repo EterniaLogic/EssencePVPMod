@@ -74,7 +74,7 @@ public class Profession{
 	}
 
 	public Profession getNext(){
-		return(pNext);
+		return(this.pNext);
 	}
 
 	public boolean isTail(){

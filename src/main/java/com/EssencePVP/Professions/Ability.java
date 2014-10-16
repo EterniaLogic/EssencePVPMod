@@ -21,6 +21,7 @@ public class Ability{
 	private int iAbilityId;
 	private String sAbilityName;
 	private String sAbilityDescription;
+	private Ability pNext;
 	private AbilityProperty pProperties;
 	private int iProperties;
 
@@ -33,6 +34,7 @@ public class Ability{
 		setAbilityId(_iAbilityId);
 		setAbilityName(_iAbilityName);
 		setAbilityDescription(_iAbilityDescription);
+		setNext(null);
 	}
 
 	public void addAbilityProperty(String _sPropertyName, String _sPropertyType, float _fPropertyValue){
@@ -74,6 +76,19 @@ public class Ability{
 
 	// delAbilityProperty
 
+	public boolean setNext(Ability _pNext){
+		this.pNext = _pNext;
+		return true;
+	}
+
+	public boolean addNext(String _sAbilityName, String _sAbilityDescription){
+		if(this.isTail()){
+			this.pNext = new Ability((this.iAbilityId+1), _sAbilityName, sAbilityDescription);
+			return true;
+		}
+		else return false;
+	}
+
 	public void setAbilityId(int _iAbilityId){
 		iAbilityId = _iAbilityId;
 	}
@@ -96,6 +111,16 @@ public class Ability{
 
 	public String getAbilityDescription(){
 		return(this.sAbilityDescription);
+	}
+
+	public Ability getNext(){
+		return(this.pNext);
+	}
+
+	public boolean isTail(){
+		if(this.pNext == null)
+			return true;
+		else return false;
 	}
 
 }

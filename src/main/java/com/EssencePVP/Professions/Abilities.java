@@ -90,7 +90,7 @@ public class Abilities{
 		else if(_pAbility.getAbilityName().equals(_sAbilityName))
 			return(_pAbility);
 		else
-	 		return(getAbility(_sAbilityName, _pProfession));
+	 		return(getAbility(_sAbilityName, _pAbility));
 	}
 
 	public int getAbilitiesCount(){
