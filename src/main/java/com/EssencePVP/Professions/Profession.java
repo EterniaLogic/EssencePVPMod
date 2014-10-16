@@ -39,6 +39,8 @@ public class Profession{
 		setNext(null);
 	}
 
+	// TODO: Add functions to add items into this Profession's Abilities list
+
 	public void setProfessionId(int _iProfessionId){
 		this.iProfessionId = _iProfessionId;
 	}
