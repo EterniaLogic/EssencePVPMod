@@ -22,7 +22,9 @@ public class Profession{
 	private String sProfessionName;
 	private String sProfesionDescription;
 	private Profession pNext;
-	// private ProfessionAbility pProfessionAbility;
+	// possibly replace this by simply using 'Abilities' list
+	// and avoid having an entire relational class
+	private ProfessionAbility pProfessionAbility;
 
 	public Profession(){
 		this(-1,null,null); // call other constructor

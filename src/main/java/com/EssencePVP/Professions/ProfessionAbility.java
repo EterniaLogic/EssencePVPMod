@@ -59,6 +59,22 @@ public class ProfessionAbility{
 		else return false;
 	}
 
+	public int getProfessionAbilityId(){
+		return(this.iProfessionAbilityId);
+	}
+
+	public ProfessionAbility getNext(){
+		return(this.pNext);
+	}
+
+	public Profession getProfession(){
+		return(this.pProfession);
+	}
+
+	public Ability getAbility(){
+		return(this.pAbility);
+	}
+
 	public boolean isTail(){
 		if(this.pNext == null)
 			return true;
