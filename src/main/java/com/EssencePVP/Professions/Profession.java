@@ -56,7 +56,12 @@ public class Profession{
 		return true;
 	}
 
-	// Automatically generates a iProfessionId prior to adding a new node. Will not work if this is not the tail
+	// Description:
+	// Automatically generates an iProfessionId prior to adding a new node. Will not work if this is not the tail. The
+	// Proffession node will be automatically created using the passed Profession name and Profession Description
+	// Returns:
+	// false if the node we are trying to link to is not the tail node
+	// true otherwise
 	public boolean addNext(String _sProfessionName, String _sProfessionDescription){
 		if(this.isTail()){
 			this.pNext = new Profession((this.iProfessionId+1), _sProfessionName, sProfesionDescription);
