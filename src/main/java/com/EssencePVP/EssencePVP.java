@@ -124,12 +124,21 @@ public class EssencePVP
     	
     	// Java manages mod items, blocks, animations and performance
 
-        // Test
-        // Professions pTest = new Professions();
-        // pTest.addProfession("Healer", "This is a healer class test");
-        // pTest.addProfession("Guardian", "This is a tank class test");
+        // <begin> EssencePvP::Professions::* examples
+        Professions pTest = new Professions(); // Creating a Professions object
+
+        pTest.addProfession("Healer", "This is a healer class test"); // Adding a Profession to our Professions list (pTest)
+        pTest.getProfession(1).getAbilities().addAbility("Foo","Bar"); // Adding an Ability to a Profession
+        pTest.getProfession(1).getAbilities().getAbility(1).addAbilityProperty("test_property","cast_time",1.0f); // Adding a Property to an Ability
+
+        pTest.addProfession("Guardian", "This is a tank class test");
+        pTest.getProfession(2).getAbilities().addAbility("Foo1","Bar2");
+        pTest.getProfession(2).getAbilities().getAbility(1).addAbilityProperty("test_property","cast_time",1.0f);
+
         // //Profession pProfTest = pTest.getProfession(1);
         // System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>"+pTest.getProfession("Guardian").getProfessionId());
+
+        // EssencePvP::Professions::* </end>
     }
     
     public void generateLoadConfig(){

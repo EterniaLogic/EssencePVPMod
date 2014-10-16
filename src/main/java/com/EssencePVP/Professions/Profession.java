@@ -72,6 +72,10 @@ public class Profession{
 		else return false;
 	}
 
+	public Abilities getAbilities(){
+		return(this.pAbilities);
+	}
+
 	public int getProfessionId(){
 		return(this.iProfessionId);
 	}
