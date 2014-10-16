@@ -127,10 +127,19 @@ public class EssencePVP
         // <begin> EssencePvP::Professions::* examples
         Professions pTest = new Professions(); // Creating a Professions object
 
+        // Adding profession #1
         pTest.addProfession("Healer", "This is a healer class test"); // Adding a Profession to our Professions list (pTest)
         pTest.getProfession(1).getAbilities().addAbility("Foo","Bar"); // Adding an Ability to a Profession
         pTest.getProfession(1).getAbilities().getAbility(1).addAbilityProperty("test_property","cast_time",1.0f); // Adding a Property to an Ability
 
+        Abilities pTemporary = pTest.getProfession(1).getAbilities(); // Because getAbility() is O(n), we can save the Abilities refrence
+        pTemporary.addAbility("Foo2", "Bar2"); // Ability #2
+        pTemporary.addAbility("Foo3", "Bar3"); // Ability #3
+        Ability pTemporaryAbility = pTemporary.getAbility(2); // Once again, to avoid O(n) we can save the Ability refrence
+        pTemporaryAbility.addAbilityProperty("test_property2", "cast_time", 2.0f); // Added property to Ability #2
+        pTemporaryAbility.addAbilityProperty("test_property3", "cast_time", 2.0f); // Added another property to Ability #2
+
+        // Adding profession #2
         pTest.addProfession("Guardian", "This is a tank class test");
         pTest.getProfession(2).getAbilities().addAbility("Foo1","Bar2");
         pTest.getProfession(2).getAbilities().getAbility(1).addAbilityProperty("test_property","cast_time",1.0f);
