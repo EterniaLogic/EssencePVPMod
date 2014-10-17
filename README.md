@@ -44,4 +44,4 @@
 	<li>Level Block under the Creative Tab "EssencePVP" has the skill GUI</li>
 </ul>
 <h3>Licensing:</h3>
-By downloading and/or using this project you are hereby agreeing to the agreements stipulated not only be the authors of this project but also the agreements stipulated by all code integrated as part of this project by their respective authors. This includes but is not limited to: the authors of Forge, and Minecraft (Mojang). Additionally; this project is free software licensed under the GNU General Public License as published by the Free Software Foundation.
+By downloading and/or using this project you are hereby bound to the agreements stipulated not only be the authors of this project but also the agreements stipulated by all code integrated as part of this project by their respective authors. This includes but is not limited to: the authors of Forge, and Minecraft (Mojang). Additionally; this project is free software licensed under the GNU General Public License as published by the Free Software Foundation.

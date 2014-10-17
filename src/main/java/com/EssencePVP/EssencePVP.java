@@ -145,7 +145,7 @@ public class EssencePVP
         pTest.getProfession(2).getAbilities().getAbility(1).addAbilityProperty("test_property","cast_time",1.0f);
 
         // //Profession pProfTest = pTest.getProfession(1);
-        // System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>"+pTest.getProfession("Guardian").getProfessionId());
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>"+pTest.getProfession("Guardian").getProfessionId());
 
         // EssencePvP::Professions::* </end>
     }

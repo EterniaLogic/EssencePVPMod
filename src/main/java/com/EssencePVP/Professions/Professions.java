@@ -20,10 +20,12 @@ package com.EssencePVP.Professions;
 public class Professions{
 	private int iNumProfessions; // This number must be equal to the sProffesionId value of the tail node
 	private Profession pHead;
+	private Profession pLast;
 
 	public Professions(){
 		this.iNumProfessions = 0;
 		this.pHead = null;
+		this.pLast = null;
 	}
 
 	// This will continously add items to the head in order to perform this task in O(1) time as opposed
@@ -84,11 +86,26 @@ public class Professions{
 	// delProfession should utilize these functions to search for nodes as opposed to having its own
 	// search algorithim
 	public Profession getProfession(int _iProfessionId){
-		return(getProfession(_iProfessionId, pHead));
+		// If another getProfession() request is sent for the Profession with Id of the last request
+		// we will not recursivley try to locate it as we already know where it is. A specific address
+		// table (which is an array with an object's refrence in the slot given by the Id) could be
+		// implemented to store the locations of all professions. At this time I do not see this as a
+		// requirement
+		if(this.pLast != null){
+			if(pLast.getProfessionId() == _iProfessionId)
+				return(this.pLast);
+		}
+		this.pLast = getProfession(_iProfessionId, pHead);
+		return(this.pLast);
 	}
 
 	public Profession getProfession(String _sProfessionName){
-		return(getProfession(_sProfessionName, pHead));
+		if(this.pLast != null){
+			if(this.pLast.getProfessionName().equals(_sProfessionName))
+				return(this.pLast);
+		}
+		this.pLast = getProfession(_sProfessionName, pHead);
+		return(this.pLast);
 	}
 
 	private Profession getProfession(int _iProfessionId, Profession _pProfession){

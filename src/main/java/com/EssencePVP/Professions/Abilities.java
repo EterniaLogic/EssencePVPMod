@@ -20,6 +20,7 @@ package com.EssencePVP.Professions;
 public class Abilities{
 	private int iNumAbilities;
 	private Ability pHead;
+	private Ability pLast;
 
 	public Abilities(){
 		this.iNumAbilities = 0;
@@ -79,11 +80,21 @@ public class Abilities{
 	}
 
 	public Ability getAbility(int _iAbilityId){
-		return(getAbility(_iAbilityId, pHead));
+		if(this.pLast != null){
+			if(this.pLast.getAbilityId() == _iAbilityId)
+				return(this.pLast);
+		}
+		this.pLast = getAbility(_iAbilityId, pHead);
+		return(this.pLast);
 	}
 
 	public Ability getAbility(String _sAbilityName){
-		return(getAbility(_sAbilityName, pHead));
+		if(this.pLast != null){
+			if(this.pLast.getAbilityName().equals(_sAbilityName))
+				return(this.pLast);
+		}
+		this.pLast = getAbility(_sAbilityName, pHead);
+		return(this.pLast);
 	}
 
 	private Ability getAbility(int _iAbilityId, Ability _pAbility){
