@@ -32,19 +32,16 @@
 		<li>JAVA Run Time Environment (1.7.x)</li>
 	</ul>
 </ul>
-<h3>To Build:</h3><ul>
+<h3>Building:</h3><ul>
 	<li>Linux/MacOSX - "./gradlew build"</li>
 	<li>Windows - "gradlew.bat build"</li>
 </ul>
-<h3>To Run:</h3><ul>
+<h3>Running a Test Client:</h3><ul>
 	<li>Linux/MacOSX - "./gradlew runClient"</li>
 	<li>Windows - "gradlew.bat runClient"</li>
 </ul>
 <h3>To Test:</h3><ul>
 	<li>Level Block under the Creative Tab "EssencePVP" has the skill GUI</li>
 </ul>
-<h3>Licensing:</h3><ul>
-	<li>Metrics - ((C) Tyler Blair)</li>
-	<li>Minecraft Forge</li>
-	<li>Minecraft - Mojang</li>
-</ul>
+<h3>Licensing:</h3>
+By downloading and/or using this project you are hereby agreeing to the agreements stipulated not only be the authors of this project but also the agreements stipulated by all code integrated as part of this project by their respective authors. This includes but is not limited to: the authors of Forge, and Minecraft (Mojang). Additionally; this project is free software licensed under the GNU General Public License as published by the Free Software Foundation.
