@@ -11,7 +11,7 @@
 	</ul>
 	<li>James Little</li>
 	<ul>
-		<li>james1377little</li>
+		<li>Minecraft: james1377little</li>
 	</ul>
 </ul>
 <h3>System Requirements:</h3><ul>
@@ -20,6 +20,11 @@
 		<li>Linux, Windows or MAC OS</li>
 		<li>mySQL Server Software</li>
 		<li>JAVA Run Time Environment (1.7.x)</li>
+		<li>PERL</li>
+		<ul>
+			<li>libdbi-perl</li>
+			<li>libdbd-mysql-perl</li>
+		</ul>
 	</ul>
 	<li>Client:</li>
 	<ul>
