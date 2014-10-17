@@ -1,29 +1,16 @@
 <h1>EssencePVP Mod</h1>
-
   The EssencePVP Mod enables multiple classes of skills  that players can choose from. These classes allow for players to get around the vanilla PVP mechanics and enhance their experience within the game. Settings such a exp rate, economy, ect. are applicable within the configuration.
-
 <h3>Authors</h3>:
-- EterniaLogic (MC: DreadEnd)
-- SauronKitty (MC: Local_Red)
-- James Little (MC: james1377little)
-
+<ul><li>EterniaLogic (MC: DreadEnd)</li><li>SauronKitty (MC: Local_Red)</li><li>James Little (MC: james1377little)</li></ul>
 <h3>System Requirements</h3>:
-- Linux/MacOSX/Windows (XP/Vista/7/8)
-- OpenJDK 7 or Java 7
-
-
+<ul><li>Linux/MacOSX/Windows (XP/Vista/7/8)</li><li>OpenJDK 7 or Java 7</li></ul>
 <h3>To Build</h3>:
-- Linux/MacOSX - "./gradlew setupDecompWorkspace"
-- Windows - "gradlew.bat setupDecompWorkspace"
-
+<ul><li>Linux/MacOSX - "./gradlew setupDecompWorkspace"</li><li>Windows - "gradlew.bat setupDecompWorkspace"</li></ul>
 <h3>To Run</h3>:
-- Linux/MacOSX - "./gradlew runClient" 
-- Windows - "gradlew.bat runClient"
-
+<ul><li>Linux/MacOSX - "./gradlew runClient"</li>
+<li>Windows - "gradlew.bat runClient"</li>
+</ul>
 <h3>To Test</h3>:
-- Level Block under the Creative Tab "EssencePVP" has the skill GUI
-
+<ul><li>Level Block under the Creative Tab "EssencePVP" has the skill GUI</li></ul>
 <h3>Licensing</h3>:
-- Metrics - ((C) Tyler Blair)
-- Minecraft Forge
-- Minecraft - Mojang
+<ul><li>Metrics - ((C) Tyler Blair)</li><li>Minecraft Forge</li><li>Minecraft - Mojang</li></ul>
