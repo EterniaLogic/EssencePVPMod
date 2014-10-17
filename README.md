@@ -1,9 +1,18 @@
 <h1>EssencePVP Mod</h1>
   The EssencePVP Mod enables multiple classes of skills  that players can choose from. These classes allow for players to get around the vanilla PVP mechanics and enhance their experience within the game. Settings such a exp rate, economy, ect. are applicable within the configuration.
 <h3>Authors:</h3><ul>
-	<li>EterniaLogic (MC: DreadEnd)</li>
-	<li>SauronKitty (MC: Local_Red)</li>
-	<li>James Little (MC: james1377little)</li>
+	<li>EterniaLogic</li>
+	<ul>
+		<li>Minecraft: DreadEnd</li>
+	</ul>
+	<li>SauronKitty</li>
+	<ul>
+		<li>Minecraft: Local_Red</li>
+	</ul>
+	<li>James Little</li>
+	<ul>
+		<li>james1377little</li>
+	</ul>
 </ul>
 <h3>System Requirements:</h3><ul>
 	<li>Server:</li>
