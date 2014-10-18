@@ -131,9 +131,9 @@ public class EssencePVP
         pTest.addProfession("Healer", "This is a healer class test"); // Adding a Profession to our Professions list (pTest)
         pTest.getLastAddedProfession().getAbilities().addAbility("Foo","Bar"); // Adding an Ability to a Profession
         pTest.getLastAddedProfession().getAbilities().getLastAddedAbility().addAbilityProperty("test_property","cast_time",1.0f); // Adding a Property to an Ability
-
-        // //Profession pProfTest = pTest.getProfession(1);
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>"+pTest.getProfession("Guardian").getProfessionId());
+        System.out.println("#########################");
+        System.out.println("Added: "+pTest.getLastAddedProfession().getProfessionName());
+        
 
         // EssencePvP::Professions::* </end>
     }
