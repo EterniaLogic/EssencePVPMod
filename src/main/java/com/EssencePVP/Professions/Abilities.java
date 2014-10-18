@@ -78,6 +78,9 @@ public class Abilities{
 		}
 			return;
 	}
+	public Ability getLastAddedAbility(){
+		return(this.pHead);
+	}
 
 	public Ability getAbility(int _iAbilityId){
 		if(this.pLast != null){

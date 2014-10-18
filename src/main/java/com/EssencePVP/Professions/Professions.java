@@ -83,6 +83,10 @@ public class Professions{
 			return;
 	}
 
+	public Profession getLastAddedProfession(){
+		return(this.pHead);
+	}
+
 	// delProfession should utilize these functions to search for nodes as opposed to having its own
 	// search algorithim
 	public Profession getProfession(int _iProfessionId){
