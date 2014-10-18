@@ -31,7 +31,7 @@ public class Abilities{
 	// Creates an Ability object and adds it to the head of an Abilities list given the Ability's Name and Description.
 	// Special note should be made as the pHead will always have the highest iAbilityId where as the tail of the list
 	// will have the smallest iAbilityId
-	public void addAbility(String _sAbilityName, String _sAbilityDescription){
+	public Ability addAbility(String _sAbilityName, String _sAbilityDescription){
 		if(iNumAbilities == 0)
 			pHead = new Ability(++iNumAbilities, _sAbilityName, _sAbilityDescription);
 		else{
@@ -39,7 +39,7 @@ public class Abilities{
 			pHead = new Ability(++iNumAbilities, _sAbilityName, _sAbilityDescription);
 			pHead.setNext(pTemporary);
 		}
-		return;
+		return(this.pHead);
 	}
 
 	// Description:

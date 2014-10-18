@@ -33,7 +33,7 @@ public class Professions{
 	// order to which items are added is relevant
 	// Special note should be made: The head will always have the largest iProfessionId value
 	// - AK
-	public void addProfession(String _sProfessionName, String _sProfessionDescription){
+	public Profession addProfession(String _sProfessionName, String _sProfessionDescription){
 		if(iNumProfessions == 0)
 			pHead = new Profession(++iNumProfessions, _sProfessionName, _sProfessionDescription);
 		else{
@@ -41,7 +41,7 @@ public class Professions{
 			pHead = new Profession(++iNumProfessions, _sProfessionName, _sProfessionDescription);
 			pHead.setNext(pTemporary);
 		}
-		return;
+		return(pHead);
 	}
 
 	// This should be used as little as possible. It will call a recursive function to locate the correct
