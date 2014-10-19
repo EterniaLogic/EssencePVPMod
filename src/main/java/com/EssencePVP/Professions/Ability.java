@@ -17,7 +17,8 @@
 
 package com.EssencePVP.Professions;
 
-public class Ability{
+public class Ability implements java.io.Serializable
+{
 	private int iAbilityId;
 	private String sAbilityName;
 	private String sAbilityDescription;

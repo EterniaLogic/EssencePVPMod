@@ -17,7 +17,8 @@
 
 package com.EssencePVP.Professions;
 
-public class ProfessionAbility{
+public class ProfessionAbility implements java.io.Serializable
+{
 	int iProfessionAbilityId;
 	int iTreePosition;
 	// <?> modifiers;

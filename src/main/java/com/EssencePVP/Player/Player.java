@@ -21,7 +21,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 
 
-public class Player
+public class Player implements java.io.Serializable
 {
 	private static HashMap playerMap = new HashMap();
 	Experience exp = new Experience(0, this); // Experience manager

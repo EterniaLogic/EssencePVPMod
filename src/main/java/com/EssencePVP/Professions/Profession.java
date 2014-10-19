@@ -17,7 +17,8 @@
 
 package com.EssencePVP.Professions;
 
-public class Profession{
+public class Profession implements java.io.Serializable
+{
 	private int iProfessionId;
 	private String sProfessionName;
 	private String sProfesionDescription;

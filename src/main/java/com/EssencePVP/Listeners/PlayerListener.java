@@ -15,13 +15,43 @@
 
 package com.EssencePVP.Listeners;
 
+import com.EssencePVP.Player.Player;
+
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.entity.EntityClientPlayerMP;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 //import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.EntityEvent;
 
 public class PlayerListener
 {
-  //@ForgeSubscribe
-  //TODO: Set event listeners
+	// Handle death event of a player
+	@EventHandler
+	@SideOnly(Side.SERVER)
+	public void LivingDeathEvent(EntityLivingBase entity, DamageSource source){
+		if(source.getEntity() != null){
+			if(entity instanceof EntityClientPlayerMP && source.getEntity() instanceof EntityClientPlayerMP){
+				// Give each player their exp
+				Player p1 = (Player) Player.getPlayerMap().get((EntityClientPlayerMP)entity);
+				Player p2 = (Player) Player.getPlayerMap().get((EntityClientPlayerMP)source.getEntity());
+				
+				// Player1 was killed by Player 2
+				p1.getExp().expDeath(p2);
+				p2.getExp().expKill(p1);
+			}
+		}
+	}
+	
+	// new player!
+	@EventHandler
+	@SideOnly(Side.SERVER)
+	public void EntityJoinWorldEvent(Entity entity, World world){
+		// TODO: Add player to mysql or sqlite
+	}
 }

@@ -17,7 +17,8 @@
 
 package com.EssencePVP.Professions;
 
-public class Professions{
+public class Professions implements java.io.Serializable
+{
 	private int iNumProfessions; // This number must be equal to the sProffesionId value of the tail node
 	private Profession pHead;
 	private Profession pLast;

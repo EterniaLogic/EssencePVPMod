@@ -17,7 +17,8 @@
 
 package com.EssencePVP.Professions;
 
-public class AbilityProperty{
+public class AbilityProperty implements java.io.Serializable
+{
 	private int iPropertyId;
 	private String sPropertyName;
 	private String sPropertyType;

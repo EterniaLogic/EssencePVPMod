@@ -37,7 +37,6 @@ public class ClientThread extends Thread {
 			
 			if(Minecraft.getMinecraft().isSingleplayer()){
 				// Game in single player!
-				EssencePVP.getInstance().getLogger().log(Level.FINEST, "Test Server Thread");
 			}else{
 				// Game in multiplayer!
 				// Get data from the server

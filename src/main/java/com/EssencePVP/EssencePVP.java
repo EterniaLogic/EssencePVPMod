@@ -24,9 +24,13 @@ import java.util.logging.Logger;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
+import net.minecraft.command.ICommandManager;
+import net.minecraft.command.ServerCommandManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.config.Configuration;
 
+import com.EssencePVP.Command.testKillExp;
+import com.EssencePVP.Listeners.PlayerListener;
 import com.EssencePVP.Player.Player;
 import com.EssencePVP.Professions.Ability;
 import com.EssencePVP.Professions.Profession;
@@ -46,6 +50,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
+//import scala;
 
 @Mod(modid = EssencePVP.MODID, version = EssencePVP.VERSION)
 public class EssencePVP
@@ -83,7 +88,7 @@ public class EssencePVP
     
     private Logger logger; 			// Logs information and errors
 	private Player clientplayer; 	// Client Player that is currently playing
-    
+	private ServerCommandManager commandManager;
     
 
 	@EventHandler
@@ -112,13 +117,28 @@ public class EssencePVP
     	
     	LoadBlocksItems();
         ProfessionsSetup();
+        FMLCommonHandler.instance().bus().register(new PlayerListener());
         
         // Primary Thread for processing skills, player data, ect.
         if(FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT){
         	clientplayer = new Player(Minecraft.getMinecraft().thePlayer);
+        }else if(FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER){
+        	RegisterCommands();
         }
+        
+        //HelloWorld.doHello();
         thread.start();
     }
+
+
+	/**
+	 * 
+	 */
+	private void RegisterCommands() {
+		// Register Commands
+    	commandManager = (ServerCommandManager) Minecraft.getMinecraft().getIntegratedServer().getCommandManager();
+    	commandManager.registerCommand(new testKillExp());
+	}
 
 
 	private void LoadBlocksItems() {
