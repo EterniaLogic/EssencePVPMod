@@ -135,12 +135,16 @@ public class SkillGui extends GuiScreen
 		  
 		  // detect mouse over
 		  if(mouseAboveId == i){
-		    drawLoc(EssencePVP.MODID+":textures/"+treeAddr[state]+iText[0]+".png",posX+xSizeOfTexture/2+xList[i]+5, posY+yList[i]+5, 15, 15);
-		    //GL11.glColor4f(1.0f,1.0f,1.0f,0.1f);
+			GL11.glBegin(GL11.GL_QUADS);
+			GL11.glColor4f(1.0f,1.0f,1.0f,0.1f);
+			drawLoc(EssencePVP.MODID+":textures/"+treeAddr[state]+iText[0]+".png",posX+xSizeOfTexture/2+xList[i]+5, posY+yList[i]+5, 15, 15);
+		    
+		    GL11.glEnd();
 		    drawLoc(EssencePVP.MODID+":textures/shadedskill.png",posX+xSizeOfTexture/2+xList[i], posY+yList[i], 20, 20);
 		  }else{
 		    drawLoc(EssencePVP.MODID+":textures/"+treeAddr[state]+iText[0]+".png",posX+xSizeOfTexture/2+xList[i], posY+yList[i], 20, 20);
 		  }
+		  
 		}
 	}
 	

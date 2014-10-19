@@ -44,7 +44,7 @@ public class SQLDatabase {
 				// Import information from .sql file!
 				java.io.InputStream is = this.getClass().getResourceAsStream("SQLInit.sql");
 				StringBuilder builder = new StringBuilder();
-				builder.append("");
+				// loop through input stream
 				while(is.available() > 0){
 					builder.append(Character.forDigit(is.read(), 10));
 				}
