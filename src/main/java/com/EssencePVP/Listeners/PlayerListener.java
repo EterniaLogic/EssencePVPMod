@@ -17,7 +17,7 @@ package com.EssencePVP.Listeners;
 
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.world.World;
-//import net.minecraftforge.event.F
+//import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.entity.EntityEvent;
 
 public class PlayerListener

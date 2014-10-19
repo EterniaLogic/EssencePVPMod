@@ -80,14 +80,16 @@ public class EssencePVP
 	public float fScoreGainRate;
 	public boolean bGainExp;
     public Metricz metrics=null;
-	private float meleeAttackF;
-	private float rangeAttackF;
-	private float rangeAttackS;
-	private float techyAttackF;
-	private float techyAttackS;
-	private float magicAttackF;
-	private float magicAttackS;
-	private float passvFactor;
+	public float meleeAttackF;
+	public float rangeAttackF;
+	public float rangeAttackS;
+	public float techyAttackF;
+	public float techyAttackS;
+	public float magicAttackF;
+	public float magicAttackS;
+	public float passvFactor;
+	public float KillRatio;
+	public float DeathRatio;
     
     @EventHandler
     public void init(FMLInitializationEvent event)
@@ -176,6 +178,9 @@ public class EssencePVP
     	techyAttackF=config.getFloat("TechnicalAttackDamage","Balance",1.0f,0.00001f,65535.0f,"Multiple of technical attack damage");
     	techyAttackS=config.getFloat("TechnicalAttackSpeed","Balance",1.0f,0.00001f,65535.0f,"Multiple of technical attack speed");
     	passvFactor =config.getFloat("PassiveFactor","Balance",1.0f,0.00001f,65535.0f,"How effective are passive skills?");
+    	
+    	KillRatio =config.getFloat("KillRatio","Balance",1.0f,0.00001f,65535.0f,"How much exp do you get upon killing? (Level difference taken into account)");
+    	DeathRatio=config.getFloat("DeathRatio","Balance",1.0f,0.00001f,65535.0f,"How much exp do you lose upon death?");
     	
     	// load in ability categories if they exist. Else, make it.
     	if(!config.getCategory("Abilities").isEmpty()){
