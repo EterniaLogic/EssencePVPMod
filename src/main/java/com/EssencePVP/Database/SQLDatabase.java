@@ -19,7 +19,7 @@ public class SQLDatabase {
 		if(EssencePVP.getInstance().isbUseMySQL()){
 			try{
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			conn = DriverManager.getConnection("jdbc:mysql://"+EssencePVP.getInstance().getbMySQLHostname()+":"+EssencePVP.getInstance().getiMySQLPort()+"/"+EssencePVP.getInstance().getsMySQLDatabase()+""?" +
+			conn = DriverManager.getConnection("jdbc:mysql://"+EssencePVP.getInstance().getbMySQLHostname()+":"+EssencePVP.getInstance().getiMySQLPort()+"/"+EssencePVP.getInstance().getsMySQLDatabase()+"?"+
 				                                   "user="+EssencePVP.getInstance().getsMySQLUsername()+"&password="+EssencePVP.getInstance().getsMySQLPassword());
 			}
 			catch(Exception e){
