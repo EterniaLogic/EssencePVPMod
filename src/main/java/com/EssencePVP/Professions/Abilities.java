@@ -20,6 +20,7 @@ package com.EssencePVP.Professions;
 public class Abilities implements java.io.Serializable
 {
 	private int iNumAbilities;
+	private int iNumAbilitiesAdded;
 	private Ability pHead;
 	private Ability pLast;
 
@@ -34,12 +35,13 @@ public class Abilities implements java.io.Serializable
 	// will have the smallest iAbilityId
 	public Ability addAbility(String _sAbilityName, String _sAbilityDescription){
 		if(iNumAbilities == 0)
-			pHead = new Ability(++iNumAbilities, _sAbilityName, _sAbilityDescription);
+			pHead = new Ability(++iNumAbilitiesAdded, _sAbilityName, _sAbilityDescription);
 		else{
 			Ability pTemporary = pHead;
-			pHead = new Ability(++iNumAbilities, _sAbilityName, _sAbilityDescription);
+			pHead = new Ability(++iNumAbilitiesAdded, _sAbilityName, _sAbilityDescription);
 			pHead.setNext(pTemporary);
 		}
+		iNumAbilities++;
 		return(this.pHead);
 	}
 

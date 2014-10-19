@@ -19,12 +19,14 @@ package com.EssencePVP.Professions;
 
 public class Professions implements java.io.Serializable
 {
-	private int iNumProfessions; // This number must be equal to the sProffesionId value of the tail node
+	private int iNumProfessions; // This is the current number of professions in the list
+	private int iNumProfessionsAdded; // This is the total addProfession() calls that have been made
 	private Profession pHead;
 	private Profession pLast;
 
 	public Professions(){
 		this.iNumProfessions = 0;
+		this.iNumProfessionsAdded = 0;
 		this.pHead = null;
 		this.pLast = null;
 	}
@@ -36,12 +38,13 @@ public class Professions implements java.io.Serializable
 	// - AK
 	public Profession addProfession(String _sProfessionName, String _sProfessionDescription){
 		if(iNumProfessions == 0)
-			pHead = new Profession(++iNumProfessions, _sProfessionName, _sProfessionDescription);
+			pHead = new Profession(++iNumProfessionsAdded, _sProfessionName, _sProfessionDescription);
 		else{
 			Profession pTemporary = pHead;
-			pHead = new Profession(++iNumProfessions, _sProfessionName, _sProfessionDescription);
+			pHead = new Profession(++iNumProfessionsAdded, _sProfessionName, _sProfessionDescription);
 			pHead.setNext(pTemporary);
 		}
+		++iNumProfessions;
 		return(pHead);
 	}
 
@@ -81,7 +84,7 @@ public class Professions implements java.io.Serializable
 				else delProfession(_iProfessionId, _pProfession.getNext());
 			}
 		}
-			return;
+		return;
 	}
 
 	public Profession getLastAddedProfession(){
