@@ -74,7 +74,7 @@ public class EssencePVP
     private Configuration config;
  
     // mySQL   
-    private String bMySQLHostname,sMySQLUsername,sMySQLPassword;
+    private String bMySQLHostname,sMySQLUsername,sMySQLPassword, sMySQLDatabase;
     private int iMySQLPort;
     
 	private double dExperienceRate;
@@ -97,24 +97,12 @@ public class EssencePVP
     	instance = this;
     	logger = Logger.getLogger("EssencePVP");
     	logger.setLevel(Level.FINEST);
-    	//HelloWorld.doHello();
-    	
-    	// handles gui
-    	NetworkRegistry.INSTANCE.registerGuiHandler(this, this.proxy);
-    	if(Minecraft.getMinecraft().getIntegratedServer() != null){
-	    	if(Minecraft.getMinecraft().getIntegratedServer().isServerRunning()){
-	    		try {
-					metrics = new Metricz("EssencePVP",VERSION);
-				} catch (IOException e) {}
-	    	}
-    	}
-    	
-    	logger.log(Level.FINEST, "Net handler set up");
     	
     	// Generate or load the config
     	generateLoadConfig();
     	logger.log(Level.FINEST, "Config loaded");
     	
+    	InitializeHandles();
     	LoadBlocksItems();
         ProfessionsSetup();
         FMLCommonHandler.instance().bus().register(new PlayerListener());
@@ -126,9 +114,24 @@ public class EssencePVP
         	RegisterCommands();
         }
         
-        //HelloWorld.doHello();
-        thread.start();
+        thread.start(); // start primary thread!
     }
+
+
+	/**
+	 * 
+	 */
+	private void InitializeHandles() {
+		// handles gui
+    	NetworkRegistry.INSTANCE.registerGuiHandler(this, this.proxy);
+    	if(Minecraft.getMinecraft().getIntegratedServer() != null){
+	    	if(Minecraft.getMinecraft().getIntegratedServer().isServerRunning()){
+	    		try {
+					metrics = new Metricz("EssencePVP",VERSION);
+				} catch (IOException e) {}
+	    	}
+    	}
+	}
 
 
 	/**
@@ -196,10 +199,11 @@ public class EssencePVP
     	
     	// Mysql Server stuffs
     	bUseMySQL=config.getBoolean("UseDatabaseServer","ServerCFG",false,"Do you want to use a database server? If not, SQLite will be used.");
-    	bMySQLHostname=config.getString("bMySQLHostname","ServerCFG","","Mysql Server location");
-    	iMySQLPort=config.getInt("iMySQLPort","ServerCFG",3306,1,65535,"Mysql Port");
-    	sMySQLUsername=config.getString("sMySQLUsername","ServerCFG","user","Mysql Username");
-    	sMySQLPassword=config.getString("MysqlPW","ServerCFG","pass","Mysql Password");
+    	bMySQLHostname=config.getString("bMySQLHostname","ServerCFG","","MySQL Server location");
+    	iMySQLPort=config.getInt("iMySQLPort","ServerCFG",3306,1,65535,"MySQL Port");
+    	sMySQLUsername=config.getString("sMySQLUsername","ServerCFG","user","MySQL Username");
+    	sMySQLPassword=config.getString("MysqlPW","ServerCFG","pass","MySQL Password");
+    	sMySQLDatabase=config.getString("MysqlPW","ServerCFG","database","MySQL Database");
     	
     	// Block configurations
     	healblockid = config.getInt("healblockid", "BlockIDs", 3380, 512, 40000, "Heal Block ID");
@@ -234,6 +238,14 @@ public class EssencePVP
     
     
     /**
+	 * @return the sMySQLDatabase
+	 */
+	public String getsMySQLDatabase() {
+		return sMySQLDatabase;
+	}
+
+
+	/**
 	 * @return the modid
 	 */
 	public static String getModid() {
