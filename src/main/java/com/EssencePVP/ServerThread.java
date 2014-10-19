@@ -13,26 +13,27 @@
 
 package com.EssencePVP;
 
+import java.util.logging.Level;
 
-class PrimaryThread extends Thread {
+import net.minecraft.client.Minecraft;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
+
+public class ServerThread extends Thread {
 	//private List<Player> isFlying = Collections.synchronizedList(new ArrayList<Player>());
 	//private ConcurrentHashMap<Player, Integer> playerTimes = new ConcurrentHashMap<Player, Integer>();
 	
-	@SuppressWarnings("unused")
 	@Override
+	@SideOnly(Side.SERVER)
 	public void run(){
-		if (true) return;
-		load();
 		while (true){
 			try {
 				Thread.sleep(1000); // 1 Second
-			} catch (InterruptedException e) {break;}
+			} catch (InterruptedException e) {break;} // Game wants to close
 			
 			// process background information
+			EssencePVP.getInstance().getLogger().log(Level.FINEST, "Test Server Thread");
 		}
-	}
-	private void load(){ reload(); }
-	public void reload() {
-		
 	}
 }

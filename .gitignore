@@ -31,3 +31,5 @@ eclipse/.metadata/.mylyn/.taskListIndex/segments_1
 *.project
 .project
 *.classpath
+*.classpath
+.classpath

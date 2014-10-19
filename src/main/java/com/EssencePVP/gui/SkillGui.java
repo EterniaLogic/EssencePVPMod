@@ -17,6 +17,9 @@ import org.lwjgl.opengl.GL11;
 
 import com.EssencePVP.EssencePVP;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 //TODO: make class skills configurable
 
 //public class SkillGui extends GuiScreen
@@ -55,6 +58,7 @@ public class SkillGui extends GuiScreen
 	int mouseAboveId=-1; // useful for detecting the current skill that the mouse is over
 	
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void drawScreen(int mouseX, int mouseY, float f)
 	{
 		drawDefaultBackground();
@@ -73,6 +77,7 @@ public class SkillGui extends GuiScreen
 		super.drawScreen(mouseX, mouseY, f);
 	}
 	
+	@SideOnly(Side.CLIENT)
 	public void drawMouseHint(int mouseX, int mouseY){
 	  int k=posX+xSizeOfTexture/2; 	// +xList[i];
 	  int l=posY; 			// +yList[i];
@@ -169,6 +174,7 @@ public class SkillGui extends GuiScreen
 		}
 	}
 	
+	@SideOnly(Side.CLIENT)
 	public void drawLoc(String loc, int x, int y, int width, int height){
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		ResourceLocation imgloc = new ResourceLocation(loc);
@@ -177,6 +183,7 @@ public class SkillGui extends GuiScreen
 	}
 	
 	// Modified excerpt from Gui.class
+	@SideOnly(Side.CLIENT)
 	 public void drawTexturedModalRectNoUV(int x, int y, int width, int height)
 	 {
 	     Tessellator tessellator = Tessellator.instance;

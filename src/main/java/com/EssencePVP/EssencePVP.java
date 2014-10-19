@@ -18,10 +18,26 @@ package com.EssencePVP;
 import java.io.File;
 import java.io.IOException;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityClientPlayerMP;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.config.Configuration;
+
+import com.EssencePVP.Player.Player;
+import com.EssencePVP.Professions.Ability;
+import com.EssencePVP.Professions.Profession;
+import com.EssencePVP.Professions.Professions;
+import com.EssencePVP.blocks.HealBlock;
+import com.EssencePVP.blocks.LevelBlock;
+import com.EssencePVP.blocks.TrapBlock;
+import com.EssencePVP.gui.ClientProxy;
+import com.EssencePVP.gui.CreativeTabsEMod;
+
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -29,20 +45,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-
-import com.EssencePVP.blocks.HealBlock;
-import com.EssencePVP.blocks.LevelBlock;
-import com.EssencePVP.blocks.TrapBlock;
-import com.EssencePVP.gui.ClientProxy;
-import com.EssencePVP.gui.CreativeTabsEMod;
-
-import com.EssencePVP.Professions.*;
-
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.audio.*;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraftforge.common.config.Configuration;
+import cpw.mods.fml.relauncher.Side;
 
 @Mod(modid = EssencePVP.MODID, version = EssencePVP.VERSION)
 public class EssencePVP
@@ -50,13 +53,10 @@ public class EssencePVP
     public static final String MODID = "essencepvp";
     public static final String VERSION = "0.1";
     
-    public static Block hLevelBlock;
-    public static Block hTrapBlock;
-    public static Block hHealBlock;
-
-    public static int healblockid=0, trapblockid=0, levelblockid=0;
+    private static Block hLevelBlock,hTrapBlock,hHealBlock;
+    private static int healblockid=0, trapblockid=0, levelblockid=0;
     
-    public static CreativeTabs creativeTab = new CreativeTabsEMod("EssencePVP");
+    private static CreativeTabs creativeTab = new CreativeTabsEMod("EssencePVP");
     
     // handles GUI synchronization
     @SidedProxy(clientSide = "com.EssencePVP.gui.ClientProxy", serverSide = "com.EssencePVP.gui.CommonProxy")
@@ -64,37 +64,34 @@ public class EssencePVP
 
     // allows for methods to access this mod's raw members
     @Instance("EssencePVP")
-    public static EssencePVP instance;
+    private static EssencePVP instance;
     
-    public Configuration config;
+    private Configuration config;
  
     // mySQL   
-    public boolean bUseMySQL;
-    public String bMySQLHostname;
-    public int iMySQLPort;
-    public String sMySQLUsername;
-    public String sMySQLPassword;
-
-	public double dExperienceRate;
-	public float fFundsGainRate;
-	public float fScoreGainRate;
-	public boolean bGainExp;
-    public Metricz metrics=null;
-	public float meleeAttackF;
-	public float rangeAttackF;
-	public float rangeAttackS;
-	public float techyAttackF;
-	public float techyAttackS;
-	public float magicAttackF;
-	public float magicAttackS;
-	public float passvFactor;
-	public float KillRatio;
-	public float DeathRatio;
+    private String bMySQLHostname,sMySQLUsername,sMySQLPassword;
+    private int iMySQLPort;
     
-    @EventHandler
+	private double dExperienceRate;
+	private boolean bGainExp, bUseMySQL;
+    private Metricz metrics=null;
+    private float fFundsGainRate,fScoreGainRate,meleeAttackF,rangeAttackF,rangeAttackS,techyAttackF,techyAttackS,magicAttackF,magicAttackS,passvFactor,KillRatio,DeathRatio;
+	
+	// Primary thread initializer
+    @SidedProxy(clientSide = "com.EssencePVP.ClientThread", serverSide = "com.EssencePVP.ServerThread")
+    public static Thread thread; // Primary thread figures stuff out
+    
+    private Logger logger; 			// Logs information and errors
+	private Player clientplayer; 	// Client Player that is currently playing
+    
+    
+
+	@EventHandler
     public void init(FMLInitializationEvent event)
     {
     	instance = this;
+    	logger = Logger.getLogger("EssencePVP");
+    	logger.setLevel(Level.FINEST);
     	//HelloWorld.doHello();
     	
     	// handles gui
@@ -107,10 +104,25 @@ public class EssencePVP
 	    	}
     	}
     	
+    	logger.log(Level.FINEST, "Net handler set up");
+    	
     	// Generate or load the config
     	generateLoadConfig();
+    	logger.log(Level.FINEST, "Config loaded");
     	
-    	// Load Blocks
+    	LoadBlocksItems();
+        ProfessionsSetup();
+        
+        // Primary Thread for processing skills, player data, ect.
+        if(FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT){
+        	clientplayer = new Player(Minecraft.getMinecraft().thePlayer);
+        }
+        thread.start();
+    }
+
+
+	private void LoadBlocksItems() {
+		// Load Blocks
     	hLevelBlock = (new LevelBlock(levelblockid, 1)).setHardness(1.5F).setResistance(5F).setStepSound(Block.soundTypeStone).setBlockTextureName(EssencePVP.MODID + ":" + "level_block");
     	hTrapBlock = (new TrapBlock(trapblockid, 1)).setHardness(1.5F).setResistance(25F).setStepSound(Block.soundTypeMetal).setBlockTextureName(EssencePVP.MODID + ":" + "trap_block");
     	hHealBlock = (new HealBlock(healblockid, 1)).setHardness(1.0F).setResistance(2F).setStepSound(Block.soundTypeWood).setBlockTextureName(EssencePVP.MODID + ":" + "heal_block");
@@ -120,13 +132,11 @@ public class EssencePVP
     	GameRegistry.registerBlock(hLevelBlock, "level_block");
     	
     	// Items
-    
-    	// Scala direct call
-    	// Scala manages scripting for the mod
-    	
-    	// Java manages mod items, blocks, animations and performance
+	}
 
-        // <begin> EssencePvP::Professions::* examples
+
+	private void ProfessionsSetup() {
+		// <begin> EssencePvP::Professions::* examples
         Professions pTest = new Professions(); // Creating a Professions object
 
         // Adding Profession #1 (using method 1)
@@ -144,9 +154,17 @@ public class EssencePVP
         System.out.println("Added: "+pTest.getLastAddedProfession().getProfessionName());
 
         // EssencePvP::Professions::* </end>
-    }
+        
+        // load in ability categories if they exist. Else, make it.
+    	if(!config.getCategory("Abilities").isEmpty()){
+    		Set s = config.getCategory("Abilities").getChildren();
+    	}else{
+    		//TODO: Generate ability categories
+    	}
+	}
     
-    public void generateLoadConfig(){
+    
+	public void generateLoadConfig(){
     	config = new Configuration(new File("config/EssencePVP.cfg"),"0.1");
     	config.load();
 
@@ -182,15 +200,264 @@ public class EssencePVP
     	KillRatio =config.getFloat("KillRatio","Balance",1.0f,0.00001f,65535.0f,"How much exp do you get upon killing? (Level difference taken into account)");
     	DeathRatio=config.getFloat("DeathRatio","Balance",1.0f,0.00001f,65535.0f,"How much exp do you lose upon death?");
     	
-    	// load in ability categories if they exist. Else, make it.
-    	if(!config.getCategory("Abilities").isEmpty()){
-    		Set s = config.getCategory("Abilities").getChildren();
-    	}else{
-    		//TODO: Generate ability categories
-    	}
     	
     	config.save(); // changes to config (auto-adds to config)
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /**
+	 * @return the modid
+	 */
+	public static String getModid() {
+		return MODID;
+	}
+
+	/**
+	 * @return the version
+	 */
+	public static String getVersion() {
+		return VERSION;
+	}
+
+	/**
+	 * @return the hLevelBlock
+	 */
+	public static Block gethLevelBlock() {
+		return hLevelBlock;
+	}
+
+	/**
+	 * @return the hTrapBlock
+	 */
+	public static Block gethTrapBlock() {
+		return hTrapBlock;
+	}
+
+	/**
+	 * @return the hHealBlock
+	 */
+	public static Block gethHealBlock() {
+		return hHealBlock;
+	}
+
+	/**
+	 * @return the healblockid
+	 */
+	public static int getHealblockid() {
+		return healblockid;
+	}
+
+	/**
+	 * @return the trapblockid
+	 */
+	public static int getTrapblockid() {
+		return trapblockid;
+	}
+
+	/**
+	 * @return the levelblockid
+	 */
+	public static int getLevelblockid() {
+		return levelblockid;
+	}
+
+	/**
+	 * @return the creativeTab
+	 */
+	public static CreativeTabs getCreativeTab() {
+		return creativeTab;
+	}
+
+	/**
+	 * @return the proxy
+	 */
+	public static ClientProxy getProxy() {
+		return proxy;
+	}
+
+	/**
+	 * @return the instance
+	 */
+	public static EssencePVP getInstance() {
+		return instance;
+	}
+
+	/**
+	 * @return the config
+	 */
+	public Configuration getConfig() {
+		return config;
+	}
+
+	/**
+	 * @return the bUseMySQL
+	 */
+	public boolean isbUseMySQL() {
+		return bUseMySQL;
+	}
+
+	/**
+	 * @return the bMySQLHostname
+	 */
+	public String getbMySQLHostname() {
+		return bMySQLHostname;
+	}
+
+	/**
+	 * @return the iMySQLPort
+	 */
+	public int getiMySQLPort() {
+		return iMySQLPort;
+	}
+
+	/**
+	 * @return the sMySQLUsername
+	 */
+	public String getsMySQLUsername() {
+		return sMySQLUsername;
+	}
+
+	/**
+	 * @return the sMySQLPassword
+	 */
+	public String getsMySQLPassword() {
+		return sMySQLPassword;
+	}
+
+	/**
+	 * @return the dExperienceRate
+	 */
+	public double getdExperienceRate() {
+		return dExperienceRate;
+	}
+
+	/**
+	 * @return the fFundsGainRate
+	 */
+	public float getfFundsGainRate() {
+		return fFundsGainRate;
+	}
+
+	/**
+	 * @return the fScoreGainRate
+	 */
+	public float getfScoreGainRate() {
+		return fScoreGainRate;
+	}
+
+	/**
+	 * @return the bGainExp
+	 */
+	public boolean isbGainExp() {
+		return bGainExp;
+	}
+
+	/**
+	 * @return the metrics
+	 */
+	public Metricz getMetrics() {
+		return metrics;
+	}
+
+	/**
+	 * @return the meleeAttackF
+	 */
+	public float getMeleeAttackF() {
+		return meleeAttackF;
+	}
+
+	/**
+	 * @return the rangeAttackF
+	 */
+	public float getRangeAttackF() {
+		return rangeAttackF;
+	}
+
+	/**
+	 * @return the rangeAttackS
+	 */
+	public float getRangeAttackS() {
+		return rangeAttackS;
+	}
+
+	/**
+	 * @return the techyAttackF
+	 */
+	public float getTechyAttackF() {
+		return techyAttackF;
+	}
+
+	/**
+	 * @return the techyAttackS
+	 */
+	public float getTechyAttackS() {
+		return techyAttackS;
+	}
+
+	/**
+	 * @return the magicAttackF
+	 */
+	public float getMagicAttackF() {
+		return magicAttackF;
+	}
+
+	/**
+	 * @return the magicAttackS
+	 */
+	public float getMagicAttackS() {
+		return magicAttackS;
+	}
+
+	/**
+	 * @return the passvFactor
+	 */
+	public float getPassvFactor() {
+		return passvFactor;
+	}
+
+	/**
+	 * @return the killRatio
+	 */
+	public float getKillRatio() {
+		return KillRatio;
+	}
+
+	/**
+	 * @return the deathRatio
+	 */
+	public float getDeathRatio() {
+		return DeathRatio;
+	}
+
+	/**
+	 * @return the thread
+	 */
+	public static Thread getThread() {
+		return thread;
+	}
+	
+	/**
+	 * @return the logger
+	 */
+	public Logger getLogger() {
+		return logger;
+	}
+	
+	/**
+	 * @return the clientplayer
+	 */
+	public Player getClientplayer() {
+		return clientplayer;
+	}
+
 }
 
 

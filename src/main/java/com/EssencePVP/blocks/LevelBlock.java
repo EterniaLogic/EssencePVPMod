@@ -18,7 +18,7 @@ public class LevelBlock extends Block
         {
                 super(Material.rock);
                 this.setBlockName("level_block");
-                this.setCreativeTab(EssencePVP.creativeTab);
+                this.setCreativeTab(EssencePVP.getCreativeTab());
         }
 
         public int idDropped(int i, Random random)
@@ -29,10 +29,10 @@ public class LevelBlock extends Block
         @Override
         public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float a, float b, float c)
         {
-        player.openGui(EssencePVP.instance, 0, world, x, y, z);
-        //player.open
-        //new SkillGui(player);
-        //return true;
-		return true;
+	        player.openGui(EssencePVP.getInstance(), 0, world, x, y, z);
+	        //player.open
+	        //new SkillGui(player);
+	        //return true;
+			return true;
         }
 }

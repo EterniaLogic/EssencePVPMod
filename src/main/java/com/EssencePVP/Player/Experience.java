@@ -15,20 +15,42 @@
 
 package com.EssencePVP.Player;
 
+import com.EssencePVP.EssencePVP;
+
 // Uses event listener
 
+// Server-side
 public class Experience
 {
-  Experience(){}
+  Experience(float exp, Player p){}
+  
+  private float totalexp=0.0f;
+  private Player player;
   
   // Player kills another
-  public void expKill(){
+  public void expKill(Player killed){
 	  // TODO: Set EXP gain from kill
 	  // IDEA: If a player kills a player of higher level, they get more.
+	  player.exp.totalexp += (killed.exp.getLevel()/player.exp.getLevel())
+			  						*EssencePVP.getInstance().getKillRatio();
   }
   
   // Player dies
-  public void expDeath(){
-	// TODO: Death makes player lose exp
+  public void expDeath(Player killer){
+	  player.exp.totalexp -= (player.exp.getLevel()/killer.exp.getLevel())
+				*EssencePVP.getInstance().getDeathRatio();
   }
-};
+  
+  // Returns the level based off of 2^n
+  public double getLevel(){
+	  return Math.log(totalexp+4)/Math.log(2.0); // Base 2 log (Change of basis)
+  }
+
+	public float getTotalexp() {
+		return totalexp;
+	}
+	
+	public void setTotalexp(float totalexp) {
+		this.totalexp = totalexp;
+	}
+}

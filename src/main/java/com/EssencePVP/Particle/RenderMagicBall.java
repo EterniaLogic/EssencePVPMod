@@ -4,6 +4,8 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 import org.lwjgl.util.glu.GLU;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
@@ -16,6 +18,7 @@ public class RenderMagicBall extends Render {
 
 	
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void doRender(Entity p_76986_1_, double p_76986_2_,
 			double p_76986_4_, double p_76986_6_, float p_76986_8_,
 			float p_76986_9_) {

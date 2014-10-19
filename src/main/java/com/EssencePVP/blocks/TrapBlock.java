@@ -13,7 +13,7 @@ public class TrapBlock extends Block
         {
                 super(Material.rock);
                 this.setBlockName("trap_block");
-                this.setCreativeTab(EssencePVP.creativeTab);
+                this.setCreativeTab(EssencePVP.getCreativeTab());
                 //setBlockTextureName(modnamex.MODID + ":" + "textures/blocks/trap_block.jpg");
         }
         

@@ -13,7 +13,7 @@ public class HealBlock extends Block
         {
                 super(Material.rock);
                 this.setBlockName("heal_block");
-                this.setCreativeTab(EssencePVP.creativeTab);
+                this.setCreativeTab(EssencePVP.getCreativeTab());
                 setBlockTextureName(EssencePVP.MODID + ":" + "heal_block");
         }
         
