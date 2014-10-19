@@ -42,8 +42,13 @@ public class SQLDatabase {
 			// determine if a table exists
 			if(rs.getFetchSize() == 0){
 				// Import information from .sql file!
-				InputStream is = this.getClass().getResourceAsStream("SQLInit.sql");
-				st.execute(is.read_string());
+				java.io.InputStream is = this.getClass().getResourceAsStream("SQLInit.sql");
+				StringBuilder builder = new StringBuilder();
+				builder.append("");
+				while(is.available() > 0){
+					builder.append(Character.forDigit(is.read(), 10));
+				}
+				st.execute(builder.toString());
 			}
 		}
 		catch (Exception e){
