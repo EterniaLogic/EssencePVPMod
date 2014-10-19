@@ -18,12 +18,12 @@
 	<li>Server:</li>
 	<ul>
 		<li>Linux, Windows or MAC OS</li>
-		<li>mySQL Server Software</li>
+		<li>mySQL Server Software (Optional)</li>
 		<li>JAVA Run Time Environment (1.7.x)</li>
 		<li>PERL</li>
 		<ul>
-			<li>libdbi-perl</li>
-			<li>libdbd-mysql-perl</li>
+			<li>libdbi-perl (Optional)</li>
+			<li>libdbd-mysql-perl (Optional)</li>
 		</ul>
 	</ul>
 	<li>Client:</li>
