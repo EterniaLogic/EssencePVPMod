@@ -24,5 +24,4 @@ public class testKillExp extends CommandBase{
 	{
 	     // Still empty for now
 	}
-
 }

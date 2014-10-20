@@ -20,14 +20,8 @@ public class TrapBlock extends Block
         }
         
         //TODO: make this block damage players based on GUI
-
         public int idDropped(int i, Random random)
         {
                 return 0;
-        }
-        
-        @Test
-        public void test(){
-        	
         }
 }

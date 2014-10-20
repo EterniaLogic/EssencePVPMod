@@ -89,7 +89,9 @@ public class EssencePVP
     private Logger logger; 			// Logs information and errors
 	private Player clientplayer; 	// Client Player that is currently playing
 	private ServerCommandManager commandManager;
-    
+	
+	private Professions professions = new Professions();
+
 
 	@EventHandler
     public void init(FMLInitializationEvent event)
@@ -140,7 +142,7 @@ public class EssencePVP
 	private void RegisterCommands() {
 		// Register Commands
     	commandManager = (ServerCommandManager) Minecraft.getMinecraft().getIntegratedServer().getCommandManager();
-    	commandManager.registerCommand(new testKillExp());
+    	commandManager.registerCommand(new testKillExp()); // "/test"
 	}
 
 
@@ -160,21 +162,21 @@ public class EssencePVP
 
 	private void ProfessionsSetup() {
 		// <begin> EssencePvP::Professions::* examples
-        Professions pTest = new Professions(); // Creating a Professions object
+         // Creating a Professions object
 
         // Adding Profession #1 (using method 1)
-        Profession pTemporaryProfession = pTest.addProfession("Healer", "This is a healer class test"); // Adding a Profession to our Professions list (pTest)
+        Profession pTemporaryProfession = professions.addProfession("Healer", "This is a healer class test"); // Adding a Profession to our Professions list (pTest)
         Ability pTemporaryAbility = pTemporaryProfession.getAbilities().addAbility("Foo","Bar"); // Adding an Ability to a Profession
         pTemporaryAbility.addAbilityProperty("test_property","cast_time",1.0f); // Adding a Property to an Ability
         System.out.println("#########################");
-        System.out.println("Added: "+pTest.getLastAddedProfession().getProfessionName());
+        System.out.println("Added: "+professions.getLastAddedProfession().getProfessionName());
 
         // Adding Profession #2 (using method 2)
-        pTest.addProfession("Guardian", "This is a tank class test"); // Adding a Profession to our Professions list (pTest)
-        pTest.getLastAddedProfession().getAbilities().addAbility("Foo","Bar"); // Adding an Ability to a Profession
-        pTest.getLastAddedProfession().getAbilities().getLastAddedAbility().addAbilityProperty("test_property","cast_time",1.0f); // Adding a Property to an Ability
+        professions.addProfession("Guardian", "This is a tank class test"); // Adding a Profession to our Professions list (pTest)
+        professions.getLastAddedProfession().getAbilities().addAbility("Foo","Bar"); // Adding an Ability to a Profession
+        professions.getLastAddedProfession().getAbilities().getLastAddedAbility().addAbilityProperty("test_property","cast_time",1.0f); // Adding a Property to an Ability
         System.out.println("#########################");
-        System.out.println("Added: "+pTest.getLastAddedProfession().getProfessionName());
+        System.out.println("Added: "+professions.getLastAddedProfession().getProfessionName());
 
         // EssencePvP::Professions::* </end>
         
@@ -234,8 +236,12 @@ public class EssencePVP
     
     
     
-    
-    
+	/**
+	 * @return the professions
+	 */
+	public Professions getProfessions() {
+		return professions;
+	}
     
     /**
 	 * @return the sMySQLDatabase
@@ -243,7 +249,6 @@ public class EssencePVP
 	public String getsMySQLDatabase() {
 		return sMySQLDatabase;
 	}
-
 
 	/**
 	 * @return the modid
