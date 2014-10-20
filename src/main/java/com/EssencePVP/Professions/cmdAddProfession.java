@@ -20,6 +20,12 @@ import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 
 public class cmdAddProfession extends CommandBase{
+	private Professions pProfessions;
+
+	public cmdAddProfession(Professions _pProfessions){
+		this.pProfessions = _pProfessions;
+	}
+
 	@Override
 	public String getCommandName(){
 		return "addprofession";
@@ -34,5 +40,6 @@ public class cmdAddProfession extends CommandBase{
 	public void processCommand(ICommandSender iCommandSender, String[] aString){
 		int iSize = aString.length; // This displays how many strings have been passed
 		iCommandSender.addChatMessage(new ChatComponentText(Integer.toString(iSize)));
+
 	}
 }

@@ -19,37 +19,48 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 
-public class cmdListProfessions extends CommandBase{
+public class cmdListAbilities extends CommandBase{
 	private Professions pProfessions;
 	
-	public cmdListProfessions(Professions _pProfessions){
+	public cmdListAbilities(Professions _pProfessions){
 		this.pProfessions = _pProfessions;
 	}
 
 	@Override
 	public String getCommandName(){
-		return "listprofessions";
+		return "listabilities";
 	}
 	
 	@Override
 	public String getCommandUsage(ICommandSender iCommandSender){
-		return("Displays a list of all professions available");
+		return("Displays a list of all a given profession's abilities");
 	}
 	
 	@Override
 	public void processCommand(ICommandSender iCommandSender, String[] aString){
-		printProfession(iCommandSender, pProfessions.getProfessionsHead());
+		printAbility(iCommandSender, aString[0]);
 	}
 
-	private void printProfession(ICommandSender iCommandSender, Profession pProfession){
-		if(pProfession == null)
+	private void printAbility(ICommandSender iCommandSender, String _sProfessionId){
+		int iProfessionId = Integer.parseInt(_sProfessionId);
+		Profession pProfession = pProfessions.getProfession(iProfessionId);
+
+		Ability pAbility = pProfession.getAbilities().getAbilitiesHead();
+		iCommandSender.addChatMessage(new ChatComponentText("Listing abilities for "+pProfession.getProfessionName()));
+
+		printAbility(iCommandSender, pAbility);
+	}
+
+	private void printAbility(ICommandSender iCommandSender, Ability pAbility){
+		if(pAbility == null)
 			return;
 		else{
-			String sProfessionId = Integer.toString(pProfession.getProfessionId());
-			String sProfessionName = pProfession.getProfessionName();
-			String sProfessionDescription = pProfession.getProfessionDescription();
-			iCommandSender.addChatMessage(new ChatComponentText(sProfessionId+" - "+sProfessionName+" ("+sProfessionDescription+")"));
-			printProfession(iCommandSender, pProfession.getNext());
+			String sAbilityId = Integer.toString(pAbility.getAbilityId());
+			String sAbilityName = pAbility.getAbilityName();
+			String sAbilityDescription = pAbility.getAbilityDescription();
+
+			iCommandSender.addChatMessage(new ChatComponentText(sAbilityId+" - "+sAbilityName+" ("+sAbilityDescription+")"));
+			printAbility(iCommandSender, pAbility.getNext());
 		}
 	}
 }

@@ -82,8 +82,13 @@ public class Abilities implements java.io.Serializable
 		}
 			return;
 	}
-	public Ability getLastAddedAbility(){
+
+	public Ability getAbilitiesHead(){
 		return(this.pHead);
+	}
+
+	public Ability getLastAddedAbility(){
+		return(getAbilitiesHead());
 	}
 
 	public Ability getAbility(int _iAbilityId){
