@@ -31,8 +31,8 @@ public class cmdAddProfession extends CommandBase{
 	}
 	
 	@Override
-	public void processCommand(ICommandSender iCommandSender, String[] astring){
-		//iCommandSender.canCommandSenderUseCommand
-		iCommandSender.addChatMessage(new ChatComponentText("no"));
+	public void processCommand(ICommandSender iCommandSender, String[] aString){
+		int iSize = aString.length; // This displays how many strings have been passed
+		iCommandSender.addChatMessage(new ChatComponentText(Integer.toString(iSize)));
 	}
 }

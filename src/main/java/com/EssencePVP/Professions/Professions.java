@@ -87,8 +87,12 @@ public class Professions implements java.io.Serializable
 		return;
 	}
 
-	public Profession getLastAddedProfession(){
+	public Profession getProfessionsHead(){
 		return(this.pHead);
+	}
+
+	public Profession getLastAddedProfession(){
+		return(getProfessionsHead());
 	}
 
 	// delProfession should utilize these functions to search for nodes as opposed to having its own
