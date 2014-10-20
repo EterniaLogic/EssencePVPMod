@@ -2,6 +2,7 @@ package com.EssencePVP.Command;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
+import net.minecraft.util.ChatComponentText;
 
 public class testKillExp extends CommandBase{
 
@@ -23,5 +24,6 @@ public class testKillExp extends CommandBase{
 	public void processCommand(ICommandSender icommandsender, String[] astring)
 	{
 	     // Still empty for now
+		icommandsender.addChatMessage(new ChatComponentText(""));
 	}
 }
