@@ -45,11 +45,9 @@ public class SQLConnection{
 		ResultSet hReturn = null;
 		try{
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			hConnection = DriverManager.getConnection("jdbc:mysql://"+_sMySQLHostname+
-														":"+_iMySQLPort+
-														"/"+_sMySQLDatabase+"?"+
-														"user="+_sMySQLUsername+
-														"&password="+_sMySQLPassword);
+			hConnection = DriverManager.getConnection("jdbc:mysql://"+_sMySQLHostname+":"+_iMySQLPort+"/"+
+				_sMySQLDatabase+"?"+"user="+_sMySQLUsername+"&password="+_sMySQLPassword);
+
 		} catch (Exception eError){ 
 			eError.printStackTrace();
 		}
