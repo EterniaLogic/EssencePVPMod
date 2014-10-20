@@ -13,6 +13,7 @@
 
 package com.EssencePVP;
 
+import java.util.LinkedList;
 import java.util.logging.Level;
 
 import net.minecraft.client.Minecraft;
@@ -23,7 +24,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class ClientThread extends Thread {
 	//private List<Player> isFlying = Collections.synchronizedList(new ArrayList<Player>());
 	//private ConcurrentHashMap<Player, Integer> playerTimes = new ConcurrentHashMap<Player, Integer>();
+	private LinkedList<Runnable> tickList = new LinkedList<Runnable>();
+	private static ClientThread instance;
+	public ClientThread(){
+		instance = this;
+	}
 	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void run(){
@@ -41,6 +48,25 @@ public class ClientThread extends Thread {
 				// Game in multiplayer!
 				// Get data from the server
 			}
+			
+			// tick these commands
+			for(Runnable r : tickList){
+				r.run();
+			}
 		}
+	}
+	
+	/**
+	 * @return the tickList
+	 */
+	public LinkedList getTickList() {
+		return tickList;
+	}
+
+	/**
+	 * @return the instance
+	 */
+	public static ClientThread getInstance() {
+		return instance;
 	}
 }
