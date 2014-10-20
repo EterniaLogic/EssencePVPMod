@@ -15,6 +15,7 @@
 
 package com.EssencePVP.Professions;
 
+import net.minecraft.util.ChatComponent;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 
