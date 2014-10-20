@@ -142,6 +142,10 @@ public class EssencePVP
 	public void RegisterCommands() {
 		// Register Commands
     	commandManager = (ServerCommandManager) Minecraft.getMinecraft().getIntegratedServer().getCommandManager();
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
     	commandManager.registerCommand(new testKillExp()); // "/test"
     	commandManager.registerCommand(new cmdAddProfession()); // addProfession Name Description
 	}
