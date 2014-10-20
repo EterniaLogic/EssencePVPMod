@@ -13,6 +13,7 @@
 
 package com.EssencePVP;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.logging.Level;
 
@@ -25,11 +26,11 @@ public class ClientThread extends Thread {
 	//private List<Player> isFlying = Collections.synchronizedList(new ArrayList<Player>());
 	//private ConcurrentHashMap<Player, Integer> playerTimes = new ConcurrentHashMap<Player, Integer>();
 	private LinkedList<Runnable> tickList = new LinkedList<Runnable>();
+	private boolean serverDetected=true;
 	private static ClientThread instance;
 	public ClientThread(){
 		instance = this;
 	}
-	
 
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -44,15 +45,33 @@ public class ClientThread extends Thread {
 			
 			if(Minecraft.getMinecraft().isSingleplayer()){
 				// Game in single player!
+				registerCommands();
 			}else{
 				// Game in multiplayer!
 				// Get data from the server
 			}
 			
 			// tick these commands
-			for(Runnable r : tickList){
-				r.run();
+			for(Runnable method : tickList){
+				method.run();
 			}
+		}
+	}
+	
+	public void registerCommands(){
+		// has the player finally started a server?
+		if(Minecraft.getMinecraft().getIntegratedServer() != null){
+	    	if(Minecraft.getMinecraft().getIntegratedServer().isServerRunning()){
+	    		if(!serverDetected){
+	    			EssencePVP.getInstance().RegisterCommands();
+	    			serverDetected=true;
+	    		}
+	    		
+	    	}else{
+	    		serverDetected=false;
+	    	}
+		}else{
+			serverDetected=false;
 		}
 	}
 	
