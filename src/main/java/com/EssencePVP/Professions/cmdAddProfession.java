@@ -15,7 +15,7 @@
 
 package com.EssencePVP.Professions;
 
-import net.minecraft.util.ChatComponent;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 
@@ -32,6 +32,7 @@ public class cmdAddProfession extends CommandBase{
 	
 	@Override
 	public void processCommand(ICommandSender iCommandSender, String[] astring){
+		//iCommandSender.canCommandSenderUseCommand
 		iCommandSender.addChatMessage(new ChatComponentText("no"));
 	}
 }
