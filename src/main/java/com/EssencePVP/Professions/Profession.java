@@ -24,6 +24,7 @@ public class Profession implements java.io.Serializable
 	private String sProfesionDescription;
 	private Abilities pAbilities;
 	private Profession pNext;
+	private String sProfessionIcon;
 	// possibly replace this by simply using 'Abilities' list
 	// and avoid having an entire relational class
 	// private ProfessionAbility pProfessionAbility;
@@ -52,6 +53,10 @@ public class Profession implements java.io.Serializable
 
 	public void setProfessionDescription(String _sProfessionDescription){
 		this.sProfesionDescription = _sProfessionDescription;
+	}
+
+	public void setProfessionIcon(String _sProfessionIcon){
+		this.sProfessionIcon = _sProfessionIcon;
 	}
 
 	public boolean setNext(Profession _pNext){
@@ -87,6 +92,10 @@ public class Profession implements java.io.Serializable
 
 	public String getProfessionDescription(){
 		return(this.sProfesionDescription);
+	}
+
+	public String getProfessionIcon(){
+		return(this.sProfessionIcon);
 	}
 
 	public Profession getNext(){

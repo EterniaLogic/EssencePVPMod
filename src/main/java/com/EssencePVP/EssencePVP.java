@@ -32,9 +32,9 @@ import net.minecraftforge.common.config.Configuration;
 import com.EssencePVP.Command.testKillExp;
 import com.EssencePVP.Listeners.PlayerListener;
 import com.EssencePVP.Player.Player;
-import com.EssencePVP.Professions.Ability;
-import com.EssencePVP.Professions.Profession;
-import com.EssencePVP.Professions.Professions;
+//import com.EssencePVP.Professions.Ability;
+//import com.EssencePVP.Professions.Profession;
+import com.EssencePVP.Professions.*;
 import com.EssencePVP.blocks.HealBlock;
 import com.EssencePVP.blocks.LevelBlock;
 import com.EssencePVP.blocks.TrapBlock;
@@ -141,6 +141,7 @@ public class EssencePVP
 		// Register Commands
     	commandManager = (ServerCommandManager) Minecraft.getMinecraft().getIntegratedServer().getCommandManager();
     	commandManager.registerCommand(new testKillExp());
+    	commandManager.registerCommand(new cmdAddProfession()); // addProfession Name Description
 	}
 
 

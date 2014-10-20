@@ -25,6 +25,7 @@ public class Ability implements java.io.Serializable
 	private Ability pNext;
 	private AbilityProperty pProperties;
 	private int iProperties;
+	private String sAbilityIcon;
 
 	public Ability(){
 		this(-1,null,null);
@@ -102,6 +103,10 @@ public class Ability implements java.io.Serializable
 		sAbilityDescription = _iAbilityDescription;
 	}
 
+	public void setAbilityIcon(String _sAbilityIcon){
+		this.sAbilityIcon = _sAbilityIcon;
+	}
+
 	public int getAbilityId(){
 		return(this.iAbilityId);
 	}
@@ -112,6 +117,10 @@ public class Ability implements java.io.Serializable
 
 	public String getAbilityDescription(){
 		return(this.sAbilityDescription);
+	}
+
+	public String getAbilityIcon(){
+		return(this.sAbilityIcon);
 	}
 
 	public Ability getNext(){
