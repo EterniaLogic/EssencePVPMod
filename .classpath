@@ -213,5 +213,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="G:/EssencePVPMod/libs/sqlite-jdbc-3.7.2.jar"/>
+	<classpathentry kind="lib" path="G:/EssencePVPMod/libs/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="G:/EssencePVPMod/libs/junit-4.12-beta-2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

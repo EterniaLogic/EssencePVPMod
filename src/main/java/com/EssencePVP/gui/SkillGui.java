@@ -135,14 +135,16 @@ public class SkillGui extends GuiScreen
 		  
 		  // detect mouse over
 		  if(mouseAboveId == i){
-			GL11.glBegin(GL11.GL_QUADS);
-			GL11.glColor4f(1.0f,1.0f,1.0f,0.1f);
-			drawLoc(EssencePVP.MODID+":textures/"+treeAddr[state]+iText[0]+".png",posX+xSizeOfTexture/2+xList[i]+5, posY+yList[i]+5, 15, 15);
+			/*GL11.glBegin(GL11.GL_QUADS);
+			
+			drawLoc(EssencePVP.MODID+":textures/"+treeAddr[state]+iText[0]+".png",posX+xSizeOfTexture/2+xList[i]+5, posY+yList[i]+5, 15, 15,false);
 		    
-		    GL11.glEnd();
-		    drawLoc(EssencePVP.MODID+":textures/shadedskill.png",posX+xSizeOfTexture/2+xList[i], posY+yList[i], 20, 20);
+		    GL11.glEnd();*/
+			GL11.glColor4f(0.8f,0.8f,0.8f,1f);
+			drawLoc(EssencePVP.MODID+":textures/shadedskill.png",posX+xSizeOfTexture/2+xList[i], posY+yList[i], 20, 20,false);
+			GL11.glColor4f(1.0f,1.0f,1.0f,1.0f);
 		  }else{
-		    drawLoc(EssencePVP.MODID+":textures/"+treeAddr[state]+iText[0]+".png",posX+xSizeOfTexture/2+xList[i], posY+yList[i], 20, 20);
+		    drawLoc(EssencePVP.MODID+":textures/"+treeAddr[state]+iText[0]+".png",posX+xSizeOfTexture/2+xList[i], posY+yList[i], 20, 20,true);
 		  }
 		  
 		}
@@ -179,8 +181,8 @@ public class SkillGui extends GuiScreen
 	}
 	
 	@SideOnly(Side.CLIENT)
-	public void drawLoc(String loc, int x, int y, int width, int height){
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+	public void drawLoc(String loc, int x, int y, int width, int height, boolean resetcolor){
+		if(resetcolor) GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		ResourceLocation imgloc = new ResourceLocation(loc);
 		this.mc.renderEngine.bindTexture(imgloc);
 		drawTexturedModalRectNoUV(x,y,width,height);
