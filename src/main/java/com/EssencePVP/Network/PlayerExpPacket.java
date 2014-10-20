@@ -23,7 +23,6 @@ class PlayerExpMessage implements IMessage{
 		// TODO Auto-generated method stub
 		buf.writeBytes(Minecraft.getMinecraft().thePlayer.getDisplayName().getBytes()); // Send player name
 		
-		
 	}
 
 	@Override

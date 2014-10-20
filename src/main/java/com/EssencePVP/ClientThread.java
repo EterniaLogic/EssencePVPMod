@@ -26,7 +26,7 @@ public class ClientThread extends Thread {
 	//private List<Player> isFlying = Collections.synchronizedList(new ArrayList<Player>());
 	//private ConcurrentHashMap<Player, Integer> playerTimes = new ConcurrentHashMap<Player, Integer>();
 	private LinkedList<Runnable> tickList = new LinkedList<Runnable>();
-	private boolean serverDetected=true;
+	private boolean serverDetected=false;
 	private static ClientThread instance;
 	public ClientThread(){
 		instance = this;
@@ -37,11 +37,11 @@ public class ClientThread extends Thread {
 	public void run(){
 		while (true){
 			try {
-				Thread.sleep(1000); // 1 Second
+				Thread.sleep(20); // 50 milliseconds (50Hz)
 			} catch (InterruptedException e) {break;}
 			
 			// process skills, ect.
-			EssencePVP.getInstance().getLogger().log(Level.FINEST, "Test Client Thread");
+			//EssencePVP.getInstance().getLogger().log(Level.INFO, "Test Client Thread");
 			
 			if(Minecraft.getMinecraft().isSingleplayer()){
 				// Game in single player!
@@ -51,7 +51,7 @@ public class ClientThread extends Thread {
 				// Get data from the server
 			}
 			
-			// tick these commands
+			// tick these commands that are scheduled to be used
 			for(Runnable method : tickList){
 				method.run();
 			}
@@ -66,7 +66,6 @@ public class ClientThread extends Thread {
 	    			EssencePVP.getInstance().RegisterCommands();
 	    			serverDetected=true;
 	    		}
-	    		
 	    	}else{
 	    		serverDetected=false;
 	    	}

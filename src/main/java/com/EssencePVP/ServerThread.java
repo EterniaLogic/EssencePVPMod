@@ -29,7 +29,7 @@ public class ServerThread extends Thread {
 	public void run(){
 		while (true){
 			try {
-				Thread.sleep(1000); // 1 Second
+				Thread.sleep(20); // 50 Hertz
 			} catch (InterruptedException e) {break;} // Game wants to close
 			
 			// process background information

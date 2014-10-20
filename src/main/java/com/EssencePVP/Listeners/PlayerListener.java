@@ -55,6 +55,8 @@ public class PlayerListener
 		// TODO: Add player to mysql or sqlite, if they dont exist. 
 		// Otherwise, just add them to player map.
 		
-		new Player((EntityClientPlayerMP) entity); // auto-adds mapping
+		if(entity instanceof EntityClientPlayerMP){
+			new Player((EntityClientPlayerMP) entity); // auto-adds mapping
+		}
 	}
 }

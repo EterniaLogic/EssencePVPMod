@@ -31,6 +31,7 @@ import net.minecraftforge.common.config.Configuration;
 
 import com.EssencePVP.Command.testKillExp;
 import com.EssencePVP.Listeners.PlayerListener;
+import com.EssencePVP.Player.ConnectionHandler;
 import com.EssencePVP.Player.Player;
 //import com.EssencePVP.Professions.Ability;
 //import com.EssencePVP.Professions.Profession;
@@ -48,6 +49,7 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 //import scala;
@@ -158,6 +160,8 @@ public class EssencePVP
     	GameRegistry.registerBlock(hLevelBlock, "level_block");
     	
     	// Items
+    	
+    	// Handlers
 	}
 
 
