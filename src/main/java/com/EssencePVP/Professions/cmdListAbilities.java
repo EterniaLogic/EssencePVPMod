@@ -33,12 +33,15 @@ public class cmdListAbilities extends CommandBase{
 	
 	@Override
 	public String getCommandUsage(ICommandSender iCommandSender){
-		return("Displays a list of all a given profession's abilities");
+		return("Displays a list of all a given profession's abilities. Usage: listabilities <profession id>");
 	}
 	
 	@Override
 	public void processCommand(ICommandSender iCommandSender, String[] aString){
-		printAbility(iCommandSender, aString[0]);
+		if(aString.length != 1)
+			iCommandSender.addChatMessage(new ChatComponentText("invalid # of arguments"));
+		else
+			printAbility(iCommandSender, aString[0]);
 	}
 
 	private void printAbility(ICommandSender iCommandSender, String _sProfessionId){

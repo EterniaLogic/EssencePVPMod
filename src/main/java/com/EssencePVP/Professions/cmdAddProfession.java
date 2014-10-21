@@ -33,7 +33,7 @@ public class cmdAddProfession extends CommandBase{
 	
 	@Override
 	public String getCommandUsage(ICommandSender iCommandSender){
-		return("Adds a profession to the professions list. Usage: addProfession <Name> <Description>");
+		return("Adds a profession to the professions list. Usage: addprofession <Name> <Description>");
 	}
 	
 	@Override
