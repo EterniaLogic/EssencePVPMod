@@ -50,6 +50,10 @@ public class Ability implements java.io.Serializable
 		return;
 	}
 
+	public AbilityProperty getAbilityPropertyHead(){
+		return(this.pProperties);
+	}
+
 	public AbilityProperty getAbilityProperty(int _iPropertyId){
 		return(getAbilityProperty(_iPropertyId, pProperties));
 	}

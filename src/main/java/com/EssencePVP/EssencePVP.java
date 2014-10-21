@@ -148,6 +148,7 @@ public class EssencePVP
     	commandManager.registerCommand(new cmdAddProfession(pProfessions)); // addProfession Name Description
         commandManager.registerCommand(new cmdListProfessions(pProfessions)); // listprofessions
         commandManager.registerCommand(new cmdListAbilities(pProfessions)); // listabilities
+        commandManager.registerCommand(new cmdListProperties(pProfessions)); // listproperties
 	}
 
 
