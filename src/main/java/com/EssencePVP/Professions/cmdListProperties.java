@@ -79,8 +79,9 @@ public class cmdListProperties extends CommandBase{
 			String sPropertyId = Integer.toString(pProperty.getPropertyId());
 			String sPropertyName = pProperty.getPropertyName();
 			String sPropertyType = pProperty.getPropertyType();
+			String sPropertyValue = Float.toString(pProperty.getPropertyValue());
 
-			iCommandSender.addChatMessage(new ChatComponentText(sPropertyId+" - "+sPropertyName+":"+sPropertyType));
+			iCommandSender.addChatMessage(new ChatComponentText(sPropertyId+" - "+sPropertyName+":"+sPropertyType+" "+sPropertyValue));
 			printProperty(iCommandSender, pProperty.getNext());
 		}
 	}
