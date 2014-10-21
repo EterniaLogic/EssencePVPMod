@@ -45,7 +45,14 @@ public class cmdListAbilities extends CommandBase{
 	}
 
 	private void printAbility(ICommandSender iCommandSender, String _sProfessionId){
-		int iProfessionId = Integer.parseInt(_sProfessionId);
+		int iProfessionId = 0;
+		try{
+			iProfessionId = Integer.parseInt(_sProfessionId);
+		} catch(NumberFormatException eError){
+				iCommandSender.addChatMessage(new ChatComponentText("You must enter a numeric value"));
+				eError.printStackTrace();
+				return;
+		}
 		Profession pProfession = pProfessions.getProfession(iProfessionId);
 
 		Ability pAbility = pProfession.getAbilities().getAbilitiesHead();
