@@ -46,19 +46,23 @@ public class cmdListAbilities extends CommandBase{
 
 	private void printAbility(ICommandSender iCommandSender, String _sProfessionId){
 		int iProfessionId = 0;
-		try{
+		try{ // Make sure the string the user has passed actually contains a number
 			iProfessionId = Integer.parseInt(_sProfessionId);
 		} catch(NumberFormatException eError){
+				// TODO: If it is not a number, then attempt to locate the profession by name
 				iCommandSender.addChatMessage(new ChatComponentText("You must enter a numeric value"));
-				eError.printStackTrace();
 				return;
 		}
 		Profession pProfession = pProfessions.getProfession(iProfessionId);
+		if(pProfession == null){ // Make sure if we have located the profession in question
+			iCommandSender.addChatMessage(new ChatComponentText("Profession not found. Check your profession id. A list of professions and their ids can be found with /listprofessions."));
+			return;
+		} else{
+			Ability pAbility = pProfession.getAbilities().getAbilitiesHead();
+			iCommandSender.addChatMessage(new ChatComponentText("Listing abilities for "+pProfession.getProfessionName()));
 
-		Ability pAbility = pProfession.getAbilities().getAbilitiesHead();
-		iCommandSender.addChatMessage(new ChatComponentText("Listing abilities for "+pProfession.getProfessionName()));
-
-		printAbility(iCommandSender, pAbility);
+			printAbility(iCommandSender, pAbility);
+		}
 	}
 
 	private void printAbility(ICommandSender iCommandSender, Ability pAbility){
