@@ -67,3 +67,17 @@ processResources
         exclude 'mcmod.info'
     }
 }
+
+//compileScala.taskDependencies.values = compileScala.taskDependencies.values - 'compileJava'
+//compileJava.dependsOn compileScala
+
+sourceSets {
+    main {
+        scala {
+            srcDirs = ['src/main/scala', 'src/main/java']
+        }
+        java {
+            srcDirs = []
+        }
+    }
+}
