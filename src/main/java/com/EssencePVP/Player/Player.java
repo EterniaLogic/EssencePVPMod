@@ -15,13 +15,54 @@
 
 package com.EssencePVP.Player;
 
+import java.util.HashMap;
 
-public class Player
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityClientPlayerMP;
+
+
+public class Player implements java.io.Serializable
 {
-	Experience exp = new Experience(); // Experience manager
+	private static HashMap playerMap = new HashMap();
+	Experience exp = new Experience(0, this); // Experience manager
+	EntityClientPlayerMP mcplayer;
 	
-	Player(String name){
+	public Player(EntityClientPlayerMP player){
 		// load player based on name
 		// TODO:  Load player from Mysql or SQLite
+		this.mcplayer = player;
+		playerMap.put(player, this);
+	}
+	
+	public void playerLogout(){
+		playerMap.remove(mcplayer);
+	}
+	
+	/**
+	 * @return the playerMap
+	 */
+	public static HashMap getPlayerMap() {
+		return playerMap;
+	}
+
+	/**
+	 * @return the mcplayer
+	 */
+	public EntityClientPlayerMP getMcplayer() {
+		return mcplayer;
+	}
+
+	/**
+	 * @return the exp
+	 */
+	public Experience getExp() {
+		return exp;
+	}
+
+	/**
+	 * @param exp the exp to set
+	 */
+	public void setExp(Experience exp) {
+		this.exp = exp;
 	}
 }

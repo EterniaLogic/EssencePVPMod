@@ -17,13 +17,15 @@
 
 package com.EssencePVP.Professions;
 
-public class Ability{
+public class Ability implements java.io.Serializable
+{
 	private int iAbilityId;
 	private String sAbilityName;
 	private String sAbilityDescription;
 	private Ability pNext;
 	private AbilityProperty pProperties;
 	private int iProperties;
+	private String sAbilityIcon;
 
 	public Ability(){
 		this(-1,null,null);
@@ -46,6 +48,10 @@ public class Ability{
 			pProperties.setNext(pTemporary);
 		}
 		return;
+	}
+
+	public AbilityProperty getAbilityPropertyHead(){
+		return(this.pProperties);
 	}
 
 	public AbilityProperty getAbilityProperty(int _iPropertyId){
@@ -101,6 +107,10 @@ public class Ability{
 		sAbilityDescription = _iAbilityDescription;
 	}
 
+	public void setAbilityIcon(String _sAbilityIcon){
+		this.sAbilityIcon = _sAbilityIcon;
+	}
+
 	public int getAbilityId(){
 		return(this.iAbilityId);
 	}
@@ -111,6 +121,10 @@ public class Ability{
 
 	public String getAbilityDescription(){
 		return(this.sAbilityDescription);
+	}
+
+	public String getAbilityIcon(){
+		return(this.sAbilityIcon);
 	}
 
 	public Ability getNext(){

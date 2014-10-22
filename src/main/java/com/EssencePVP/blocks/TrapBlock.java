@@ -2,6 +2,8 @@ package com.EssencePVP.blocks;
 
 import java.util.Random;
 
+import org.junit.Test;
+
 import com.EssencePVP.EssencePVP;
 
 import net.minecraft.block.*;
@@ -13,12 +15,11 @@ public class TrapBlock extends Block
         {
                 super(Material.rock);
                 this.setBlockName("trap_block");
-                this.setCreativeTab(EssencePVP.creativeTab);
+                this.setCreativeTab(EssencePVP.getCreativeTab());
                 //setBlockTextureName(modnamex.MODID + ":" + "textures/blocks/trap_block.jpg");
         }
         
         //TODO: make this block damage players based on GUI
-
         public int idDropped(int i, Random random)
         {
                 return 0;

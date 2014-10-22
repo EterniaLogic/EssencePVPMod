@@ -17,12 +17,14 @@
 
 package com.EssencePVP.Professions;
 
-public class Profession{
+public class Profession implements java.io.Serializable
+{
 	private int iProfessionId;
 	private String sProfessionName;
 	private String sProfesionDescription;
 	private Abilities pAbilities;
 	private Profession pNext;
+	private String sProfessionIcon;
 	// possibly replace this by simply using 'Abilities' list
 	// and avoid having an entire relational class
 	// private ProfessionAbility pProfessionAbility;
@@ -51,6 +53,10 @@ public class Profession{
 
 	public void setProfessionDescription(String _sProfessionDescription){
 		this.sProfesionDescription = _sProfessionDescription;
+	}
+
+	public void setProfessionIcon(String _sProfessionIcon){
+		this.sProfessionIcon = _sProfessionIcon;
 	}
 
 	public boolean setNext(Profession _pNext){
@@ -86,6 +92,10 @@ public class Profession{
 
 	public String getProfessionDescription(){
 		return(this.sProfesionDescription);
+	}
+
+	public String getProfessionIcon(){
+		return(this.sProfessionIcon);
 	}
 
 	public Profession getNext(){

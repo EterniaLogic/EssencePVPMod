@@ -17,12 +17,16 @@
 
 package com.EssencePVP.Professions;
 
-public class Abilities{
+public class Abilities implements java.io.Serializable
+{
 	private int iNumAbilities;
+	private int iNumAbilitiesAdded;
 	private Ability pHead;
+	private Ability pLast;
 
 	public Abilities(){
 		this.iNumAbilities = 0;
+		this.iNumAbilitiesAdded = 0;
 		this.pHead = null;
 	}
 
@@ -30,15 +34,16 @@ public class Abilities{
 	// Creates an Ability object and adds it to the head of an Abilities list given the Ability's Name and Description.
 	// Special note should be made as the pHead will always have the highest iAbilityId where as the tail of the list
 	// will have the smallest iAbilityId
-	public void addAbility(String _sAbilityName, String _sAbilityDescription){
+	public Ability addAbility(String _sAbilityName, String _sAbilityDescription){
 		if(iNumAbilities == 0)
-			pHead = new Ability(++iNumAbilities, _sAbilityName, _sAbilityDescription);
+			pHead = new Ability(++iNumAbilitiesAdded, _sAbilityName, _sAbilityDescription);
 		else{
 			Ability pTemporary = pHead;
-			pHead = new Ability(++iNumAbilities, _sAbilityName, _sAbilityDescription);
+			pHead = new Ability(++iNumAbilitiesAdded, _sAbilityName, _sAbilityDescription);
 			pHead.setNext(pTemporary);
 		}
-		return;
+		iNumAbilities++;
+		return(this.pHead);
 	}
 
 	// Description:
@@ -78,12 +83,30 @@ public class Abilities{
 			return;
 	}
 
+	public Ability getAbilitiesHead(){
+		return(this.pHead);
+	}
+
+	public Ability getLastAddedAbility(){
+		return(getAbilitiesHead());
+	}
+
 	public Ability getAbility(int _iAbilityId){
-		return(getAbility(_iAbilityId, pHead));
+		if(this.pLast != null){
+			if(this.pLast.getAbilityId() == _iAbilityId)
+				return(this.pLast);
+		}
+		this.pLast = getAbility(_iAbilityId, pHead);
+		return(this.pLast);
 	}
 
 	public Ability getAbility(String _sAbilityName){
-		return(getAbility(_sAbilityName, pHead));
+		if(this.pLast != null){
+			if(this.pLast.getAbilityName().equals(_sAbilityName))
+				return(this.pLast);
+		}
+		this.pLast = getAbility(_sAbilityName, pHead);
+		return(this.pLast);
 	}
 
 	private Ability getAbility(int _iAbilityId, Ability _pAbility){

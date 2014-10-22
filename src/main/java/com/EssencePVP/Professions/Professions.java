@@ -17,13 +17,18 @@
 
 package com.EssencePVP.Professions;
 
-public class Professions{
-	private int iNumProfessions; // This number must be equal to the sProffesionId value of the tail node
+public class Professions implements java.io.Serializable
+{
+	private int iNumProfessions; // This is the current number of professions in the list
+	private int iNumProfessionsAdded; // This is the total addProfession() calls that have been made
 	private Profession pHead;
+	private Profession pLast;
 
 	public Professions(){
 		this.iNumProfessions = 0;
+		this.iNumProfessionsAdded = 0;
 		this.pHead = null;
+		this.pLast = null;
 	}
 
 	// This will continously add items to the head in order to perform this task in O(1) time as opposed
@@ -31,15 +36,16 @@ public class Professions{
 	// order to which items are added is relevant
 	// Special note should be made: The head will always have the largest iProfessionId value
 	// - AK
-	public void addProfession(String _sProfessionName, String _sProfessionDescription){
+	public Profession addProfession(String _sProfessionName, String _sProfessionDescription){
 		if(iNumProfessions == 0)
-			pHead = new Profession(++iNumProfessions, _sProfessionName, _sProfessionDescription);
+			pHead = new Profession(++iNumProfessionsAdded, _sProfessionName, _sProfessionDescription);
 		else{
 			Profession pTemporary = pHead;
-			pHead = new Profession(++iNumProfessions, _sProfessionName, _sProfessionDescription);
+			pHead = new Profession(++iNumProfessionsAdded, _sProfessionName, _sProfessionDescription);
 			pHead.setNext(pTemporary);
 		}
-		return;
+		++iNumProfessions;
+		return(pHead);
 	}
 
 	// This should be used as little as possible. It will call a recursive function to locate the correct
@@ -78,17 +84,40 @@ public class Professions{
 				else delProfession(_iProfessionId, _pProfession.getNext());
 			}
 		}
-			return;
+		return;
+	}
+
+	public Profession getProfessionsHead(){
+		return(this.pHead);
+	}
+
+	public Profession getLastAddedProfession(){
+		return(getProfessionsHead());
 	}
 
 	// delProfession should utilize these functions to search for nodes as opposed to having its own
 	// search algorithim
 	public Profession getProfession(int _iProfessionId){
-		return(getProfession(_iProfessionId, pHead));
+		// If another getProfession() request is sent for the Profession with Id of the last request
+		// we will not recursivley try to locate it as we already know where it is. A specific address
+		// table (which is an array with an object's refrence in the slot given by the Id) could be
+		// implemented to store the locations of all professions. At this time I do not see this as a
+		// requirement
+		if(this.pLast != null){
+			if(pLast.getProfessionId() == _iProfessionId)
+				return(this.pLast);
+		}
+		this.pLast = getProfession(_iProfessionId, pHead);
+		return(this.pLast);
 	}
 
 	public Profession getProfession(String _sProfessionName){
-		return(getProfession(_sProfessionName, pHead));
+		if(this.pLast != null){
+			if(this.pLast.getProfessionName().equals(_sProfessionName))
+				return(this.pLast);
+		}
+		this.pLast = getProfession(_sProfessionName, pHead);
+		return(this.pLast);
 	}
 
 	private Profession getProfession(int _iProfessionId, Profession _pProfession){
