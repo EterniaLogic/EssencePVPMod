@@ -8,8 +8,10 @@ import com.EssencePVP.EssencePVP;
 
 import net.minecraft.block.*;
 import net.minecraft.block.material.*;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
-public class TrapBlock extends Block
+public class TrapBlock extends BlockContainer
 {
         public TrapBlock(int i, int j)
         {
@@ -24,4 +26,9 @@ public class TrapBlock extends Block
         {
                 return 0;
         }
+
+		@Override
+		public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
+			return new TrapTileEntity(this);
+		}
 }
