@@ -50,11 +50,15 @@ public class Professions implements java.io.Serializable
 
 	public Profession addProfession(int _iProfessionId, String _sProfessionName, String _sProfessionDescription){
 		if(iNumProfessions == 0)
-			pHead = new Profession(_iProfessionId, _sProfessionName, _sProfessionDescription);
+			if(_iProfessionId > iNumProfessions)
+				pHead = new Profession(_iProfessionId, _sProfessionName, _sProfessionDescription);
+			else return null;
 		else{
-			Profession pTemporary = pHead;
-			pHead = new Profession(_iProfessionId, _sProfessionName, _sProfessionDescription);
-			pHead.setNext(pTemporary);
+			if(_iProfessionId > pHead.getProfessionId()){
+				Profession pTemporary = pHead;
+				pHead = new Profession(_iProfessionId, _sProfessionName, _sProfessionDescription);
+				pHead.setNext(pTemporary);
+			} else return null;
 		}
 		++iNumProfessionsAdded;
 		++iNumProfessions;
