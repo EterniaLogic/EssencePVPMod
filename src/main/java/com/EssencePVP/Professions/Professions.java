@@ -35,14 +35,10 @@ public class Professions implements java.io.Serializable {
 	// - AK
 	public Profession addProfession(String _sProfessionName, String _sProfessionDescription){
 		if(iNumProfessions == 0)
-			pHead = new Profession(1, _sProfessionName, _sProfessionDescription);
+			return(addProfession(1, _sProfessionName, _sProfessionDescription));
 		else{
-			Profession pTemporary = pHead;
-			pHead = new Profession((pTemporary.getProfessionId()+1), _sProfessionName, _sProfessionDescription);
-			pHead.setNext(pTemporary);
+			return(addProfession((pHead.getProfessionId()+1), _sProfessionName, _sProfessionDescription));
 		}
-		++iNumProfessions;
-		return(pHead);
 	}
 
 	public Profession addProfession(int _iProfessionId, String _sProfessionName, String _sProfessionDescription){
