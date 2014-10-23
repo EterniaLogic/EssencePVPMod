@@ -16,6 +16,12 @@ object ProfessionsManager {
     models.Professions.create(models.Profession(newProfession.getProfessionId, name, description))
     newProfession
   }
+  def get(id:Int, professionList:Professions.Professions) : Professions.Profession = {
+    professionList.getProfession(id)
+  }
+  def get(name:String, professionList:Professions.Professions) : Professions.Profession = {
+    professionList.getProfession(name)
+  }
   def del(id:Int, professionList:Professions.Professions) : Unit = {
     models.Professions.delete(id)
     professionList.delProfession(id)
