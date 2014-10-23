@@ -48,6 +48,19 @@ public class Professions implements java.io.Serializable
 		return(pHead);
 	}
 
+	public Profession addProfession(int _iProfessionId, String _sProfessionName, String _sProfessionDescription){
+		if(iNumProfessions == 0)
+			pHead = new Profession(_iProfessionId, _sProfessionName, _sProfessionDescription);
+		else{
+			Profession pTemporary = pHead;
+			pHead = new Profession(_iProfessionId, _sProfessionName, _sProfessionDescription);
+			pHead.setNext(pTemporary);
+		}
+		++iNumProfessionsAdded;
+		++iNumProfessions;
+		return(pHead);
+	}
+
 	// This should be used as little as possible. It will call a recursive function to locate the correct
 	// Profession object; identify its ID and pass it to the appropriate delProfession function to actually
 	// delete it. It is best to already know a Profession's ID. This can be improved by creating a function
