@@ -138,7 +138,7 @@ public class EssencePVP{
 	/**
 	 * 
 	 */
-		public void RegisterCommands(){
+	public void RegisterCommands(){
 		// Register Commands
 		commandManager = (ServerCommandManager) Minecraft.getMinecraft().getIntegratedServer().getCommandManager();
 		commandManager.registerCommand(new testKillExp()); // "/test"
