@@ -23,15 +23,12 @@ import java.util.logging.Logger;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.EntityClientPlayerMP;
-import net.minecraft.command.ICommandManager;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.config.Configuration;
 
 import com.EssencePVP.Command.testKillExp;
 import com.EssencePVP.Listeners.PlayerListener;
-import com.EssencePVP.Player.ConnectionHandler;
 import com.EssencePVP.Player.Player;
 //import com.EssencePVP.Professions.Ability;
 //import com.EssencePVP.Professions.Profession;
@@ -49,10 +46,11 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 //import scala;
+
+import com.EssencePVP.managers.*;
 
 @Mod(modid = EssencePVP.MODID, version = EssencePVP.VERSION)
 public class EssencePVP{
@@ -180,6 +178,16 @@ public class EssencePVP{
 		pProfessions.getLastAddedProfession().getAbilities().getLastAddedAbility().addAbilityProperty("test_property","cast_time",1.0f); // Adding a Property to an Ability
 		System.out.println("#########################");
 		System.out.println("Added: "+pProfessions.getLastAddedProfession().getProfessionName());
+
+
+        //Examples Of Using ProfessionsManager..
+        //tag: ProfessionsManager
+        Professions professionList = ProfessionsManager.load(); //Load all data from the database into professionList
+        ProfessionsManager.add("Profession Name #1", "Profession Desc #1", professionList); //Add a profession into the list and database
+        Profession tempPro = ProfessionsManager.add("Profession Name #2", "Profession Desc #2", professionList); //same as above
+        ProfessionsManager.del(tempPro.getProfessionId(), professionList); //Delete from professionList and DB by ID
+        ProfessionsManager.del("Profession Name #1", professionList); //Delete from professionList and DB by name
+
 
 		// EssencePvP::Professions::* </end>
 		

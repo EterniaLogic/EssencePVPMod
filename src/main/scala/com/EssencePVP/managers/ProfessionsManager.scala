@@ -1,4 +1,4 @@
-package com.EssencePVP.DatabaseManger
+package com.EssencePVP.managers
 
 import com.EssencePVP._
 
