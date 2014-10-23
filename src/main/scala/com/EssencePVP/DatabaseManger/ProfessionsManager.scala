@@ -11,5 +11,17 @@ object ProfessionsManager {
     })
     professionList //return the list
   }
-
+  def add(name:String, description:String, professionList:Professions.Professions) : Professions.Profession  = {
+    val newProfession = professionList.addProfession(name, description)
+    models.Professions.create(models.Profession(newProfession.getProfessionId, name, description))
+    newProfession
+  }
+  def del(id:Int, professionList:Professions.Professions) : Unit = {
+    models.Professions.delete(id)
+    professionList.delProfession(id)
+  }
+  def del(name:String, professionList:Professions.Professions) : Unit = {
+    models.Professions.delete(name)
+    professionList.delProfession(name)
+  }
 }

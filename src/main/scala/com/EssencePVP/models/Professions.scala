@@ -24,10 +24,10 @@ object Professions {
       professions.filter(_.id === id).firstOption.get
     }
   }
-  def retrieveAll() : List[Profession] = {
+  def retrieveAll() : List[Profession] = { //pulls all data from the Professions table
     DB.withSession { implicit session =>
       val q = for {
-        p <- professions
+        p <- professions.sortBy(_.id.asc) //order by id in asc order
       } yield p
       q.list
     }
@@ -40,6 +40,11 @@ object Professions {
   def delete(id:Int) = {
     DB.withSession { implicit session =>
       professions.filter(_.id === id).delete
+    }
+  }
+  def delete(name:String) = {
+    DB.withSession { implicit session =>
+      professions.filter(_.name === name).delete
     }
   }
   def delete(a:Profession) = {
