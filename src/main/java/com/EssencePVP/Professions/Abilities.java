@@ -17,16 +17,13 @@
 
 package com.EssencePVP.Professions;
 
-public class Abilities implements java.io.Serializable
-{
+public class Abilities implements java.io.Serializable {
 	private int iNumAbilities;
-	private int iNumAbilitiesAdded;
 	private Ability pHead;
 	private Ability pLast;
 
 	public Abilities(){
 		this.iNumAbilities = 0;
-		this.iNumAbilitiesAdded = 0;
 		this.pHead = null;
 	}
 
@@ -36,14 +33,26 @@ public class Abilities implements java.io.Serializable
 	// will have the smallest iAbilityId
 	public Ability addAbility(String _sAbilityName, String _sAbilityDescription){
 		if(iNumAbilities == 0)
-			pHead = new Ability(++iNumAbilitiesAdded, _sAbilityName, _sAbilityDescription);
+			return(addAbility(1, _sAbilityName, _sAbilityDescription));
 		else{
-			Ability pTemporary = pHead;
-			pHead = new Ability(++iNumAbilitiesAdded, _sAbilityName, _sAbilityDescription);
-			pHead.setNext(pTemporary);
+			return(addAbility((pHead.getAbilityId()+1), _sAbilityName, _sAbilityDescription));
 		}
-		iNumAbilities++;
-		return(this.pHead);
+	}
+
+	public Ability addAbility(int _iAbilityId, String _sAbilityName, String _sAbilityDescription){
+		if(iNumAbilities == 0)
+			if(_iAbilityId > 0)
+				pHead = new Ability(_iAbilityId, _sAbilityName, _sAbilityDescription);
+			else return null;
+		else{
+			if(_iAbilityId > pHead.getAbilityId()){
+				Ability pTemporary = pHead;
+				pHead = new Ability(_iAbilityId, _sAbilityName, _sAbilityDescription);
+				pHead.setNext(pTemporary);
+			} else return null;
+		}
+		++iNumAbilities;
+		return(pHead);
 	}
 
 	// Description:
