@@ -24,6 +24,14 @@ object Professions {
       professions.filter(_.id === id).firstOption.get
     }
   }
+  def retrieveAll() : List[Profession] = {
+    DB.withSession { implicit session =>
+      val q = for {
+        p <- professions
+      } yield p
+      q.list
+    }
+  }
   def update(a:Profession) = {
     DB.withSession { implicit session =>
       professions.filter(_.id === a.id).update(a)
