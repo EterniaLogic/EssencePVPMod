@@ -4,6 +4,7 @@ import com.jolbox.bonecp.BoneCPDataSource
 import scala.slick.driver.MySQLDriver.simple._
 import com.typesafe.config.ConfigFactory
 
+//Creates a Connection to the DB using the settings found in application.conf
 object DataSource {
   val config = ConfigFactory.load()
   //Class.forName("com.mysql.jdbc.Driver")
