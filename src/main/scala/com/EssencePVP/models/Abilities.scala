@@ -25,6 +25,14 @@ object Abilities {
       abilities.filter(_.id === id).firstOption.get
     }
   }
+  def retrieveAll() : List[Ability] = {
+    DB.withSession { implicit session =>
+      val q = for {
+        p <- abilities.sortBy(_.id.asc) //order by id in asc order
+      } yield p
+      q.list
+    }
+  }
   def update(a:Ability) = {
     DB.withSession { implicit session =>
       abilities.filter(_.id === a.id).update(a)
@@ -33,6 +41,11 @@ object Abilities {
   def delete(id:Int) = {
     DB.withSession { implicit session =>
       abilities.filter(_.id === id).delete
+    }
+  }
+  def delete(name:String) = {
+    DB.withSession { implicit session =>
+      abilities.filter(_.name === name).delete
     }
   }
   def delete(a:Ability) = {
