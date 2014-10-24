@@ -30,15 +30,15 @@ public class Ability implements java.io.Serializable {
 		this(-1,null,null);
 	}
 
-	public Ability(int _iAbilityId, String _iAbilityName, String _iAbilityDescription){
-		this(_iAbilityId, _iAbilityName, _iAbilityDescription, null);
+	public Ability(int _iAbilityId, String _sAbilityName, String _sAbilityDescription){
+		this(_iAbilityId, _sAbilityName, _sAbilityDescription, null);
 	}
 
 	public Ability(int _iAbilityId, String _iAbilityName, String _sAbilityDescription, String _sAbilityIcon){
 		this.iProperties = 0;
 		setAbilityId(_iAbilityId);
 		setAbilityName(_iAbilityName);
-		setAbilityDescription(_iAbilityDescription);
+		setAbilityDescription(_sAbilityDescription);
 		setAbilityIcon(_sAbilityIcon);
 		setNext(null);
 	}
@@ -140,5 +140,4 @@ public class Ability implements java.io.Serializable {
 			return true;
 		else return false;
 	}
-
 }
