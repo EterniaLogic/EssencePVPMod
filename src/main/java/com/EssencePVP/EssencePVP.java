@@ -72,7 +72,7 @@ public class EssencePVP{
 	
 	private Configuration config;
  
-	// mySQL   
+	// mySQL
 	private String bMySQLHostname,sMySQLUsername,sMySQLPassword, sMySQLDatabase;
 	private int iMySQLPort;
 	
@@ -116,7 +116,6 @@ public class EssencePVP{
 		thread.start(); // start primary thread!
 	}
 
-
 	/**
 	 * 
 	 */
@@ -131,7 +130,6 @@ public class EssencePVP{
 			}
 		}
 	}
-
 
 	/**
 	 * 
@@ -180,15 +178,15 @@ public class EssencePVP{
 		System.out.println("Added: "+pProfessions.getLastAddedProfession().getProfessionName());
 
 
-        // //Examples Of Using ProfessionsManager..
-        // //tag: ProfessionsManager
-        // Professions professionList = ProfessionsManager.load(); //Load all data from the database into professionList
-        // ProfessionsManager.add("Profession Name #1", "Profession Desc #1", professionList); //Add a profession into the list and database
-        // Profession tempPro = ProfessionsManager.add("Profession Name #2", "Profession Desc #2", professionList); //same as above
-        // ProfessionsManager.del(tempPro.getProfessionId(), professionList); //Delete from professionList and DB by ID
-        // ProfessionsManager.del("Profession Name #1", professionList); //Delete from professionList and DB by name
-        // //ProfessionsManager.get(id, professionList);
-        // //ProfessionsManager.get("name", professionList);
+		// //Examples Of Using ProfessionsManager..
+		// //tag: ProfessionsManager
+		// Professions professionList = ProfessionsManager.load(); //Load all data from the database into professionList
+		// ProfessionsManager.add("Profession Name #1", "Profession Desc #1", professionList); //Add a profession into the list and database
+		// Profession tempPro = ProfessionsManager.add("Profession Name #2", "Profession Desc #2", professionList); //same as above
+		// ProfessionsManager.del(tempPro.getProfessionId(), professionList); //Delete from professionList and DB by ID
+		// ProfessionsManager.del("Profession Name #1", professionList); //Delete from professionList and DB by name
+		// //ProfessionsManager.get(id, professionList);
+		// //ProfessionsManager.get("name", professionList);
 
 
 		// EssencePvP::Professions::* </end>
@@ -205,13 +203,13 @@ public class EssencePVP{
 		config = new Configuration(new File("config/EssencePVP.cfg"),"0.1");
 		config.load();
 
-		// Mod configurations
+		// Base-mod Configuration
 		dExperienceRate = config.getFloat("dExperienceRate","GameCFG",1.0f,0.1f,10000.0f,"Set the exp rate for the skill tree");
 		fFundsGainRate = config.getFloat("MoneyRate","GameCFG",1.0f,0.1f,10000.0f,"Sets the speed in which players get money from pvp");
 		fScoreGainRate = config.getFloat("ScoreRate","GameCFG",1.0f,0.1f,10000.0f,"Sets the speed in which players get score from pvp");
 		bGainExp= config.getBoolean("AccumulateExp","ServerCFG",true,"Will players gain exp from hitting other players? If not, they get exp from killing others");
 		
-		// Mysql Server stuffs
+		// mySQL Configuration
 		bUseMySQL=config.getBoolean("UseDatabaseServer","ServerCFG",false,"Do you want to use a database server? If not, SQLite will be used.");
 		bMySQLHostname=config.getString("bMySQLHostname","ServerCFG","","MySQL Server location");
 		iMySQLPort=config.getInt("iMySQLPort","ServerCFG",3306,1,65535,"MySQL Port");
@@ -219,12 +217,12 @@ public class EssencePVP{
 		sMySQLPassword=config.getString("MysqlPW","ServerCFG","pass","MySQL Password");
 		sMySQLDatabase=config.getString("MysqlPW","ServerCFG","database","MySQL Database");
 		
-		// Block configurations
+		// Block Configuration
 		healblockid = config.getInt("healblockid", "BlockIDs", 3380, 512, 40000, "Heal Block ID");
 		trapblockid = config.getInt("trapblockid", "BlockIDs", 3381, 512, 40000, "Trap Block ID");
 		levelblockid= config.getInt("levelblockid","BlockIDs", 3382, 512, 40000, "Level Block ID");
 		
-		// Balance configurations
+		// Balance Configuration
 		meleeAttackF=config.getFloat("MeleeAttackDamage","Balance",1.0f,0.00001f,65535.0f,"Multiple of melee attack damage");
 		meleeAttackF=config.getFloat("MeleeAttackSpeed","Balance",1.0f,0.00001f,65535.0f,"Multiple of melee attack speed");
 		rangeAttackF=config.getFloat("RangeAttackDamage","Balance",1.0f,0.00001f,65535.0f,"Multiple of ranged attack damage");
@@ -237,7 +235,6 @@ public class EssencePVP{
 		
 		KillRatio =config.getFloat("KillRatio","Balance",1.0f,0.00001f,65535.0f,"How much exp do you get upon killing? (Level difference taken into account)");
 		DeathRatio=config.getFloat("DeathRatio","Balance",1.0f,0.00001f,65535.0f,"How much exp do you lose upon death?");
-		
 		
 		config.save(); // changes to config (auto-adds to config)
 	}
@@ -502,7 +499,6 @@ public class EssencePVP{
 	}
 
 }
-
 
 class Metricz extends Metrics{
 
