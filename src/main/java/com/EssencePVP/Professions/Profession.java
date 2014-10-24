@@ -13,32 +13,27 @@
 // You should have received a copy of the GNU General Public License
 // along with EssencePvP.  If not, see <http://www.gnu.org/licenses/>.
 
-// AK
-
 package com.EssencePVP.Professions;
 
-public class Profession implements java.io.Serializable
-{
+public class Profession implements java.io.Serializable {
 	private int iProfessionId;
 	private String sProfessionName;
 	private String sProfesionDescription;
+	private String sProfessionIcon;
 	private Abilities pAbilities;
 	private Profession pNext;
-	private String sProfessionIcon;
-	// possibly replace this by simply using 'Abilities' list
-	// and avoid having an entire relational class
-	// private ProfessionAbility pProfessionAbility;
-
-	public Profession(){
-		this(-1,null,null); // call other constructor
-	}
 
 	public Profession(int _iProfessionId, String _sProfessionName, String _sProfessionDescription){
+		this(_iProfessionId, _sProfessionName, _sProfessionDescription, null);
+	}
+
+	public Profession(int _iProfessionId, String _sProfessionName, String _sProfessionDescription, String _sProfessionIcon){
 		setProfessionId(_iProfessionId);
 		setProfessionName(_sProfessionName);
 		setProfessionDescription(_sProfessionDescription);
+		setProfessionIcon(_sProfessionIcon);
 		pAbilities = new Abilities();
-		setNext(null);
+		setNext(null);		
 	}
 
 	// TODO: Add functions to add items into this Profession's Abilities list
@@ -64,12 +59,6 @@ public class Profession implements java.io.Serializable
 		return true;
 	}
 
-	// Description:
-	// Automatically generates an iProfessionId prior to adding a new node. Will not work if this is not the tail. The
-	// Proffession node will be automatically created using the passed Profession name and Profession Description
-	// Returns:
-	// false if the node we are trying to link to is not the tail node
-	// true otherwise
 	public boolean addNext(String _sProfessionName, String _sProfessionDescription){
 		if(this.isTail()){
 			this.pNext = new Profession((this.iProfessionId+1), _sProfessionName, sProfesionDescription);

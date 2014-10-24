@@ -13,12 +13,9 @@
 // You should have received a copy of the GNU General Public License
 // along with EssencePvP.  If not, see <http://www.gnu.org/licenses/>.
 
-// AK
-
 package com.EssencePVP.Professions;
 
-public class AbilityProperty implements java.io.Serializable
-{
+public class AbilityProperty implements java.io.Serializable {
 	private int iPropertyId;
 	private String sPropertyName;
 	private String sPropertyType;

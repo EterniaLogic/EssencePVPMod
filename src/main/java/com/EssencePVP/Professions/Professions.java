@@ -13,8 +13,6 @@
 // You should have received a copy of the GNU General Public License
 // along with EssencePvP.  If not, see <http://www.gnu.org/licenses/>.
 
-// AK
-
 package com.EssencePVP.Professions;
 
 public class Professions implements java.io.Serializable {
@@ -28,17 +26,11 @@ public class Professions implements java.io.Serializable {
 		this.pLast = null;
 	}
 
-	// This will continously add items to the head in order to perform this task in O(1) time as opposed
-	// to adding elements to the tail which would take O(n) time. At this time I do not believe that the
-	// order to which items are added is relevant
-	// Special note should be made: The head will always have the largest iProfessionId value
-	// - AK
 	public Profession addProfession(String _sProfessionName, String _sProfessionDescription){
 		if(iNumProfessions == 0)
 			return(addProfession(1, _sProfessionName, _sProfessionDescription));
-		else{
+		else
 			return(addProfession((pHead.getProfessionId()+1), _sProfessionName, _sProfessionDescription));
-		}
 	}
 
 	public Profession addProfession(int _iProfessionId, String _sProfessionName, String _sProfessionDescription){
@@ -57,11 +49,6 @@ public class Professions implements java.io.Serializable {
 		return(pHead);
 	}
 
-	// This should be used as little as possible. It will call a recursive function to locate the correct
-	// Profession object; identify its ID and pass it to the appropriate delProfession function to actually
-	// delete it. It is best to already know a Profession's ID. This can be improved by creating a function
-	// which has the object in question passed to it and then performing the delete
-	// - AK
 	public void delProfession(String _sProfessionName){
 		delProfession(getProfession(_sProfessionName).getProfessionId());
 	}
@@ -70,10 +57,6 @@ public class Professions implements java.io.Serializable {
 		delProfession(_iProfessionId, this.pHead);
 	}
 
-	// Recursively traverse through the list and locate the node that must be deleted. Once the node is located
-	// the parent node will link to whatever that node is linking to. I am assuming that JAVA's garbage collection
-	// will delete the node that is no longer refrenced as I have not found any form of an equivelant to C's delete()
-	// - AK
 	private void delProfession(int _iProfessionId, Profession _pProfession){
 		if(_pProfession == null)
 			return;
@@ -104,8 +87,6 @@ public class Professions implements java.io.Serializable {
 		return(getProfessionsHead());
 	}
 
-	// delProfession should utilize these functions to search for nodes as opposed to having its own
-	// search algorithim
 	public Profession getProfession(int _iProfessionId){
 		// If another getProfession() request is sent for the Profession with Id of the last request
 		// we will not recursivley try to locate it as we already know where it is. A specific address

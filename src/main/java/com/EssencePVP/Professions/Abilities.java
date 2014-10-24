@@ -13,8 +13,6 @@
 // You should have received a copy of the GNU General Public License
 // along with EssencePvP.  If not, see <http://www.gnu.org/licenses/>.
 
-// AK
-
 package com.EssencePVP.Professions;
 
 public class Abilities implements java.io.Serializable {
@@ -34,9 +32,8 @@ public class Abilities implements java.io.Serializable {
 	public Ability addAbility(String _sAbilityName, String _sAbilityDescription){
 		if(iNumAbilities == 0)
 			return(addAbility(1, _sAbilityName, _sAbilityDescription));
-		else{
+		else
 			return(addAbility((pHead.getAbilityId()+1), _sAbilityName, _sAbilityDescription));
-		}
 	}
 
 	public Ability addAbility(int _iAbilityId, String _sAbilityName, String _sAbilityDescription){

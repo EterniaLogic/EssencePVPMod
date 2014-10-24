@@ -13,41 +13,52 @@
 // You should have received a copy of the GNU General Public License
 // along with EssencePvP.  If not, see <http://www.gnu.org/licenses/>.
 
-// AK
-
 package com.EssencePVP.Professions;
 
-public class Ability implements java.io.Serializable
-{
+public class Ability implements java.io.Serializable {
+	private int iProperties;
 	private int iAbilityId;
 	private String sAbilityName;
 	private String sAbilityDescription;
+	private String sAbilityIcon;
 	private Ability pNext;
 	private AbilityProperty pProperties;
-	private int iProperties;
-	private String sAbilityIcon;
 
-	public Ability(){
-		this(-1,null,null);
+	public Ability(int _iAbilityId, String _sAbilityName, String _sAbilityDescription){
+		this(_iAbilityId, _sAbilityName, _sAbilityDescription, null);
 	}
 
-	public Ability(int _iAbilityId, String _iAbilityName, String _iAbilityDescription){
-		iProperties = 0;
+	public Ability(int _iAbilityId, String _iAbilityName, String _sAbilityDescription, String _sAbilityIcon){
+		this.iProperties = 0;
 		setAbilityId(_iAbilityId);
 		setAbilityName(_iAbilityName);
-		setAbilityDescription(_iAbilityDescription);
+		setAbilityDescription(_sAbilityDescription);
+		setAbilityIcon(_sAbilityIcon);
 		setNext(null);
 	}
 
-	public void addAbilityProperty(String _sPropertyName, String _sPropertyType, float _fPropertyValue){
+	public AbilityProperty addAbilityProperty(String _sPropertyName, String _sPropertyType, float _fPropertyValue){
 		if(iProperties == 0)
-			pProperties = new AbilityProperty(++iProperties, _sPropertyName, _sPropertyType, _fPropertyValue);
-		else {
-			AbilityProperty pTemporary = pProperties;
-			pProperties = new AbilityProperty(++iProperties, _sPropertyName, _sPropertyType, _fPropertyValue);
-			pProperties.setNext(pTemporary);
+			return(addAbilityProperty(1, _sPropertyName, _sPropertyType, _fPropertyValue));
+		else
+			return(addAbilityProperty((pProperties.getPropertyId()+1), _sPropertyName, _sPropertyType, _fPropertyValue));
+	}
+
+	public AbilityProperty addAbilityProperty(int _iPropertyId, String _sPropertyName, String _sPropertyType, float _fPropertyValue){
+		if(iProperties == 0){
+			if(_iPropertyId > 0)
+				pProperties = new AbilityProperty(_iPropertyId, _sPropertyName, _sPropertyType, _fPropertyValue);
+			else return null;
 		}
-		return;
+		else{
+			if(_iPropertyId > pProperties.getPropertyId()){
+				AbilityProperty pTemporary = pProperties;
+				pProperties = new AbilityProperty(_iPropertyId, _sPropertyName, _sPropertyType, _fPropertyValue);
+				pProperties.setNext(pTemporary);
+			} else return null;
+		}
+		++iProperties;
+		return(pProperties);
 	}
 
 	public AbilityProperty getAbilityPropertyHead(){
@@ -136,5 +147,4 @@ public class Ability implements java.io.Serializable
 			return true;
 		else return false;
 	}
-
 }
