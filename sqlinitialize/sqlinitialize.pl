@@ -33,43 +33,39 @@ my %hDatabase = (
 );
 
 my %hTables = (
-	'Profession'		=> { # Contains all profession descriptions and names
-					'ID'		=> { 'type' => 'int' },
-					'Name'		=> { 'type' => 'varchar(250)' },
-					'Description'	=> { 'type' => 'varchar(250)' }
+	'Profession'	=> { # Contains all profession descriptions and names
+					'ID'			=> { 'type' => 'int' },
+					'Name'			=> { 'type' => 'varchar(250)' },
+					'Description'	=> { 'type' => 'varchar(250)' },
+					'Icon'			=> { 'type' => 'varchar(250)' }
 				   },
 	'Ability'		=> { # Contains all abilitiy descriptions and names
-					'ID'		=> { 'type' => 'int' },
-					'Name'		=> { 'type' => 'varchar(250)' },
+					'ID'			=> { 'type' => 'int' },
+					'Name'			=> { 'type' => 'varchar(250)' },
 					'Description'	=> { 'type' => 'varchar(250)' },
-					'Property'	=> { 'type' => 'int' }
+					'Icon'			=> { 'type' => 'varchar(250)' },
+					'Property'		=> { 'type' => 'int' }
 				   },
 	'Ability_Property'	=> { # Contains data about all abilities
-					'ID'		=> { 'type' => 'int' },
-					'Name'		=> { 'type' => 'varchar(250)' },
+					'ID'			=> { 'type' => 'int' },
+					'Ability'		=> { 'type' => 'int' }, # The ID to the ability which this property belongs to
+					'Name'			=> { 'type' => 'varchar(250)' },
 					'Description'	=> { 'type' => 'varchar(250)' },
-					'Type'		=> { 'type' => 'int' },
-					'Value'		=> { 'type' => 'int' }
-				   },
-	'Profession_Ability'	=> { # Relational table linking Profession and Ability tables
-					'ID'		=> { 'type' => 'int' },
-					'ClassID'	=> { 'type' => 'int' },
-					'AbilityID'	=> { 'type' => 'int' },
-					'Modifier'	=> { 'type' => 'int' },
-					'TreePosition'	=> { 'type' => 'int' }
+					'Type'			=> { 'type' => 'int' },
+					'Value'			=> { 'type' => 'int' }
 				   },
 	'Characters'		=> {
-					'ID'		=> { 'type' => 'int' },
+					'ID'			=> { 'type' => 'int' },
 					'PlayerName'	=> { 'type' => 'varchar(250)' },
-					'PlayerUID'	=> { 'type' => 'varchar(250)' },
+					'PlayerUID'		=> { 'type' => 'varchar(250)' },
 					'ClassAbilities'=> { 'type' => 'int' },
-					'FactionID'	=> { 'type' => 'int' }
+					'FactionID'		=> { 'type' => 'int' }
 				   },
 	'Factions'		=> {
-					'ID'		=> { 'type' => 'int' },
-					'Leader'	=> { 'type' => 'varchar(250)' },
-					'Grade'		=> { 'type' => 'int' },
-					'RegionsID'	=> { 'type' => 'int' },
+					'ID'			=> { 'type' => 'int' },
+					'Leader'		=> { 'type' => 'varchar(250)' },
+					'Grade'			=> { 'type' => 'int' },
+					'RegionsID'		=> { 'type' => 'int' },
 				   },
 );
 
