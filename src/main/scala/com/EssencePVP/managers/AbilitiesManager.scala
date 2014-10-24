@@ -13,7 +13,7 @@ object AbilitiesManager {
   }
   def add(property:Int, name:String, description:String, abilityList:Professions.Abilities) : Professions.Ability  = {
     val newAbility = abilityList.addAbility(name, description) //add to the list
-    models.Abilities.create(models.Ability(newAbility.getAbilityId, property, name, description)) //add to the DB
+    models.Abilities.create(models.Ability(newAbility.getAbilityId, null, property, name, description)) //add to the DB
     newAbility //return the newAbility
   }
   def get(id:Int, abilityList:Professions.Abilities) : Professions.Ability = {

@@ -25,8 +25,8 @@ use File::Path;
 
 my %hDatabase = (
 	'essencePvP' => {
-				'username' => 'db1_user',
-				'password' => 'db1_pass',
+				'username' => 'root',
+				'password' => 'nemo20',
 				'host'	   => 'localhost',
 				'port'	   => '3306'
        	                }
