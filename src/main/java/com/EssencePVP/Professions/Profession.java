@@ -26,10 +26,6 @@ public class Profession implements java.io.Serializable
 	private Abilities pAbilities;
 	private Profession pNext;
 
-	public Profession(){
-		this(-1,null,null); // call other constructor
-	}
-
 	public Profession(int _iProfessionId, String _sProfessionName, String _sProfessionDescription){
 		this(_iProfessionId, _sProfessionName, _sProfessionDescription, null);
 	}

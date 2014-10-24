@@ -26,10 +26,6 @@ public class Ability implements java.io.Serializable {
 	private Ability pNext;
 	private AbilityProperty pProperties;
 
-	public Ability(){
-		this(-1,null,null);
-	}
-
 	public Ability(int _iAbilityId, String _sAbilityName, String _sAbilityDescription){
 		this(_iAbilityId, _sAbilityName, _sAbilityDescription, null);
 	}
