@@ -22,23 +22,25 @@ public class Profession implements java.io.Serializable
 	private int iProfessionId;
 	private String sProfessionName;
 	private String sProfesionDescription;
+	private String sProfessionIcon;
 	private Abilities pAbilities;
 	private Profession pNext;
-	private String sProfessionIcon;
-	// possibly replace this by simply using 'Abilities' list
-	// and avoid having an entire relational class
-	// private ProfessionAbility pProfessionAbility;
 
 	public Profession(){
 		this(-1,null,null); // call other constructor
 	}
 
 	public Profession(int _iProfessionId, String _sProfessionName, String _sProfessionDescription){
+		this(_iProfessionId, _sProfessionName, _sProfessionDescription, null);
+	}
+
+	public Profession(int _iProfessionId, String _sProfessionName, String _sProfessionDescription, String _sProfessionIcon){
 		setProfessionId(_iProfessionId);
 		setProfessionName(_sProfessionName);
 		setProfessionDescription(_sProfessionDescription);
+		setProfessionIcon(_sProfessionIcon);
 		pAbilities = new Abilities();
-		setNext(null);
+		setNext(null);		
 	}
 
 	// TODO: Add functions to add items into this Profession's Abilities list
