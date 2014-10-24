@@ -32,9 +32,8 @@ public class Abilities implements java.io.Serializable {
 	public Ability addAbility(String _sAbilityName, String _sAbilityDescription){
 		if(iNumAbilities == 0)
 			return(addAbility(1, _sAbilityName, _sAbilityDescription));
-		else{
+		else
 			return(addAbility((pHead.getAbilityId()+1), _sAbilityName, _sAbilityDescription));
-		}
 	}
 
 	public Ability addAbility(int _iAbilityId, String _sAbilityName, String _sAbilityDescription){

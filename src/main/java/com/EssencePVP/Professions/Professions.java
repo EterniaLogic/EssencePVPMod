@@ -29,9 +29,8 @@ public class Professions implements java.io.Serializable {
 	public Profession addProfession(String _sProfessionName, String _sProfessionDescription){
 		if(iNumProfessions == 0)
 			return(addProfession(1, _sProfessionName, _sProfessionDescription));
-		else{
+		else
 			return(addProfession((pHead.getProfessionId()+1), _sProfessionName, _sProfessionDescription));
-		}
 	}
 
 	public Profession addProfession(int _iProfessionId, String _sProfessionName, String _sProfessionDescription){

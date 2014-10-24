@@ -37,15 +37,28 @@ public class Ability implements java.io.Serializable {
 		setNext(null);
 	}
 
-	public void addAbilityProperty(String _sPropertyName, String _sPropertyType, float _fPropertyValue){
+	public AbilityProperty addAbilityProperty(String _sPropertyName, String _sPropertyType, float _fPropertyValue){
 		if(iProperties == 0)
-			pProperties = new AbilityProperty(++iProperties, _sPropertyName, _sPropertyType, _fPropertyValue);
-		else {
-			AbilityProperty pTemporary = pProperties;
-			pProperties = new AbilityProperty(++iProperties, _sPropertyName, _sPropertyType, _fPropertyValue);
-			pProperties.setNext(pTemporary);
+			return(addAbilityProperty(1, _sPropertyName, _sPropertyType, _fPropertyValue));
+		else
+			return(addAbilityProperty((pProperties.getPropertyId()+1), _sPropertyName, _sPropertyType, _fPropertyValue));
+	}
+
+	public AbilityProperty addAbilityProperty(int _iPropertyId, String _sPropertyName, String _sPropertyType, float _fPropertyValue){
+		if(iProperties == 0){
+			if(_iPropertyId > 0)
+				pProperties = new AbilityProperty(_iPropertyId, _sPropertyName, _sPropertyType, _fPropertyValue);
+			else return null;
 		}
-		return;
+		else{
+			if(_iPropertyId > pProperties.getPropertyId()){
+				AbilityProperty pTemporary = pProperties;
+				pProperties = new AbilityProperty(_iPropertyId, _sPropertyName, _sPropertyType, _fPropertyValue);
+				pProperties.setNext(pTemporary);
+			} else return null;
+		}
+		++iProperties;
+		return(pProperties);
 	}
 
 	public AbilityProperty getAbilityPropertyHead(){
