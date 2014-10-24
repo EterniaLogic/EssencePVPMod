@@ -16,6 +16,24 @@ object ProfessionsManager {
     models.Professions.create(models.Profession(newProfession.getProfessionId, name, description, null)) //add to the DB
     newProfession //return the newProfession
   }
+  def setIcon(id:Int, icon:String) = {
+    val profession = models.Professions.retrieve(id)
+    models.Professions.update(models.Profession(
+      profession.id,
+      profession.description,
+      profession.name,
+      icon
+    ))
+  }
+  def setIcon(name:String, icon:String) = {
+    val profession = models.Professions.retrieve(name)
+    models.Professions.update(models.Profession(
+      profession.id,
+      profession.description,
+      profession.name,
+      icon
+    ))
+  }
   def get(id:Int, professionList:Professions.Professions) : Professions.Profession = {
     professionList.getProfession(id) //get from the list by id
   }

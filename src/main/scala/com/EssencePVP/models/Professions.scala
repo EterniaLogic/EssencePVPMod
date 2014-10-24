@@ -25,6 +25,11 @@ object Professions {
       professions.filter(_.id === id).firstOption.get
     }
   }
+  def retrieve(name:String) : Profession = {
+    DB.withSession { implicit session =>
+      professions.filter(_.name === name).firstOption.get
+    }
+  }
   def retrieveAll() : List[Profession] = { //pulls all data from the Professions table
     DB.withSession { implicit session =>
       val q = for {

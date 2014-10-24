@@ -26,6 +26,11 @@ object Abilities {
       abilities.filter(_.id === id).firstOption.get
     }
   }
+  def retrieve(name:String) : Ability = {
+    DB.withSession { implicit session =>
+      abilities.filter(_.name === name).firstOption.get
+    }
+  }
   def retrieveAll() : List[Ability] = {
     DB.withSession { implicit session =>
       val q = for {

@@ -16,6 +16,26 @@ object AbilitiesManager {
     models.Abilities.create(models.Ability(newAbility.getAbilityId, null, property, name, description)) //add to the DB
     newAbility //return the newAbility
   }
+  def setIcon(id:Int, icon:String) = {
+    val ability = models.Abilities.retrieve(id)
+    models.Abilities.update(models.Ability(
+      ability.id,
+      icon,
+      ability.property,
+      ability.description,
+      ability.name
+    ))
+  }
+  def setIcon(name:String, icon:String) = {
+    val ability = models.Abilities.retrieve(name)
+    models.Abilities.update(models.Ability(
+      ability.id,
+      icon,
+      ability.property,
+      ability.description,
+      ability.name
+    ))
+  }
   def get(id:Int, abilityList:Professions.Abilities) : Professions.Ability = {
     abilityList.getAbility(id) //get the ability from the list by id
   }
