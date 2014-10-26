@@ -1,15 +1,33 @@
 package com.EssencePVP.managers
 
 import com.EssencePVP._
+import scala.util.Try
 
 object AbilitiesManager {
 
   def load : Professions.Abilities = { //load rom DB into the list
+    def loadAbilityProperties(abilityList: Professions.Abilities): Professions.Abilities = {
+      models.AbilityProperties.retrieveAll.foreach(element => {
+        val ability = Try(abilityList.getAbility(element.ability))
+        if(ability.isSuccess) { //int _iPropertyId, String _sPropertyName, String _sPropertyType, float _fPropertyValue
+          ability.get.addAbilityProperty(
+            element.id,
+            element.name,
+            element.Type.toString,
+            element.value.toFloat
+          )
+        }
+      })
+      abilityList
+    }
+    
     val abilityList = new Professions.Abilities
+
     models.Abilities.retrieveAll().foreach(element => { //look at ea. element in the DB and add it to the list
       abilityList.addAbility(element.id, element.name, element.description) //add to the list
     })
-    abilityList //return the list
+    //abilityList //return the list
+    loadAbilityProperties(abilityList)
   }
   def add(property:Int, name:String, description:String, abilityList:Professions.Abilities) : Professions.Ability  = {
     val newAbility = abilityList.addAbility(name, description) //add to the list
