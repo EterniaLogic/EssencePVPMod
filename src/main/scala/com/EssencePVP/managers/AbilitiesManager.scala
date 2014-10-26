@@ -5,11 +5,11 @@ import scala.util.Try
 
 object AbilitiesManager {
 
-  def load : Professions.Abilities = { //load rom DB into the list
-    def loadAbilityProperties(abilityList: Professions.Abilities): Professions.Abilities = {
+  def load : Professions.Abilities = { //load from DB into the list
+    def loadAbilityProperties(abilityList: Professions.Abilities): Professions.Abilities = { //load from the AbilityProperty table
       models.AbilityProperties.retrieveAll.foreach(element => {
-        val ability = Try(abilityList.getAbility(element.ability))
-        if(ability.isSuccess) { //int _iPropertyId, String _sPropertyName, String _sPropertyType, float _fPropertyValue
+        val ability = Try(abilityList.getAbility(element.ability)) //get by the ability id
+        if(ability.isSuccess) { //if that exists, then add the property to that ability.
           ability.get.addAbilityProperty(
             element.id,
             element.name,
@@ -20,13 +20,12 @@ object AbilitiesManager {
       })
       abilityList
     }
-    
+
     val abilityList = new Professions.Abilities
 
     models.Abilities.retrieveAll().foreach(element => { //look at ea. element in the DB and add it to the list
       abilityList.addAbility(element.id, element.name, element.description) //add to the list
     })
-    //abilityList //return the list
     loadAbilityProperties(abilityList)
   }
   def add(property:Int, name:String, description:String, abilityList:Professions.Abilities) : Professions.Ability  = {
