@@ -497,7 +497,10 @@ public class EssencePVP{
 	public Player getClientplayer(){
 		return clientplayer;
 	}
-
+	
+	/*public Professions getProfessions(){
+		return pProfessions;
+	}*/
 }
 
 class Metricz extends Metrics{

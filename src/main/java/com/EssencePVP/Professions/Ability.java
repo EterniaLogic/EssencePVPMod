@@ -25,7 +25,7 @@ public class Ability implements java.io.Serializable {
 	private AbilityProperty pProperties;
 
 	public Ability(int _iAbilityId, String _sAbilityName, String _sAbilityDescription){
-		this(_iAbilityId, _sAbilityName, _sAbilityDescription, null);
+		this(_iAbilityId, _sAbilityName, _sAbilityDescription, "null");
 	}
 
 	public Ability(int _iAbilityId, String _iAbilityName, String _sAbilityDescription, String _sAbilityIcon){

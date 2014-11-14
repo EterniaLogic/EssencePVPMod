@@ -46,6 +46,7 @@ public class Professions implements java.io.Serializable {
 			} else return null;
 		}
 		++iNumProfessions;
+		pHead.setProfessionIcon("null"); // prevents crashes
 		return(pHead);
 	}
 
