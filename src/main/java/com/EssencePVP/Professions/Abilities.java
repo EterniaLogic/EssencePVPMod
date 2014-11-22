@@ -73,7 +73,7 @@ public class Abilities implements java.io.Serializable {
 		if(_pAbility == null)
 			return;
 		else{
-			if(_pAbility == this.pHead){
+			if(this.pHead.getAbilityId() == _iAbilityId){
 				this.pHead = this.pHead.getNext();
 				this.iNumAbilities--;
 				return;
@@ -88,7 +88,7 @@ public class Abilities implements java.io.Serializable {
 				else delAbility(_iAbilityId, _pAbility.getNext());
 			}
 		}
-			return;
+		return;
 	}
 
 	public Ability getAbilitiesHead(){
