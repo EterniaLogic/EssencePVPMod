@@ -39,8 +39,8 @@ public class PlayerListener
 		if(source.getEntity() != null){
 			if(entity instanceof EntityClientPlayerMP && source.getEntity() instanceof EntityClientPlayerMP){
 				// Give each player their exp
-				Character p1 = (Character) Player.getPlayerMap().get((EntityClientPlayerMP)entity);
-				Character p2 = (Character) Player.getPlayerMap().get((EntityClientPlayerMP)source.getEntity());
+				Character p1 = (Character) Character.getPlayerMap().get((EntityClientPlayerMP)entity);
+				Character p2 = (Character) Character.getPlayerMap().get((EntityClientPlayerMP)source.getEntity());
 				
 				// Player1 was killed by Player 2
 				p1.getExp().expDeath(p2);

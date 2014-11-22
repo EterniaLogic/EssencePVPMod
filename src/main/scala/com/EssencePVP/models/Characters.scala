@@ -16,9 +16,9 @@ object Characters {
   }
   val characters = TableQuery[Characters]
 
-  def create(a:Character) : Int = {
+  def create(a:Character)  = {
     DB.withSession { implicit session =>
-      (characters returning characters.map(_.id)) += a //return the autoinc ID
+      characters += a
     }
   }
   def retrieve(id:Int): Character = {
@@ -34,6 +34,11 @@ object Characters {
   def exists(playerName:String) : Boolean = {
     DB.withSession { implicit session =>
       characters.filter(_.playerName === playerName).exists.run
+    }
+  }
+  def maxID() : Int = {
+    DB.withSession { implicit session =>
+      characters.map(_.id).max.run getOrElse 0
     }
   }
   def update(a:Character) = {

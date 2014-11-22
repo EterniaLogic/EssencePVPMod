@@ -32,7 +32,8 @@ public class Player implements java.io.Serializable
 		// TODO:  Load player from Mysql or SQLite
 		this.mcplayer = player;
 		playerMap.put(player, this);
-        
+
+
 	}
 	
 	public void playerLogout(){
@@ -66,4 +67,5 @@ public class Player implements java.io.Serializable
 	public void setExp(Experience exp) {
 		this.exp = exp;
 	}
+
 }
