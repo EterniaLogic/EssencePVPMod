@@ -26,7 +26,7 @@ public class Professions implements java.io.Serializable {
 		this.iNumProfessions = 0;
 		this.pHead = null;
 		this.pLast = null;
-		this.hList = new hProfession(20);
+		this.hList = new hProfession(1);
 	}
 
 	public Profession addProfession(String _sProfessionName, String _sProfessionDescription){
@@ -155,7 +155,7 @@ public class Professions implements java.io.Serializable {
 		private Profession[] pProfessions;
 
 		public hProfession(){
-			this(1);
+			this(10);
 		}
 
 		public hProfession(int _iHashSpace){
@@ -182,7 +182,7 @@ public class Professions implements java.io.Serializable {
 		}
 
 		private Profession[] duplicateData(int _iIndex, Profession[] pDestination){
-			if(_iIndex > iHashSize)
+			if(_iIndex >= iHashSize)
 				return(pDestination);
 			else{
 				pDestination[_iIndex] = pProfessions[_iIndex];

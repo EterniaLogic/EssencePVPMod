@@ -20,9 +20,13 @@ public class Abilities implements java.io.Serializable {
 	private Ability pHead;
 	private Ability pLast;
 
+	private hAbility hList;
+
 	public Abilities(){
 		this.iNumAbilities = 0;
 		this.pHead = null;
+		this.pLast = null;
+		this.hList = new hAbility(1);
 	}
 
 	// Description:
@@ -146,5 +150,82 @@ public class Abilities implements java.io.Serializable {
 		if(getAbilitiesCount() > 0)
 			return false;
 		else return true;
+	}
+
+	private class hAbility{
+		private int iHashSize; // The current used slots
+		private int iHashSpace; // The hash's maximum capacity
+		private Ability[] pAbilities;
+
+		public hAbility(){
+			this(1);
+		}
+
+		public hAbility(int _iHashSpace){
+			iHashSize = 0;
+			iHashSpace = _iHashSpace;
+			pAbilities = new Ability[_iHashSpace];
+		}
+
+		public void regElement(Ability _pAbility){
+			if(iHashSize < iHashSpace){
+				pAbilities[iHashSize] = _pAbility;
+				iHashSize++;
+			}
+			else{
+				pAbilities = rebuildHash(); // Expand our array
+				regElement(_pAbility);
+			}
+		}
+
+		private Ability[] rebuildHash(){
+			iHashSpace = iHashSpace*2;
+			Ability[] pTemporary = new Ability[iHashSpace];
+			return(duplicateData(0, pTemporary)); // Duplicate the data and return the new array
+		}
+
+		private Ability[] duplicateData(int _iIndex, Ability[] pDestination){
+			if(_iIndex >= iHashSize)
+				return(pDestination);
+			else{
+				pDestination[_iIndex] = pAbilities[_iIndex];
+				return(duplicateData(++_iIndex, pDestination));
+			}
+		}
+
+		public void unregElement(Ability _pAbility){
+			if(iHashSize <= 0)
+				return;
+			else
+				unregElement(0, _pAbility);
+		}
+
+		private void unregElement(int _iIndex, Ability _pAbility){
+			if(_iIndex > iHashSize)
+				return;
+			else{
+				if(pAbilities[_iIndex] == _pAbility){
+					pAbilities[_iIndex] = null;
+					iHashSize--;
+
+					shiftLeft(_iIndex);
+				}
+				else
+					unregElement(++_iIndex, _pAbility);
+			}
+		}
+
+		private void shiftLeft(int _iIndex){
+			if(_iIndex >= iHashSize)
+				return;
+			else{
+				if(pAbilities[_iIndex] == null){
+					pAbilities[_iIndex] = pAbilities[_iIndex+1];
+					pAbilities[_iIndex+1] = null;
+					shiftLeft(++_iIndex);
+				}
+				return;
+			}
+		}
 	}
 }
