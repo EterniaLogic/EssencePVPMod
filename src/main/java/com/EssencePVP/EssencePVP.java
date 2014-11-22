@@ -180,7 +180,7 @@ public class EssencePVP{
 		pProfessions.delProfession("Healer");
 		pProfessions.delProfession("Guardian");
 
-		//pProfessions.listAll();
+		pProfessions.listAll();
 
 		//Examples Of Using ProfessionsManager..
 		//tag: ProfessionsManager

@@ -71,7 +71,7 @@ public class Professions implements java.io.Serializable {
 		if(_pProfession == null)
 			return;
 		else{
-			if(_pProfession == this.pHead){
+			if(this.pHead.getProfessionId() == _iProfessionId){
 				hList.unregElement(_pProfession);
 				this.pHead = this.pHead.getNext();
 				this.iNumProfessions--;
@@ -171,6 +171,7 @@ public class Professions implements java.io.Serializable {
 		public void listAll(){
 			for(int i=0; i<iHashSize; i++)
 				System.out.println(pProfessions[i].getProfessionName());
+			System.out.println(iHashSize);
 		}
 
 		public void regElement(Profession _pProfession){
