@@ -28,25 +28,29 @@ public class Professions implements java.io.Serializable {
 
 	public Profession addProfession(String _sProfessionName, String _sProfessionDescription){
 		if(iNumProfessions == 0)
-			return(addProfession(1, _sProfessionName, _sProfessionDescription));
+			return(addProfession(1, _sProfessionName, _sProfessionDescription, null));
 		else
-			return(addProfession((pHead.getProfessionId()+1), _sProfessionName, _sProfessionDescription));
+			return(addProfession((pHead.getProfessionId()+1), _sProfessionName, _sProfessionDescription, null));
 	}
 
 	public Profession addProfession(int _iProfessionId, String _sProfessionName, String _sProfessionDescription){
+		return(addProfession(_iProfessionId, _sProfessionName, _sProfessionDescription, null));
+	}
+
+	public Profession addProfession(int _iProfessionId, String _sProfessionName, String _sProfessionDescription, String _sProfessionIcon){
 		if(iNumProfessions == 0)
 			if(_iProfessionId > 0)
-				pHead = new Profession(_iProfessionId, _sProfessionName, _sProfessionDescription);
+				pHead = new Profession(_iProfessionId, _sProfessionName, _sProfessionDescription, _sProfessionIcon);
 			else return null;
 		else{
 			if(_iProfessionId > pHead.getProfessionId()){
 				Profession pTemporary = pHead;
-				pHead = new Profession(_iProfessionId, _sProfessionName, _sProfessionDescription);
+				pHead = new Profession(_iProfessionId, _sProfessionName, _sProfessionDescription, _sProfessionIcon);
 				pHead.setNext(pTemporary);
 			} else return null;
 		}
 		++iNumProfessions;
-		pHead.setProfessionIcon("null"); // prevents crashes
+		//pHead.setProfessionIcon("null"); // prevents crashes [The constructor already does this ?]
 		return(pHead);
 	}
 
@@ -137,5 +141,49 @@ public class Professions implements java.io.Serializable {
 		if(getProfessionCount() > 0)
 			return false;
 		else return true;
+	}
+
+	private class hProfession{
+		private int iHashSize; // The current used slots
+		private int iHashSpace; // The hash's maximum capacity
+		private Profession[] pProfessions;
+
+		public hProfession(){
+			this(10);
+		}
+
+		public hProfession(int _iHashSpace){
+			iHashSize = 0;
+			iHashSpace = _iHashSpace;
+			pProfessions = new Profession[_iHashSpace];
+		}
+
+		public void registerElement(Profession _pProfession){
+			pProfessions[iHashSize] = _pProfession;
+			iHashSize++;
+		}
+
+		public void unregisterElement(Profession _pProfession){
+			
+		}
+
+		private void unregisterElement(int _iIndex, Profession _pProfession){
+
+		}
+
+		private void shiftLeft(){ // Not tested
+			if(iHashSize > 0){
+				for(int iIndex=0; iIndex < iHashSize-1; iIndex++){
+					if(pProfessions[iIndex] == null){
+						pProfessions[iIndex] = pProfessions[iIndex+1];
+						pProfessions[iIndex+1] = null;
+					}
+				}
+			}
+		}
+
+		public int getHashSize(){
+			return(iHashSize);
+		}
 	}
 }

@@ -41,7 +41,7 @@ my %hTables = (
 				   },
 	'Ability'		=> { # Contains all abilitiy descriptions and names
 					'ID'			=> { 'type' => 'int' },
-					'Profession'		=> { 'type' => 'int' }, # The ID to the profession that owns this ability row
+					'Profession'	=> { 'type' => 'int' }, # The ID to the profession that owns this ability row
 					'Name'			=> { 'type' => 'varchar(250)' },
 					'Description'	=> { 'type' => 'varchar(250)' },
 					'Icon'			=> { 'type' => 'varchar(250)' }
