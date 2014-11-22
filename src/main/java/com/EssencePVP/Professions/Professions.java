@@ -20,10 +20,13 @@ public class Professions implements java.io.Serializable {
 	private Profession pHead;
 	private Profession pLast;
 
+	private hProfession hList;
+
 	public Professions(){
 		this.iNumProfessions = 0;
 		this.pHead = null;
 		this.pLast = null;
+		this.hList = new hProfession(20);
 	}
 
 	public Profession addProfession(String _sProfessionName, String _sProfessionDescription){
@@ -49,13 +52,15 @@ public class Professions implements java.io.Serializable {
 				pHead.setNext(pTemporary);
 			} else return null;
 		}
+		hList.regElement(pHead);
 		++iNumProfessions;
-		//pHead.setProfessionIcon("null"); // prevents crashes [The constructor already does this ?]
 		return(pHead);
 	}
 
 	public void delProfession(String _sProfessionName){
-		delProfession(getProfession(_sProfessionName).getProfessionId());
+		Profession pProfession = getProfession(_sProfessionName);
+		if(pProfession != null)
+			delProfession(pProfession.getProfessionId());
 	}
 
 	public void delProfession(int _iProfessionId){
@@ -67,13 +72,14 @@ public class Professions implements java.io.Serializable {
 			return;
 		else{
 			if(_pProfession == this.pHead){
+				hList.unregElement(_pProfession);
 				this.pHead = this.pHead.getNext();
 				this.iNumProfessions--;
-				return;
 			}
 			else{
 				if(_pProfession.getNext() != null){
 					if(_pProfession.getNext().getProfessionId() == _iProfessionId){
+						hList.unregElement(_pProfession.getNext());
 						_pProfession.setNext(_pProfession.getNext().getNext());
 						this.iNumProfessions--;
 					}
@@ -130,7 +136,7 @@ public class Professions implements java.io.Serializable {
 		else if(_pProfession.getProfessionName().equals(_sProfessionName))
 			return(_pProfession);
 		else
-	 		return(getProfession(_sProfessionName, _pProfession));
+	 		return(getProfession(_sProfessionName, _pProfession.getNext()));
 	}
 
 	public int getProfessionCount(){
@@ -141,6 +147,10 @@ public class Professions implements java.io.Serializable {
 		if(getProfessionCount() > 0)
 			return false;
 		else return true;
+	}
+
+	public void listAll(){
+		hList.listAll();
 	}
 
 	private class hProfession{
@@ -158,32 +168,55 @@ public class Professions implements java.io.Serializable {
 			pProfessions = new Profession[_iHashSpace];
 		}
 
-		public void registerElement(Profession _pProfession){
-			pProfessions[iHashSize] = _pProfession;
-			iHashSize++;
+		public void listAll(){
+			for(int i=0; i<iHashSize; i++)
+				System.out.println(pProfessions[i].getProfessionName());
 		}
 
-		public void unregisterElement(Profession _pProfession){
-			
-		}
-
-		private void unregisterElement(int _iIndex, Profession _pProfession){
-
-		}
-
-		private void shiftLeft(){ // Not tested
-			if(iHashSize > 0){
-				for(int iIndex=0; iIndex < iHashSize-1; iIndex++){
-					if(pProfessions[iIndex] == null){
-						pProfessions[iIndex] = pProfessions[iIndex+1];
-						pProfessions[iIndex+1] = null;
-					}
-				}
+		public void regElement(Profession _pProfession){
+			if(iHashSize < iHashSpace){
+				pProfessions[iHashSize] = _pProfession;
+				iHashSize++;
+			}
+			else{
+				// build new array
 			}
 		}
 
-		public int getHashSize(){
-			return(iHashSize);
+		public void unregElement(Profession _pProfession){
+			if(iHashSize <= 0)
+				return;
+			else{
+				unregElement(0, _pProfession);
+			}
+		}
+
+		private void unregElement(int _iIndex, Profession _pProfession){
+			if(_iIndex > iHashSize)
+				return;
+			else{
+				if(pProfessions[_iIndex] == _pProfession){
+					pProfessions[_iIndex] = null;
+					iHashSize--;
+
+					shiftLeft(_iIndex);
+				}
+				else
+					unregElement(++_iIndex, _pProfession);
+			}
+		}
+
+		private void shiftLeft(int _iIndex){
+			if(_iIndex >= iHashSize)
+				return;
+			else{
+				if(pProfessions[_iIndex] == null){
+					pProfessions[_iIndex] = pProfessions[_iIndex+1];
+					pProfessions[_iIndex+1] = null;
+					shiftLeft(++_iIndex);
+				}
+				return;
+			}
 		}
 	}
 }

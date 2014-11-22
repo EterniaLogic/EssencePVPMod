@@ -55,7 +55,9 @@ public class Abilities implements java.io.Serializable {
 	// Description:
 	// Gets the ability by name, retreives its ID and then passes it to the delAbility(int _iAbilityId) function
 	public void delAbility(String _sAbilityName){
-		delAbility(getAbility(_sAbilityName).getAbilityId());
+		Ability pAbility = getAbility(_sAbilityName);
+		if(pAbility != null)
+			delAbility(pAbility.getAbilityId());
 	}
 
 	// Description:
@@ -130,7 +132,7 @@ public class Abilities implements java.io.Serializable {
 		else if(_pAbility.getAbilityName().equals(_sAbilityName))
 			return(_pAbility);
 		else
-	 		return(getAbility(_sAbilityName, _pAbility));
+	 		return(getAbility(_sAbilityName, _pAbility.getNext()));
 	}
 
 	public int getAbilitiesCount(){
