@@ -179,7 +179,7 @@ public class EssencePVP{
 
 		//Examples Of Using ProfessionsManager..
 		//tag: ProfessionsManager
-		// Professions professionList = ProfessionsManager.load(); //Load all data from the database into professionList
+		 Professions professionList = ProfessionsManager.load(); //Load all data from the database into professionList
 		// ProfessionsManager.add("Tank", "Tank place holder", professionList); //Add a profession into the list and database
 		// Profession tempPro = ProfessionsManager.add("Healer", "Healer place holder", professionList); //same as above
 		// ProfessionsManager.del(tempPro.getProfessionId(), professionList); //Delete from professionList and DB by ID
@@ -208,7 +208,7 @@ public class EssencePVP{
 		fScoreGainRate = config.getFloat("ScoreRate","GameCFG",1.0f,0.1f,10000.0f,"Sets the speed in which players get score from pvp");
 		bGainExp= config.getBoolean("AccumulateExp","ServerCFG",true,"Will players gain exp from hitting other players? If not, they get exp from killing others");
 		
-		// mySQL Configuration
+		// mySQL Configuration -- This is not needed. This is handled in the resources/application.conf
 		bUseMySQL=config.getBoolean("UseDatabaseServer","ServerCFG",false,"Do you want to use a database server? If not, SQLite will be used.");
 		bMySQLHostname=config.getString("bMySQLHostname","ServerCFG","","MySQL Server location");
 		iMySQLPort=config.getInt("iMySQLPort","ServerCFG",3306,1,65535,"MySQL Port");
