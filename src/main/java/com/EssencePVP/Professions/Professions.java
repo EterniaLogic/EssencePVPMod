@@ -149,17 +149,13 @@ public class Professions implements java.io.Serializable {
 		else return true;
 	}
 
-	public void listAll(){
-		hList.listAll();
-	}
-
 	private class hProfession{
 		private int iHashSize; // The current used slots
 		private int iHashSpace; // The hash's maximum capacity
 		private Profession[] pProfessions;
 
 		public hProfession(){
-			this(10);
+			this(1);
 		}
 
 		public hProfession(int _iHashSpace){
@@ -168,28 +164,37 @@ public class Professions implements java.io.Serializable {
 			pProfessions = new Profession[_iHashSpace];
 		}
 
-		public void listAll(){
-			for(int i=0; i<iHashSize; i++)
-				System.out.println(pProfessions[i].getProfessionName());
-			System.out.println(iHashSize);
-		}
-
 		public void regElement(Profession _pProfession){
 			if(iHashSize < iHashSpace){
 				pProfessions[iHashSize] = _pProfession;
 				iHashSize++;
 			}
 			else{
-				// build new array
+				pProfessions = rebuildHash(); // Expand our array
+				regElement(_pProfession);
+			}
+		}
+
+		private Profession[] rebuildHash(){
+			iHashSpace = iHashSpace*2;
+			Profession[] pTemporary = new Profession[iHashSpace];
+			return(duplicateData(0, pTemporary)); // Duplicate the data and return the new array
+		}
+
+		private Profession[] duplicateData(int _iIndex, Profession[] pDestination){
+			if(_iIndex > iHashSize)
+				return(pDestination);
+			else{
+				pDestination[_iIndex] = pProfessions[_iIndex];
+				return(duplicateData(++_iIndex, pDestination));
 			}
 		}
 
 		public void unregElement(Profession _pProfession){
 			if(iHashSize <= 0)
 				return;
-			else{
+			else
 				unregElement(0, _pProfession);
-			}
 		}
 
 		private void unregElement(int _iIndex, Profession _pProfession){

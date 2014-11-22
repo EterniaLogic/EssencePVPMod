@@ -177,11 +177,6 @@ public class EssencePVP{
 		System.out.println("#########################");
 		System.out.println("Added: "+pProfessions.getLastAddedProfession().getProfessionName());
 
-		pProfessions.delProfession("Healer");
-		pProfessions.delProfession("Guardian");
-
-		pProfessions.listAll();
-
 		//Examples Of Using ProfessionsManager..
 		//tag: ProfessionsManager
 		// Professions professionList = ProfessionsManager.load(); //Load all data from the database into professionList
