@@ -21,8 +21,11 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.EssencePVP.character.*;
+import com.EssencePVP.character.Character;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.config.Configuration;
@@ -72,7 +75,7 @@ public class EssencePVP{
 	
 	private Configuration config;
  
-	// mySQL
+	// mySQL -- not needed.
 	private String bMySQLHostname,sMySQLUsername,sMySQLPassword, sMySQLDatabase;
 	private int iMySQLPort;
 	
@@ -108,7 +111,7 @@ public class EssencePVP{
 		
 		// Primary Thread for processing skills, player data, ect.
 		if(FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT){
-			clientplayer = new Player(Minecraft.getMinecraft().thePlayer);
+			clientplayer = new Character(Minecraft.getMinecraft().thePlayer);
 		}else if(FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER){
 			RegisterCommands();
 		}
@@ -160,6 +163,7 @@ public class EssencePVP{
 	}
 
 	private void ProfessionsSetup(){
+
 		// <begin> EssencePvP::Professions::* examples
 		 // Creating a Professions object
 
@@ -208,7 +212,7 @@ public class EssencePVP{
 		fScoreGainRate = config.getFloat("ScoreRate","GameCFG",1.0f,0.1f,10000.0f,"Sets the speed in which players get score from pvp");
 		bGainExp= config.getBoolean("AccumulateExp","ServerCFG",true,"Will players gain exp from hitting other players? If not, they get exp from killing others");
 		
-		// mySQL Configuration -- This is not needed. This is handled in the resources/application.conf
+		// mySQL Configuration -- This is not needed. This is handled in the resources/application.conf: Also see scala/models/DataSource.scala
 		bUseMySQL=config.getBoolean("UseDatabaseServer","ServerCFG",false,"Do you want to use a database server? If not, SQLite will be used.");
 		bMySQLHostname=config.getString("bMySQLHostname","ServerCFG","","MySQL Server location");
 		iMySQLPort=config.getInt("iMySQLPort","ServerCFG",3306,1,65535,"MySQL Port");
@@ -246,7 +250,7 @@ public class EssencePVP{
 	}
 	
 	/**
-	 * @return the sMySQLDatabase
+	 * @return the sMySQLDatabase -- not needed.
 	 */
 	public String getsMySQLDatabase(){
 		return sMySQLDatabase;

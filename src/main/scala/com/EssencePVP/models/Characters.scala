@@ -16,14 +16,24 @@ object Characters {
   }
   val characters = TableQuery[Characters]
 
-  def create(a:Character) = {
+  def create(a:Character) : Int = {
     DB.withSession { implicit session =>
-      characters += a
+      (characters returning characters.map(_.id)) += a //return the autoinc ID
     }
   }
   def retrieve(id:Int): Character = {
     DB.withSession { implicit session =>
       characters.filter(_.id === id).firstOption.get
+    }
+  }
+  def retrieve(playerName:String) : Character = {
+    DB.withSession { implicit session =>
+      characters.filter(_.playerName === playerName).firstOption.get
+    }
+  }
+  def exists(playerName:String) : Boolean = {
+    DB.withSession { implicit session =>
+      characters.filter(_.playerName === playerName).exists.run
     }
   }
   def update(a:Character) = {

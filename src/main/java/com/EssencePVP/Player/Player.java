@@ -32,6 +32,7 @@ public class Player implements java.io.Serializable
 		// TODO:  Load player from Mysql or SQLite
 		this.mcplayer = player;
 		playerMap.put(player, this);
+        
 	}
 	
 	public void playerLogout(){

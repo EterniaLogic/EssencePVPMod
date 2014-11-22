@@ -16,6 +16,7 @@
 package com.EssencePVP.Listeners;
 
 import com.EssencePVP.Player.Player;
+import com.EssencePVP.character.Character;
 
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.relauncher.Side;
@@ -38,8 +39,8 @@ public class PlayerListener
 		if(source.getEntity() != null){
 			if(entity instanceof EntityClientPlayerMP && source.getEntity() instanceof EntityClientPlayerMP){
 				// Give each player their exp
-				Player p1 = (Player) Player.getPlayerMap().get((EntityClientPlayerMP)entity);
-				Player p2 = (Player) Player.getPlayerMap().get((EntityClientPlayerMP)source.getEntity());
+				Character p1 = (Character) Player.getPlayerMap().get((EntityClientPlayerMP)entity);
+				Character p2 = (Character) Player.getPlayerMap().get((EntityClientPlayerMP)source.getEntity());
 				
 				// Player1 was killed by Player 2
 				p1.getExp().expDeath(p2);
@@ -54,9 +55,9 @@ public class PlayerListener
 	public void EntityJoinWorldEvent(Entity entity, World world){
 		// TODO: Add player to mysql or sqlite, if they dont exist. 
 		// Otherwise, just add them to player map.
-		
 		if(entity instanceof EntityClientPlayerMP){
-			new Player((EntityClientPlayerMP) entity); // auto-adds mapping
+
+			new Character((EntityClientPlayerMP) entity); // auto-adds mapping
 		}
 	}
 }

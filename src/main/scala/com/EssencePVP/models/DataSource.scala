@@ -7,7 +7,7 @@ import scala.util.Try
 
 
 //Creates a Connection to the DB using the settings found in application.conf
-//This will try to use MySQL first, then will fail over to SQLite
+//This will try to use MySQL first, then will fail over to SQLite if connecting to MySQL fails.-
 
 object DataSource {
 
@@ -39,7 +39,7 @@ object DataSource {
 
   }
 
-  var DB = Database.forDataSource(ds)
+  val DB = Database.forDataSource(ds)
 
 }
 
