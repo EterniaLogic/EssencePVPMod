@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS Profession
-(ID INT NOT NULL AUTO_INCREMENT, INDEX(ID), Name varchar(40), 
+(ID INT NOT NULL INDEX(ID), Name varchar(40),
 Description varchar(250), Icon varchar(250))
  AUTO_INCREMENT=2;
 
