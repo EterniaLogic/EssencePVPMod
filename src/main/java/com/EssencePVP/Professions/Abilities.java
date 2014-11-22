@@ -26,7 +26,7 @@ public class Abilities implements java.io.Serializable {
 		this.iNumAbilities = 0;
 		this.pHead = null;
 		this.pLast = null;
-		this.hList = new hAbility(1);
+		this.hList = new hAbility();
 	}
 
 	// Description:

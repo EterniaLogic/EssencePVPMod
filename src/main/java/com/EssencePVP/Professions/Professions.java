@@ -26,7 +26,7 @@ public class Professions implements java.io.Serializable {
 		this.iNumProfessions = 0;
 		this.pHead = null;
 		this.pLast = null;
-		this.hList = new hProfession(1);
+		this.hList = new hProfession();
 	}
 
 	public Profession addProfession(String _sProfessionName, String _sProfessionDescription){
@@ -150,6 +150,13 @@ public class Professions implements java.io.Serializable {
 	}
 
 	private class hProfession{
+		// As of now the Professions class will use
+		// O(n) for adds, gets, and removes. Modification
+		// must be done to remove each node's ability to
+		// point to the one after it and utilize the hash
+		// array instead to store refrences. This will improve
+		// gets to O(1) and give adds an average case of O(1)
+		// as-well.
 		private int iHashSize; // The current used slots
 		private int iHashSpace; // The hash's maximum capacity
 		private Profession[] pProfessions;
