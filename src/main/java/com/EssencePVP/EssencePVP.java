@@ -180,12 +180,12 @@ public class EssencePVP{
 		//Examples Of Using ProfessionsManager..
 		//tag: ProfessionsManager
 		 Professions professionList = ProfessionsManager.load(); //Load all data from the database into professionList
-		// ProfessionsManager.add("Tank", "Tank place holder", professionList); //Add a profession into the list and database
-		// Profession tempPro = ProfessionsManager.add("Healer", "Healer place holder", professionList); //same as above
-		// ProfessionsManager.del(tempPro.getProfessionId(), professionList); //Delete from professionList and DB by ID
-		// ProfessionsManager.del("Profession Name #1", professionList); //Delete from professionList and DB by name
-		// ProfessionsManager.get(id, professionList);
-		// ProfessionsManager.get("name", professionList);
+		 ProfessionsManager.add("Tank", "Tank place holder", professionList); //Add a profession into the list and database
+		 Profession tempPro = ProfessionsManager.add("Healer", "Healer place holder", professionList); //same as above
+		 ProfessionsManager.del(tempPro.getProfessionId(), professionList); //Delete from professionList and DB by ID
+		 ProfessionsManager.del("Profession Name #1", professionList); //Delete from professionList and DB by name
+		 ProfessionsManager.get(1, professionList);
+		 ProfessionsManager.get("name", professionList);
 
 
 		// EssencePvP::Professions::* </end>

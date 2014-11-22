@@ -13,7 +13,7 @@ object ProfessionsManager {
   }
   def add(name:String, description:String, professionList:Professions.Professions) : Professions.Profession  = {
     val newProfession = professionList.addProfession(name, description) //add the new profession to the list
-    models.Professions.create(models.Profession(newProfession.getProfessionId, name, description, null)) //add to the DB
+    models.Professions.create(models.Profession(newProfession.getProfessionId, name, description, "")) //add to the DB
     newProfession //return the newProfession
   }
   def setIcon(id:Int, icon:String) = {
