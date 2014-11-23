@@ -13,7 +13,6 @@ object ProfessionsManager {
     val professionList = new Professions
 
     ProfessionDB.retrieveAll().foreach(element => { //look at ea. element in the DB and add it to the list
-      println("LOADING - " +element.id+  ": "  + element.name)
       professionList.addProfession(element.id, element.name, element.description) //add to the list
     })
 
