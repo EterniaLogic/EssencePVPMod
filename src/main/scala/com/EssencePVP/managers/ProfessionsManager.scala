@@ -19,16 +19,18 @@ object ProfessionsManager {
     professionList //return the list
   }
 
-  def add(name:String, description:String, professionList:Professions) : Profession = {
+  def add(name:String, description:String, icon:String, professionList:Professions) : Profession = {
     val tryToFind = Try(ProfessionDB.retrieve(name))
     if(tryToFind.isSuccess)
       new Profession(tryToFind.get.id, name, description)
     else {
       val newProfession = professionList.addProfession(name, description)
-      ProfessionDB.create(ProfessionModel(newProfession.getProfessionId, description, name, ""))
+      ProfessionDB.create(ProfessionModel(newProfession.getProfessionId, description, name, icon))
       newProfession
     }
   }
+
+  def add(name:String, description:String, professionList:Professions) : Profession = add(name, description, "", professionList)
 
   def setIcon(id:Int, icon:String) = {
     val profession = ProfessionDB.retrieve(id)

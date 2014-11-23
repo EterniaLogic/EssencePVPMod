@@ -36,16 +36,19 @@ object AbilitiesManager {
     loadAbilityProperties(abilityList)
   }
 
-  def add(property:Int, name:String, profession:Int, description:String, abilityList:Abilities) : Ability = {
+  def add(property:Int, name:String, profession:Int, description:String, icon:String, abilityList:Abilities) : Ability = {
     val tryToFind = Try(AbilitiesDB.retrieve(name))
     if(tryToFind.isSuccess)
       new Ability(tryToFind.get.id, name, description)
     else {
       val newAbility = abilityList.addAbility(name, description)
-      AbilitiesDB.create(AbilityModel(newAbility.getAbilityId, "", profession, description, name)) //add to the DB
+      AbilitiesDB.create(AbilityModel(newAbility.getAbilityId, icon, profession, description, name)) //add to the DB
       newAbility
     }
   }
+
+  def add(property:Int, name:String, profession:Int, description:String, abilityList:Abilities) : Ability =
+    add(property, name, profession, description, "", abilityList)
 
   def setIcon(id:Int, icon:String) = {
     val ability = AbilitiesDB.retrieve(id)

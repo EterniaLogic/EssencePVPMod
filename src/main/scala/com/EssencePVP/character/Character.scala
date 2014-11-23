@@ -15,7 +15,7 @@ class Character(clientPlayer:EntityClientPlayerMP) extends Player(clientPlayer) 
   private final val defaultClassAbilities = -1
   private final val defaultFactionID = -1
 
-  private var characterObj:Char = Char(defaultID, defaultPlayerUID, defaultClassAbilities, defaultName, defaultFactionID)
+  private var characterObj = Char(defaultID, defaultPlayerUID, defaultClassAbilities, defaultName, defaultFactionID)
   private var profession:Profession = null
 
   retrieveChar //constructor
