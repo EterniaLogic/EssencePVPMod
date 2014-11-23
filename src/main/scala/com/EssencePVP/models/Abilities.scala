@@ -3,15 +3,16 @@ package com.EssencePVP.models
 import DataSource._
 import scala.slick.driver.MySQLDriver.simple._
 
-case class Ability(id:Int, icon:String, description:String, name:String)
+case class Ability(id:Int, icon:String, profession:Int, description:String, name:String)
 
 object Abilities {
   class Abilities(tag: Tag) extends Table[Ability](tag, "Ability") {
     def id = column[Int]("ID")
     def icon = column[String]("ICON")
+    def profession = column[Int]("PROFESSION")
     def description = column[String]("DESCRIPTION")
     def name = column[String]("NAME")
-    def * = (id, icon, description, name) <> (Ability.tupled, Ability.unapply)
+    def * = (id, icon, profession, description, name) <> (Ability.tupled, Ability.unapply)
   }
   val abilities = TableQuery[Abilities]
 
