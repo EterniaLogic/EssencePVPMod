@@ -19,8 +19,9 @@ object ProfessionsManager {
   def add(name:String, description:String, professionList:Professions) : Profession  = {
     val newProfession = professionList.addProfession(name, description) //add the new profession to the list
 
-    Try(ProfessionDB.retrieve(name)) getOrElse
-      ProfessionDB.create(ProfessionModel(newProfession.getProfessionId, name, description, "")) //add to the DB
+    Try(ProfessionDB.retrieve(name)) getOrElse { //Basically, dont add it to the DB if it already exists..
+      ProfessionDB.create(ProfessionModel(newProfession.getProfessionId, description, name, "")) //add to the DB
+    }
 
     newProfession //return the newProfession
   }

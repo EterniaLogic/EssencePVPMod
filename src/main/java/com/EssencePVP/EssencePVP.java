@@ -197,6 +197,9 @@ public class EssencePVP{
 		 ProfessionsManager.get("name", professionList);
 
 
+         Abilities abilityList = AbilitiesManager.load();
+         com.EssencePVP.managers.AbilitiesManager.add(1, "Test", "Desc", abilityList); //Testing AbilityMangers
+
 		// EssencePvP::Professions::* </end>
 		
 		// load in ability categories if they exist. Else, make it.

@@ -35,7 +35,11 @@ object AbilitiesManager {
   }
   def add(property:Int, name:String, description:String, abilityList:Abilities) : Ability  = {
     val newAbility = abilityList.addAbility(name, description) //add to the list
-    AbilitiesDB.create(AbilityModel(newAbility.getAbilityId, "", name, description)) //add to the DB
+
+    Try(AbilitiesDB.retrieve(name)) getOrElse {
+      AbilitiesDB.create(AbilityModel(newAbility.getAbilityId, "", description, name)) //add to the DB
+    }
+
     newAbility //return the newAbility
   }
   def setIcon(id:Int, icon:String) = {
