@@ -17,6 +17,7 @@ package com.EssencePVP.Listeners;
 
 import com.EssencePVP.Player.Player;
 import com.EssencePVP.character.Character;
+import com.EssencePVP.managers.CharactersManager;
 
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.relauncher.Side;
@@ -57,7 +58,10 @@ public class PlayerListener
 		// Otherwise, just add them to player map.
 		if(entity instanceof EntityClientPlayerMP){
 
-			new Character((EntityClientPlayerMP) entity); // auto-adds mapping
+			Character c = new Character((EntityClientPlayerMP) entity); // auto-adds mapping
+            CharactersManager.add(c);
 		}
 	}
+
+    //TODO: When a player logouts, need to remove them from the characters manager.
 }

@@ -2,8 +2,7 @@ package com.EssencePVP.character
 
 import com.EssencePVP.Player.Player
 import net.minecraft.client.entity.EntityClientPlayerMP
-import com.EssencePVP.models.Characters
-import com.EssencePVP.models.{Character => Char}
+import com.EssencePVP.models.{Character => Char, Profession, Characters}
 
 class Character(clientPlayer:EntityClientPlayerMP) extends Player(clientPlayer) with Serializable {
 
@@ -14,6 +13,7 @@ class Character(clientPlayer:EntityClientPlayerMP) extends Player(clientPlayer) 
   private final val defaultFactionID = -1
 
   private var characterObj:Char = null
+  private var profession:Profession = null
 
   retrieveChar
 

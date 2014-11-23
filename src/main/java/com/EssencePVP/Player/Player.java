@@ -33,7 +33,6 @@ public class Player implements java.io.Serializable
 		this.mcplayer = player;
 		playerMap.put(player, this);
 
-
 	}
 	
 	public void playerLogout(){
