@@ -10,6 +10,8 @@ object CharactersManager {
 
   def delete(c:Character) = list = list.filter(_ != c)
 
+  def delete(playerName:String) = list = list.filter(_.getName != playerName)
+
   def getList : Vector[Character] = list
 
 }

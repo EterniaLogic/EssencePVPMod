@@ -20,6 +20,7 @@ import com.EssencePVP.character.Character;
 import com.EssencePVP.managers.CharactersManager;
 
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.entity.EntityClientPlayerMP;
@@ -60,8 +61,19 @@ public class PlayerListener
 
 			Character c = new Character((EntityClientPlayerMP) entity); // auto-adds mapping
             CharactersManager.add(c);
+
+            System.out.println("Adding Character: " + c);
+
 		}
 	}
+
+    @EventHandler
+    @SideOnly(Side.SERVER)
+    public void onPlayerLoggedOut(PlayerEvent.PlayerLoggedOutEvent event){
+
+        CharactersManager.delete(event.player.getDisplayName());
+
+    }
 
     //TODO: When a player logouts, need to remove them from the characters manager.
 }

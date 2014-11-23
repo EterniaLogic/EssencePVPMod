@@ -119,6 +119,9 @@ public class EssencePVP{
 		}
 		
 		thread.start(); // start primary thread!
+
+
+        System.out.println(CharactersManager.getList());
 	}
 
 	/**
