@@ -96,6 +96,8 @@ public class EssencePVP{
 
 	@EventHandler
 	public void init(FMLInitializationEvent event){
+
+
 		instance = this;
 		logger = Logger.getLogger("EssencePVP");
 		logger.setLevel(Level.FINEST);

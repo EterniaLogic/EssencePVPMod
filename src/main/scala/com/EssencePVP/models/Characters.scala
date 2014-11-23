@@ -31,11 +31,6 @@ object Characters {
       characters.filter(_.playerName === playerName).firstOption.get
     }
   }
-  def exists(playerName:String) : Boolean = {
-    DB.withSession { implicit session =>
-      characters.filter(_.playerName === playerName).exists.run
-    }
-  }
   def maxID() : Int = {
     DB.withSession { implicit session =>
       characters.map(_.id).max.run getOrElse 0
