@@ -1,0 +1,1 @@
+./converter.sh --no-data -uroot -pnemo20 essencepvp | sqlite3 essencepvp.db
