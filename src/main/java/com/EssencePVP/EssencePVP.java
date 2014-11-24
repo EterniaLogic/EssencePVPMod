@@ -89,7 +89,7 @@ public class EssencePVP{
 	public static Thread thread; // Primary thread figures stuff out
 	
 	private Logger logger; 			// Logs information and errors
-	private Player clientplayer; 	// Client Player that is currently playing
+	private Character clientplayer; 	// Client Player that is currently playing
 	private ServerCommandManager commandManager;
 	
 	private Professions pProfessions = new Professions();
@@ -196,7 +196,7 @@ public class EssencePVP{
 		 //ProfessionsManager.get(1, professionList);
 		 //ProfessionsManager.get("name", professionList);
 
-
+         clientplayer.setProfession(9);
 
          Abilities abilityList = AbilitiesManager.load();
          com.EssencePVP.managers.AbilitiesManager.add(1, "Test", someProf.getProfessionId(), "Desc", abilityList); //Testing AbilityMangers

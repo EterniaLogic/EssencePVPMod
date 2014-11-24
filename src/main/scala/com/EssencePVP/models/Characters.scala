@@ -41,6 +41,7 @@ object Characters {
       characters.filter(_.id === a.id).update(a)
     }
   }
+
   def delete(id:Int) = {
     DB.withSession { implicit session =>
       characters.filter(_.id === id).delete

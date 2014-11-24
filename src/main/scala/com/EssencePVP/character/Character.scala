@@ -5,8 +5,6 @@ import net.minecraft.client.entity.EntityClientPlayerMP
 import com.EssencePVP.models.{Character => Char, Profession, Professions, Characters}
 import scala.util.Try
 
-//TODO: char table needs a foreign column to ref. to profession
-
 class Character(clientPlayer:EntityClientPlayerMP) extends Player(clientPlayer) with Serializable {
 
   private final val defaultID = -1
@@ -16,7 +14,9 @@ class Character(clientPlayer:EntityClientPlayerMP) extends Player(clientPlayer) 
   private final val defaultFactionID = -1
 
   private var characterObj = Char(defaultID, defaultClassAbilities, defaultProfession, defaultName, defaultFactionID)
-  private var profession:Profession = null
+  private var profession:Profession = Profession(-1, "", "", "")
+
+
 
   retrieveChar //constructor
 
@@ -65,7 +65,7 @@ class Character(clientPlayer:EntityClientPlayerMP) extends Player(clientPlayer) 
 
   private def retrieveChar = {
     Try(characterObj = Characters.retrieve(characterObj.id)) getOrElse addPlayer
-
+    println(characterObj)
     Try(profession = Professions.retrieve(characterObj.profession)) 
 
   }
