@@ -58,6 +58,7 @@ my %hTables = (
 					'ID'			=> { 'type' => 'int' },
 					'PlayerName'	=> { 'type' => 'varchar(250)' },
 					'PlayerUID'		=> { 'type' => 'varchar(250)' },
+					'Profession'	=> { 'type' => 'int' },
 					'ClassAbilities'=> { 'type' => 'int' },
 					'FactionID'		=> { 'type' => 'int' }
 				   },
