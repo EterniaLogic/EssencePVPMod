@@ -89,7 +89,7 @@ public class EssencePVP{
 	public static Thread thread; // Primary thread figures stuff out
 	
 	private Logger logger; 			// Logs information and errors
-	private Player clientplayer; 	// Client Player that is currently playing
+	private Character clientplayer; 	// Client Player that is currently playing
 	private ServerCommandManager commandManager;
 	
 	private Professions pProfessions = new Professions();
@@ -121,6 +121,8 @@ public class EssencePVP{
 		
 		
 		thread.start(); // start primary thread!
+
+
 
 	}
 
@@ -188,18 +190,15 @@ public class EssencePVP{
 
 		//Examples Of Using ProfessionsManager..
 		//tag: ProfessionsManager
-		 Professions professionList = ProfessionsManager.load(); //Load all data from the database into professionList
-		 Profession someProf = ProfessionsManager.add("Tank", "Tank place holder", professionList); //Add a profession into the list and database
-		 Profession tempPro = ProfessionsManager.add("Healer", "Healer place holder", professionList); //same as above
+//		 Professions professionList = ProfessionsManager.load(); //Load all data from the database into professionList
+//		 Profession someProf = ProfessionsManager.add("Tank", "Tank place holder", professionList); //Add a profession into the list and database
+//		 Profession tempPro = ProfessionsManager.add("Healer", "Healer place holder", professionList); //same as above
 		 //ProfessionsManager.del(tempPro.getProfessionId(), professionList); //Delete from professionList and DB by ID
 		 //ProfessionsManager.del("Profession Name #1", professionList); //Delete from professionList and DB by name
 		 //ProfessionsManager.get(1, professionList);
 		 //ProfessionsManager.get("name", professionList);
 
 
-
-         Abilities abilityList = AbilitiesManager.load();
-         com.EssencePVP.managers.AbilitiesManager.add(1, "Test", someProf.getProfessionId(), "Desc", abilityList); //Testing AbilityMangers
 
 		// EssencePvP::Professions::* </end>
 		
