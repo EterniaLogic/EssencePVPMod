@@ -2,7 +2,7 @@ package com.EssencePVP.character
 
 import com.EssencePVP.Player.Player
 import net.minecraft.client.entity.EntityClientPlayerMP
-import com.EssencePVP.models.{Character => Char, Profession, Characters}
+import com.EssencePVP.models.{Character => Char, Profession, Professions, Characters}
 import scala.util.Try
 
 //TODO: char table needs a foreign column to ref. to profession
@@ -26,6 +26,8 @@ class Character(clientPlayer:EntityClientPlayerMP) extends Player(clientPlayer) 
 
   def getFactionID : Int = characterObj.factionID
 
+  def getProfession : Profession = profession
+
   def getID : Int = characterObj.id
 
   def setFactionID(factionID:Int) = {
@@ -35,6 +37,11 @@ class Character(clientPlayer:EntityClientPlayerMP) extends Player(clientPlayer) 
 
   def setClassAbilities(classAbilities:Int) = {
     characterObj = Char(characterObj.id, classAbilities, characterObj.profession, characterObj.playerName, characterObj.factionID)
+    updatePlayer
+  }
+
+  def setProfession(professionID:Int) = {
+    characterObj = Char(characterObj.id, characterObj.classAbilities, professionID, characterObj.playerName, characterObj.factionID)
     updatePlayer
   }
 
@@ -56,6 +63,11 @@ class Character(clientPlayer:EntityClientPlayerMP) extends Player(clientPlayer) 
 
   private def updatePlayer = Characters.update(characterObj) //update the DB
 
-  private def retrieveChar = Try(characterObj = Characters.retrieve(characterObj.id)) getOrElse addPlayer
+  private def retrieveChar = {
+    Try(characterObj = Characters.retrieve(characterObj.id)) getOrElse addPlayer
+
+    Try(profession = Professions.retrieve(characterObj.profession)) 
+
+  }
 
 }
