@@ -11,18 +11,16 @@ class Character(clientPlayer:EntityClientPlayerMP) extends Player(clientPlayer) 
 
   private final val defaultID = -1
   private final val defaultName = "Fake Name" //needs to be pulled from MC - crashes
-  private final val defaultPlayerUID = "" //needs to be pulled from MC - crashes
+  private final val defaultProfession = -1
   private final val defaultClassAbilities = -1
   private final val defaultFactionID = -1
 
-  private var characterObj:Char = Char(defaultID, defaultPlayerUID, defaultClassAbilities, defaultName, defaultFactionID)
+  private var characterObj = Char(defaultID, defaultClassAbilities, defaultProfession, defaultName, defaultFactionID)
   private var profession:Profession = null
 
   retrieveChar //constructor
 
   def getName : String = characterObj.playerName
-
-  def getPlayerUID : String = characterObj.playerUID
 
   def getClassAbilities : Int = characterObj.classAbilities
 
@@ -31,12 +29,12 @@ class Character(clientPlayer:EntityClientPlayerMP) extends Player(clientPlayer) 
   def getID : Int = characterObj.id
 
   def setFactionID(factionID:Int) = {
-    characterObj = Char(characterObj.id, characterObj.playerUID, characterObj.classAbilities, characterObj.playerName, factionID)
+    characterObj = Char(characterObj.id, characterObj.classAbilities, characterObj.profession, characterObj.playerName, factionID)
     updatePlayer
   }
 
   def setClassAbilities(classAbilities:Int) = {
-    characterObj = Char(characterObj.id, characterObj.playerUID, classAbilities, characterObj.playerName, characterObj.factionID)
+    characterObj = Char(characterObj.id, classAbilities, characterObj.profession, characterObj.playerName, characterObj.factionID)
     updatePlayer
   }
 
@@ -46,8 +44,8 @@ class Character(clientPlayer:EntityClientPlayerMP) extends Player(clientPlayer) 
       Characters.create(
         Char(
           Characters.maxID() + 1,
-          defaultPlayerUID,
           defaultClassAbilities,
+          defaultProfession,
           defaultName,
           defaultFactionID
         )
