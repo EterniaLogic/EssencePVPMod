@@ -3,16 +3,16 @@ package com.EssencePVP.models
 import DataSource._
 import scala.slick.driver.MySQLDriver.simple._
 
-case class Character(id:Int, playerUID:String, classAbilities:Int, playerName:String, factionID:Int)
+case class Character(id:Int, classAbilities:Int, profession:Int, playerName:String, factionID:Int)
 
 object Characters {
   class Characters(tag: Tag) extends Table[Character](tag, "Characters") {
     def id = column[Int]("ID")
-    def playerUID = column[String]("PLAYERUID")
     def classAbilities = column[Int]("CLASSABILITIES")
+    def profession = column[Int]("PROFESSION")
     def playerName = column[String]("PLAYERNAME")
     def factionID = column[Int]("FACTIONID")
-    def * = (id, playerUID, classAbilities, playerName, factionID) <> (Character.tupled, Character.unapply)  
+    def * = (id, classAbilities, profession, playerName, factionID) <> (Character.tupled, Character.unapply)
   }
   val characters = TableQuery[Characters]
 
