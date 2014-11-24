@@ -238,12 +238,12 @@
 			<attribute name="javadoc_location" value="jar:file:/C:/Users/Eternia/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.3.2/43ffe692648166363bceadc63ac76c7d19b4ebd7/commons-lang3-3.3.2-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="D:/EssencePVPMod/unresolved dependency -  forgeBin 1.7.10-10.13.0.1180"/>
 	<classpathentry exported="true" kind="lib" path="D:/EssencePVPMod/libs/hamcrest-core-1.3.jar"/>
 	<classpathentry exported="true" kind="lib" path="D:/EssencePVPMod/libs/junit-4.12-beta-2.jar"/>
 	<classpathentry exported="true" kind="lib" path="D:/EssencePVPMod/libs/sqlite-jdbc-3.7.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/Eternia/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.0.1180/start"/>
 	<classpathentry kind="lib" path="C:/Users/Eternia/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.0.1180/forge-binpatched-1.7.10-10.13.0.1180.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Eternia/.gradle/caches/minecraft/net/minecraft/minecraft_merged/1.7.10/minecraft_merged-1.7.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Eternia/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.0.1180/forgeBin-1.7.10-10.13.0.1180.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
