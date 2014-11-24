@@ -118,6 +118,8 @@ public class EssencePVP{
 			RegisterCommands();
 		}
 		
+		
+		
 		thread.start(); // start primary thread!
 
 
