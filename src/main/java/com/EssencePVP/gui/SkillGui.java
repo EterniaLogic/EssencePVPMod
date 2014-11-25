@@ -119,17 +119,17 @@ public class SkillGui extends GuiScreen
 		    break;
 		}*/
 		
-		Profession pProfession = professions.getProfessionsHead();
-		Ability pAbility = pProfession.getAbilities().getAbilitiesHead();
+		// Profession pProfession = professions.getProfessionsHead();
+		// Ability pAbility = pProfession.getAbilities().getAbilitiesHead();
 
-		while(pProfession != null){
-			while(pAbility != null){
-				list.add(pAbility.getAbilityName());
-				pAbility = pAbility.getNext();
-			}
-			list.add(pProfession.getProfessionDescription());
-			pProfession = pProfession.getNext();
-		}
+		// while(pProfession != null){
+		// 	while(pAbility != null){
+		// 		list.add(pAbility.getAbilityName());
+		// 		pAbility = pAbility.getNext();
+		// 	}
+		// 	list.add(pProfession.getProfessionDescription());
+		// 	pProfession = pProfession.getNext();
+		// }
 
 		// I don't know what you are trying to do here, but the way you are refrencing the
 		// list is wrong. Ability and profession ids are not sequential, because databases
@@ -139,11 +139,11 @@ public class SkillGui extends GuiScreen
 		// you attempt to perform a remove(profession) or remove(ability).
 		// -AK
 
-		/*Profession profession = professions.getProfession(state+1);
+		Profession profession = professions.getProfession(state+1);
 		Abilities abilities = profession.getAbilities();
 		Ability ability = abilities.getAbility(i+1);
 		list.add(ability.getAbilityName());
-		list.add(profession.getProfessionDescription());*/
+		list.add(profession.getProfessionDescription());
 		
 		this.drawHoveringText(list, (int)mouseX, (int)mouseY, frender);
 	      }
