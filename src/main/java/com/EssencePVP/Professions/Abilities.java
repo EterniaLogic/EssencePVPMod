@@ -26,7 +26,7 @@ public class Abilities implements java.io.Serializable {
 		this.iNumAbilities = 0;
 		this.pHead = null;
 		this.pLast = null;
-		this.hList = new hAbility();
+		//this.hList = new hAbility();
 	}
 
 	// Description:
@@ -52,7 +52,7 @@ public class Abilities implements java.io.Serializable {
 				pHead.setNext(pTemporary);
 			} else return null;
 		}
-		hList.regElement(pHead);
+		//hList.regElement(pHead);
 		++iNumAbilities;
 		return(pHead);
 	}
@@ -79,7 +79,7 @@ public class Abilities implements java.io.Serializable {
 			return;
 		else{
 			if(this.pHead.getAbilityId() == _iAbilityId){
-				hList.unregElement(_pAbility);
+				//hList.unregElement(_pAbility);
 				this.pHead = this.pHead.getNext();
 				this.iNumAbilities--;
 				return;
@@ -87,7 +87,7 @@ public class Abilities implements java.io.Serializable {
 			else{
 				if(_pAbility.getNext() != null){
 					if(_pAbility.getNext().getAbilityId() == _iAbilityId){
-						hList.unregElement(_pAbility);
+						//hList.unregElement(_pAbility);
 						_pAbility.setNext(_pAbility.getNext().getNext());
 						this.iNumAbilities--;
 					}

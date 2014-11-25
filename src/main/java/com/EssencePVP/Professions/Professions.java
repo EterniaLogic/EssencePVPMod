@@ -26,7 +26,7 @@ public class Professions implements java.io.Serializable {
 		this.iNumProfessions = 0;
 		this.pHead = null;
 		this.pLast = null;
-		this.hList = new hProfession();
+		//this.hList = new hProfession();
 	}
 
 	public Profession addProfession(String _sProfessionName, String _sProfessionDescription){
@@ -52,7 +52,7 @@ public class Professions implements java.io.Serializable {
 				pHead.setNext(pTemporary);
 			} else return null;
 		}
-		hList.regElement(pHead);
+		//hList.regElement(pHead);
 		++iNumProfessions;
 		return(pHead);
 	}
@@ -72,14 +72,14 @@ public class Professions implements java.io.Serializable {
 			return;
 		else{
 			if(this.pHead.getProfessionId() == _iProfessionId){
-				hList.unregElement(_pProfession);
+				//hList.unregElement(_pProfession);
 				this.pHead = this.pHead.getNext();
 				this.iNumProfessions--;
 			}
 			else{
 				if(_pProfession.getNext() != null){
 					if(_pProfession.getNext().getProfessionId() == _iProfessionId){
-						hList.unregElement(_pProfession.getNext());
+						//hList.unregElement(_pProfession.getNext());
 						_pProfession.setNext(_pProfession.getNext().getNext());
 						this.iNumProfessions--;
 					}
