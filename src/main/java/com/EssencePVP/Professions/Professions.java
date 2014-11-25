@@ -20,7 +20,7 @@ public class Professions implements java.io.Serializable {
 	private Profession pHead;
 	private Profession pLast;
 
-	private hProfession hList;
+	//private hProfession hList;
 
 	public Professions(){
 		this.iNumProfessions = 0;

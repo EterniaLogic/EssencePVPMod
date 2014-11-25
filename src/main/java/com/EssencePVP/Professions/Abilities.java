@@ -20,7 +20,7 @@ public class Abilities implements java.io.Serializable {
 	private Ability pHead;
 	private Ability pLast;
 
-	private hAbility hList;
+	//private hAbility hList;
 
 	public Abilities(){
 		this.iNumAbilities = 0;

@@ -91,7 +91,7 @@ public class EssencePVP{
 	public static Thread thread; // Primary thread figures stuff out
 	
 	private Logger logger; 			// Logs information and errors
-	private Character clientplayer; 	// Client Player that is currently playing
+	//private Character clientplayer; 	// Client Player that is currently playing
 	private ServerCommandManager commandManager;
 	
 	private Professions pProfessions = new Professions();
@@ -115,7 +115,7 @@ public class EssencePVP{
 		
 		// Primary Thread for processing skills, player data, ect.
 		if(FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT){
-			clientplayer = new Character(Minecraft.getMinecraft().thePlayer);
+			//clientplayer = new Character(Minecraft.getMinecraft().thePlayer);
 		}else if(FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER){
 			RegisterCommands();
 		}
@@ -178,18 +178,18 @@ public class EssencePVP{
 		 // Creating a Professions object
 
 		// Adding Profession #1 (using method 1)
-//		Profession pTemporaryProfession = pProfessions.addProfession("Healer", "This is a healer class test"); // Adding a Profession to our Professions list (pTest)
-//		Ability pTemporaryAbility = pTemporaryProfession.getAbilities().addAbility("Foo","Bar"); // Adding an Ability to a Profession
-//		pTemporaryAbility.addAbilityProperty("test_property","cast_time",1.0f); // Adding a Property to an Ability
-//		System.out.println("#########################");
-//		System.out.println("Added: "+pProfessions.getLastAddedProfession().getProfessionName());
-//
-//		// Adding Profession #2 (using method 2)
-//		pProfessions.addProfession("Guardian", "This is a tank class test"); // Adding a Profession to our Professions list (pTest)
-//		pProfessions.getLastAddedProfession().getAbilities().addAbility("Foo","Bar"); // Adding an Ability to a Profession
-//		pProfessions.getLastAddedProfession().getAbilities().getLastAddedAbility().addAbilityProperty("test_property","cast_time",1.0f); // Adding a Property to an Ability
-//		System.out.println("#########################");
-//		System.out.println("Added: "+pProfessions.getLastAddedProfession().getProfessionName());
+		Profession pTemporaryProfession = pProfessions.addProfession("Healer", "This is a healer class test"); // Adding a Profession to our Professions list (pTest)
+		Ability pTemporaryAbility = pTemporaryProfession.getAbilities().addAbility("Foo","Bar"); // Adding an Ability to a Profession
+		pTemporaryAbility.addAbilityProperty("test_property","cast_time",1.0f); // Adding a Property to an Ability
+		System.out.println("#########################");
+		System.out.println("Added: "+pProfessions.getLastAddedProfession().getProfessionName());
+
+		// Adding Profession #2 (using method 2)
+		pProfessions.addProfession("Guardian", "This is a tank class test"); // Adding a Profession to our Professions list (pTest)
+		pProfessions.getLastAddedProfession().getAbilities().addAbility("Foo","Bar"); // Adding an Ability to a Profession
+		pProfessions.getLastAddedProfession().getAbilities().getLastAddedAbility().addAbilityProperty("test_property","cast_time",1.0f); // Adding a Property to an Ability
+		System.out.println("#########################");
+		System.out.println("Added: "+pProfessions.getLastAddedProfession().getProfessionName());
 
 		//Examples Of Using ProfessionsManager..
 		//tag: ProfessionsManager
@@ -508,9 +508,9 @@ public class EssencePVP{
 	/**
 	 * @return the clientplayer
 	 */
-	public Player getClientplayer(){
-		return clientplayer;
-	}
+	// public Player getClientplayer(){
+	// 	return clientplayer;
+	// }
 	
 	/*public Professions getProfessions(){
 		return pProfessions;
