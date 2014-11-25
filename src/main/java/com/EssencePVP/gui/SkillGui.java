@@ -119,9 +119,9 @@ public class SkillGui extends GuiScreen
 		    break;
 		}*/
 		
-		Profession profession = professions.getProfession(state);
+		Profession profession = professions.getProfession(state+1);
 		Abilities abilities = profession.getAbilities();
-		Ability ability = abilities.getAbility(i);
+		Ability ability = abilities.getAbility(i+1);
 		list.add(ability.getAbilityName());
 		list.add(profession.getProfessionDescription());
 		
@@ -136,7 +136,7 @@ public class SkillGui extends GuiScreen
 		FontRenderer frender = Minecraft.getMinecraft().fontRenderer;
 		int posX = (this.width - xSizeOfTexture) / 2;
 		int posY = (this.height - ySizeOfTexture) / 2;
-		Profession profession = professions.getProfession(state);
+		Profession profession = professions.getProfession(state+1);
 		Abilities abilities = profession.getAbilities();
 		
 		// state determines what list is used.
@@ -144,7 +144,7 @@ public class SkillGui extends GuiScreen
 		// loop through table
 		for(int i=0;i<abilities.getAbilitiesCount();i++){
 		  char[] iText = Character.toChars(i+65); // A-G names on the file
-		  Ability ability = abilities.getAbility(i);
+		  Ability ability = abilities.getAbility(i+1);
 		  // Draw every item from the table
 		  
 		  // detect mouse over
@@ -176,7 +176,7 @@ public class SkillGui extends GuiScreen
 		int offset = 7;
 		for(int i=0;i<professions.getProfessionCount();i++){
 			Logger.global.log(Level.ALL, "AAAA: "+i+" asdf\n");
-			Profession prof = professions.getProfession(i);
+			Profession prof = professions.getProfession(i+1);
 			int offset2 = 6*prof.getProfessionName().length();
 			this.buttonList.add(new GuiButton(0, posx+loffset1+offset2, posy+10, 30, 12, prof.getProfessionName()));
 		}

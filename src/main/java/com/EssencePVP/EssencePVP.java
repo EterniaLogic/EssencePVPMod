@@ -22,7 +22,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.EssencePVP.character.*;
-import com.EssencePVP.character.Character;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
@@ -30,6 +30,7 @@ import net.minecraft.command.ServerCommandManager;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.config.Configuration;
 
+import com.EssencePVP.Command.LightningCommand;
 import com.EssencePVP.Command.testKillExp;
 import com.EssencePVP.Listeners.PlayerListener;
 import com.EssencePVP.Player.Player;
@@ -52,6 +53,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 //import scala;
+
 
 import com.EssencePVP.managers.*;
 
@@ -148,6 +150,7 @@ public class EssencePVP{
 		// Register Commands
 		commandManager = (ServerCommandManager) Minecraft.getMinecraft().getIntegratedServer().getCommandManager();
 		commandManager.registerCommand(new testKillExp()); // "/test"
+		commandManager.registerCommand(new LightningCommand());
 		commandManager.registerCommand(new cmdAddProfession(pProfessions)); // addProfession Name Description
 		commandManager.registerCommand(new cmdListProfessions(pProfessions)); // listprofessions
 		commandManager.registerCommand(new cmdListAbilities(pProfessions)); // listabilities
