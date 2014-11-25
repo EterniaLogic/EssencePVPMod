@@ -134,6 +134,10 @@ public class SkillGui extends GuiScreen
 		// I don't know what you are trying to do here, but the way you are refrencing the
 		// list is wrong. Ability and profession ids are not sequential, because databases
 		// will not be sequential.
+		// As discussed, we should be using the adapter class written by James to access
+		// this data. It will not break the software in its use here, but it will do so when
+		// you attempt to perform a remove(profession) or remove(ability).
+		// -AK
 
 		/*Profession profession = professions.getProfession(state+1);
 		Abilities abilities = profession.getAbilities();
