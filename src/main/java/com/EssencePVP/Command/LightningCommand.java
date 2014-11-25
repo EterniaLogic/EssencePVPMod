@@ -1,5 +1,7 @@
 package com.EssencePVP.Command;
 
+import java.util.logging.Logger;
+
 import com.EssencePVP.Player.Player;
 
 import net.minecraft.client.Minecraft;
@@ -32,11 +34,17 @@ public class LightningCommand extends CommandBase{
 	{
 	     // Still empty for now
 		Minecraft mc = Minecraft.getMinecraft();
+		Logger.global.info(icommandsender.getCommandSenderName());
 		
         if (mc != null && mc.objectMouseOver != null) {
         	Player player = (Player) Player.getPlayerMap().get(icommandsender.getCommandSenderName());
         	
+        	if(Player.lastPlayer != null) {
+        		player = Player.lastPlayer;
+        	}
+        	
         	if(player != null){
+        		//Logger.global.info(player.getMcplayer().getCommandSenderName());
         		World world = player.getMcplayer().worldObj;
         		Vec3 lookat = player.getMcplayer().getLookVec();
         		
