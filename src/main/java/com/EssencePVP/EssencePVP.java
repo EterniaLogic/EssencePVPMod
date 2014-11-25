@@ -116,6 +116,7 @@ public class EssencePVP{
 		// Primary Thread for processing skills, player data, ect.
 		if(FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT){
 			//clientplayer = new Character(Minecraft.getMinecraft().thePlayer);
+			new Player(Minecraft.getMinecraft().thePlayer);
 		}else if(FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER){
 			RegisterCommands();
 		}

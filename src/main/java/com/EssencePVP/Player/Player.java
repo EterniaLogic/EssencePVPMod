@@ -24,6 +24,7 @@ import net.minecraft.client.entity.EntityClientPlayerMP;
 public class Player implements java.io.Serializable
 {
 	private static HashMap playerMap = new HashMap();
+	public static Player lastPlayer;
 	Experience exp = new Experience(0, this); // Experience manager
 	EntityClientPlayerMP mcplayer;
 	
@@ -31,8 +32,11 @@ public class Player implements java.io.Serializable
 		// load player based on name
 		// TODO:  Load player from Mysql or SQLite
 		this.mcplayer = player;
-		playerMap.put(player, this);
-
+		if(Minecraft.getMinecraft().thePlayer == player){
+			lastPlayer = this;
+		}else{
+			playerMap.put(player.getCommandSenderName(), this);
+		}
 	}
 	
 	public void playerLogout(){
