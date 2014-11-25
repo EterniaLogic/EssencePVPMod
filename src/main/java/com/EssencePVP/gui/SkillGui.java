@@ -119,11 +119,27 @@ public class SkillGui extends GuiScreen
 		    break;
 		}*/
 		
-		Profession profession = professions.getProfession(state+1);
+		Profession pProfession = professions.getProfessionsHead();
+		Ability pAbility = pProfession.getAbilities().getAbilitiesHead();
+
+		while(pProfession != null){
+			while(pAbility != null){
+				list.add(pAbility.getAbilityName());
+				pAbility = pAbility.getNext();
+			}
+			list.add(pProfession.getProfessionDescription());
+			pProfession = pProfession.getNext();
+		}
+
+		// I don't know what you are trying to do here, but the way you are refrencing the
+		// list is wrong. Ability and profession ids are not sequential, because databases
+		// will not be sequential.
+
+		/*Profession profession = professions.getProfession(state+1);
 		Abilities abilities = profession.getAbilities();
 		Ability ability = abilities.getAbility(i+1);
 		list.add(ability.getAbilityName());
-		list.add(profession.getProfessionDescription());
+		list.add(profession.getProfessionDescription());*/
 		
 		this.drawHoveringText(list, (int)mouseX, (int)mouseY, frender);
 	      }
@@ -174,12 +190,22 @@ public class SkillGui extends GuiScreen
 		int posy = (this.height - ySizeOfTexture) / 2;
 		int loffset1 = 3;
 		int offset = 7;
-		for(int i=0;i<professions.getProfessionCount();i++){
+
+		// Once again, this is how to use the list. You get the first element in the list
+		// and traverse through the list until you reach a null pointer.
+		Profession pProfession = professions.getProfessionsHead();
+		while(pProfession != null){
+			int iOffset = 6*pProfession.getProfessionName().length();
+			this.buttonList.add(new GuiButton(0, posx+loffset1+iOffset, posy+10, 30, 12, pProfession.getProfessionName()));
+			pProfession = pProfession.getNext();
+		}
+
+		/*for(int i=0;i<professions.getProfessionCount();i++){
 			Logger.global.log(Level.ALL, "AAAA: "+i+" asdf\n");
 			Profession prof = professions.getProfession(i+1);
 			int offset2 = 6*prof.getProfessionName().length();
 			this.buttonList.add(new GuiButton(0, posx+loffset1+offset2, posy+10, 30, 12, prof.getProfessionName()));
-		}
+		}*/
 		/*this.buttonList.add(new GuiButton(0, posx+loffset1, posy+10, 30, 12, "Melee"));
 		this.buttonList.add(new GuiButton(1, posx+loffset1+offset*4+2, posy+10, 40, 12, "Ranged"));		// 7*4+2	=	30	=>	30-0	=	30	6
 		this.buttonList.add(new GuiButton(2, posx+loffset1+offset*10, posy+10, 30, 12, "Magic"));		// 7*10		=	70	=>	70-30	=	40	5
