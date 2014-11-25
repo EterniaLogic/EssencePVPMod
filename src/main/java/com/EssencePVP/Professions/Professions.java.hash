@@ -1,0 +1,232 @@
+// This file is part of EssencePvP.
+
+// EssencePvP is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+
+// EssencePvP is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+
+// You should have received a copy of the GNU General Public License
+// along with EssencePvP.  If not, see <http://www.gnu.org/licenses/>.
+
+package com.EssencePVP.Professions;
+
+public class Professions implements java.io.Serializable {
+	private Profession pHead;
+	private Profession pLast;
+
+	private hProfession hList;
+
+	public Professions(){
+		this.pHead = null;
+		this.pLast = null;
+		this.hList = new hProfession();
+	}
+
+	public Profession addProfession(String _sProfessionName, String _sProfessionDescription){
+		if(this.hList.getSize() == 0)
+			this.pHead = addProfession(1, _sProfessionName, _sProfessionDescription, null);
+		else{
+			int iLastId = this.hList.getLast().getProfessionId();
+			this.pHead = addProfession(++iLastId, _sProfessionName, _sProfessionDescription, null);
+		}
+		return(this.pHead);
+	}
+
+	// public Profession addProfession(int _iProfessionId, String _sProfessionName, String _sProfessionDescription){
+	// 	return(addProfession(_iProfessionId, _sProfessionName, _sProfessionDescription, null));
+	// }
+
+	public Profession addProfession(int _iProfessionId, String _sProfessionName, String _sProfessionDescription, String _sProfessionIcon){
+		Profession pTemporary = new Profession(_iProfessionId, _sProfessionName, _sProfessionDescription, _sProfessionIcon);
+		this.hList.regElement(pTemporary);
+		return(pTemporary);
+	}
+
+	public void delProfession(String _sProfessionName){
+		Profession pProfession = getProfession(_sProfessionName);
+		if(pProfession != null)
+			delProfession(pProfession.getProfessionId());
+	}
+
+	public void delProfession(int _iProfessionId){
+		delProfession(_iProfessionId, 0);
+	}
+
+	private void delProfession(int _iProfessionId, int _iIndex){
+		if(this.hList.getSize() <= _iIndex)
+			return;
+		else{
+			Profession pProfession = this.hList.getElement(_iIndex);
+			if(pProfession.getProfessionId() == _iProfessionId)
+				this.hList.unregElement(pProfession);
+		}
+	}
+
+	public Profession getProfessionsHead(){
+		return(this.hList.getElement(0));
+	}
+
+	public Profession getLastAddedProfession(){
+		return(this.hList.getLast());
+	}
+
+	public Profession getProfessionByIndex(int _iIndex){
+		return(this.hList.getElement(_iIndex));
+	}
+
+	public Profession getProfession(int _iProfessionId){
+		if(this.pLast != null){
+			if(pLast.getProfessionId() == _iProfessionId)
+				return(this.pLast);
+		}
+		this.pLast = getProfession(_iProfessionId, 0);
+		return(this.pLast);
+	}
+
+	public Profession getProfession(String _sProfessionName){
+		if(this.pLast != null){
+			if(this.pLast.getProfessionName().equals(_sProfessionName))
+				return(this.pLast);
+		}
+		this.pLast = getProfession(_sProfessionName, 0);
+		return(this.pLast);
+	}
+
+	private Profession getProfession(int _iProfessionId, int _iIndex){
+		if(this.hList.getSize() <= _iIndex)
+			return null;
+		else if(this.hList.getElement(_iIndex).getProfessionId() == _iProfessionId)
+			return(this.hList.getElement(_iIndex));
+		else
+			return(getProfession(_iProfessionId, ++_iIndex));
+	}
+
+	private Profession getProfession(String _sProfessionName, int _iIndex){
+		if(this.hList.getSize() <= _iIndex)
+			return null;
+		else if(this.hList.getElement(_iIndex).getProfessionName().equals(_sProfessionName))
+			return(this.hList.getElement(_iIndex));
+		else
+			return(getProfession(_sProfessionName, ++_iIndex));
+	}
+
+	public int getProfessionCount(){
+		return(this.hList.getSize());
+	}
+
+	public boolean isProfessionsEmpty(){
+		if(getProfessionCount() > 0)
+			return false;
+		else return true;
+	}
+
+	private class hProfession{
+		private int iHashSize; // The current used slots
+		private int iHashSpace; // The hash's maximum capacity
+		private Profession[] pProfessions;
+
+		public hProfession(){
+			this(10);
+		}
+
+		public hProfession(int _iHashSpace){
+			iHashSize = 0;
+			iHashSpace = _iHashSpace;
+			pProfessions = new Profession[_iHashSpace];
+		}
+
+		public void regElement(Profession _pProfession){
+			if(iHashSize < iHashSpace){
+				pProfessions[iHashSize] = _pProfession;
+				iHashSize++;
+			}
+			else{
+				pProfessions = rebuildHash(); // Expand our array
+				regElement(_pProfession);
+			}
+		}
+
+		private Profession[] rebuildHash(){
+			iHashSpace = iHashSpace*2;
+			Profession[] pTemporary = new Profession[iHashSpace];
+			return(duplicateData(0, pTemporary)); // Duplicate the data and return the new array
+		}
+
+		private Profession[] duplicateData(int _iIndex, Profession[] pDestination){
+			if(_iIndex >= iHashSize)
+				return(pDestination);
+			else{
+				pDestination[_iIndex] = pProfessions[_iIndex];
+				return(duplicateData(++_iIndex, pDestination));
+			}
+		}
+
+		public void unregElement(Profession _pProfession){
+			if(iHashSize <= 0)
+				return;
+			else
+				unregElement(0, _pProfession);
+		}
+
+		private void unregElement(int _iIndex, Profession _pProfession){
+			if(_iIndex > iHashSize)
+				return;
+			else{
+				if(pProfessions[_iIndex] == _pProfession)
+					unregElement(_iIndex);
+				else
+					unregElement(++_iIndex, _pProfession);
+			}
+		}
+
+		public void unregElement(int _iIndex){
+			if(_iIndex >= iHashSize)
+				return;
+			else{
+				pProfessions[_iIndex] = null;
+				iHashSize--;
+
+				shiftLeft(_iIndex);
+			}
+		}
+
+		public Profession getElement(int _iIndex){
+			if(_iIndex < iHashSize)
+				return(pProfessions[_iIndex]);
+			else return null;
+		}
+
+		public Profession getLast(){
+			if(iHashSize <= 0)
+				return null;
+			else
+				return(pProfessions[iHashSize-1]);
+		}
+
+		public Profession[] getArray(){
+			return(pProfessions);
+		}
+
+		public int getSize(){
+			return(iHashSize);
+		}
+
+		private void shiftLeft(int _iIndex){
+			if(_iIndex >= iHashSize)
+				return;
+			else{
+				if(pProfessions[_iIndex] == null){
+					pProfessions[_iIndex] = pProfessions[_iIndex+1];
+					pProfessions[_iIndex+1] = null;
+					shiftLeft(++_iIndex);
+				}
+				return;
+			}
+		}
+	}
+}
